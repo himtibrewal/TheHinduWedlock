@@ -52,7 +52,7 @@ app.post('/upload', function (req, res){
     form.parse(req);
 
     form.on('fileBegin', function (name, file){
-        file.path = __dirname + '/upload/' + file.name;
+        file.path = __dirname + '/public/images/' + file.name;
     });
 
     form.on('file', function (name, file){
