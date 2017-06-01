@@ -14,7 +14,7 @@ var admin = require('./routes/admin');
 
 var app = express();
 
-var mongoDb  = 'mongodb://127.0.0.1/projet';
+var mongoDb  = 'mongodb://himanshu:12345678@ds015720.mlab.com:15720/thehinduwedlock';
 mongoose.connect(mongoDb);
 var  db  =   mongoose.connection;
 db.on('error',console.error.bind(console ,'MongoDb connection Error'));
