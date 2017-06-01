@@ -158,7 +158,7 @@ exports.add_state = function (req,res,next) {
     );
     state.save(function (err) {
         if(err){return next(err);}
-        res.json({'response_code':'200','status':'success','message':'Data inserted successfully','complextion':state});
+        res.json({'response_code':'200','status':'success','message':'Data inserted successfully','state':state});
     })
 };
 
