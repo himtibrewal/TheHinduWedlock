@@ -4,13 +4,14 @@
 
 var mongoose = require('mongoose');
 
-var Schema =  mongoose.Schema;
+var Schema = mongoose.Schema;
 
-var educationSchema  = new  Schema(
+var educationSchema = new Schema(
     {
-        education_id:{type:Number,required:true},
-        education:{type:String,required:true}
+        education_id: {type: Number, required: true},
+        education_dep: {type: String, required: true},
+        education: {type: String, required: true}
     }
 );
 
-module.exports =  mongoose.model('Education',educationSchema);
+module.exports = mongoose.model('Education', educationSchema);
