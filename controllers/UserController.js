@@ -70,42 +70,42 @@ exports.create_new_user = function (req, res, next) {
             about_education: req.body.about_education,
             highest_education: req.body.highest_education,
             pg_degree: req.body.pg_degree,
-            pg_college: req.body.pg_college
-            , ug_degree: req.body.ug_degree
-            , ug_college: req.body.ug_college
-            , other_pg_degree: req.body.other_pg_degree
-            , other_ug_degree: req.body.other_ug_degree
-            , school_name: req.body.school_name
-            , occupation: req.body.occupation,
+            pg_college: req.body.pg_college,
+            ug_degree: req.body.ug_degree,
+            ug_college: req.body.ug_college,
+            other_pg_degree: req.body.other_pg_degree,
+            other_ug_degree: req.body.other_ug_degree,
+            school_name: req.body.school_name,
+            occupation: req.body.occupation,
             income: req.body.income,
             //   income_to:req.body.income_to,
             about_career: req.body.about_career,
-            organization_name: req.body.organization_name
-            , setting_abord: req.body.setting_abord
-            , work_after_marriage: req.body.work_after_marriage
-            , family_status: req.body.family_status
-            , family_type: req.body.family_type
-            , family_values: req.body.family_values
-            , family_income: req.body.family_income
-            , father_occupation: req.body.father_occupation
-            , mother_occupation: req.body.mother_occupation
-            , brother: req.body.brother
-            , married_brother: req.body.married_brother
-            , sister: req.body.sister
-            , sister_married: req.body.sister_married
-            , about_family: req.body.about_family
-            , living_with_parents: req.body.living_with_parents
-            , diet: req.body.diet
-            , smoke: req.body.smoke
-            , drink: req.body.drink
-            , pets: req.body.pets
-            , own_house: req.body.own_house
-            , own_car: req.body.own_car
-            , language_speak: req.body.language_speak
-            , food_cook_detail: req.body.food_cook_detail
-            , hobbies: req.body.hobbies
-            , interest: req.body.interest
-            , favourite_musics: req.body.favourite_musics
+            organization_name: req.body.organization_name,
+            setting_abord: req.body.setting_abord,
+            work_after_marriage: req.body.work_after_marriage,
+            family_status: req.body.family_status,
+            family_type: req.body.family_type,
+            family_values: req.body.family_values,
+            family_income: req.body.family_income,
+            father_occupation: req.body.father_occupation,
+            mother_occupation: req.body.mother_occupation,
+            brother: req.body.brother,
+            married_brother: req.body.married_brother,
+            sister: req.body.sister,
+            sister_married: req.body.sister_married,
+            about_family: req.body.about_family,
+            living_with_parents: req.body.living_with_parents,
+            diet: req.body.diet,
+            smoke: req.body.smoke,
+            drink: req.body.drink,
+            pets: req.body.pets,
+            own_house: req.body.own_house,
+            own_car: req.body.own_car,
+            language_speak: req.body.language_speak,
+            food_cook_detail: req.body.food_cook_detail,
+            hobbies: req.body.hobbies,
+            interest: req.body.interest,
+            favourite_musics: req.body.favourite_musics
             , favourite_books: req.body.favourite_books
             , favourite_dress_style: req.body.favourite_dress_style
             , favourite_sports: req.body.favourite_sports
@@ -237,6 +237,7 @@ exports.uploadimage = function (req, res, next) {
 };
 
 
+
 exports.alldata = function (req, res, next) {
 
     async.parallel({
@@ -287,29 +288,29 @@ exports.alldata = function (req, res, next) {
 };
 
 
-exports.index = function (req, res) {
-
-    async.parallel({
-        book_count: function (callback) {
-            UserModel.count(callback)
-        },
-        book_instance_count: function (callback) {
-            BookInstance.count(callback)
-        },
-        book_instance_available_count: function (callback) {
-            BookInstance.count({status: 'Available'}, callback)
-        },
-        author_count: function (callback) {
-            Author.count(callback)
-        },
-        genre_count: function (callback) {
-            Genre.count(callback)
-        },
-    }, function (err, results) {
-        //   res.render('index', { title: 'Local Library Home', error: err, data: results });
-        res.json(results);
-    });
-};
+// exports.index = function (req, res) {
+//
+//     async.parallel({
+//         book_count: function (callback) {
+//             UserModel.count(callback)
+//         },
+//         book_instance_count: function (callback) {
+//             BookInstance.count(callback)
+//         },
+//         book_instance_available_count: function (callback) {
+//             BookInstance.count({status: 'Available'}, callback)
+//         },
+//         author_count: function (callback) {
+//             Author.count(callback)
+//         },
+//         genre_count: function (callback) {
+//             Genre.count(callback)
+//         },
+//     }, function (err, results) {
+//         //   res.render('index', { title: 'Local Library Home', error: err, data: results });
+//         res.json(results);
+//     });
+// };
 
 
 

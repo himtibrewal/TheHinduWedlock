@@ -1,0 +1,2276 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'firebase-admin',
+1 verbose cli   '--save' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'firebase-admin', null ]
+7 verbose cache add name=undefined spec="firebase-admin" args=["firebase-admin",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'firebase-admin',
+8 verbose parsed url   path: 'firebase-admin',
+8 verbose parsed url   href: 'firebase-admin' }
+9 silly lockFile ce3de937-firebase-admin firebase-admin
+10 verbose lock firebase-admin C:\Users\him\AppData\Roaming\npm-cache\ce3de937-firebase-admin.lock
+11 silly lockFile ce3de937-firebase-admin firebase-admin
+12 silly lockFile ce3de937-firebase-admin firebase-admin
+13 verbose addNamed [ 'firebase-admin', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 226f78e7-firebase-admin firebase-admin@
+16 verbose lock firebase-admin@ C:\Users\him\AppData\Roaming\npm-cache\226f78e7-firebase-admin.lock
+17 silly addNameRange { name: 'firebase-admin', range: '*', hasData: false }
+18 verbose url raw firebase-admin
+19 verbose url resolving [ 'https://registry.npmjs.org/', './firebase-admin' ]
+20 verbose url resolved https://registry.npmjs.org/firebase-admin
+21 info trying registry request attempt 1 at 23:49:59
+22 verbose etag "5926d15b-e17e"
+23 http GET https://registry.npmjs.org/firebase-admin
+24 http 304 https://registry.npmjs.org/firebase-admin
+25 silly registry.get cb [ 304,
+25 silly registry.get   { date: 'Sun, 02 Jul 2017 18:20:06 GMT',
+25 silly registry.get     via: '1.1 varnish',
+25 silly registry.get     'cache-control': 'max-age=300',
+25 silly registry.get     etag: '"5926d15b-e17e"',
+25 silly registry.get     age: '0',
+25 silly registry.get     connection: 'keep-alive',
+25 silly registry.get     'x-served-by': 'cache-sin18021-SIN',
+25 silly registry.get     'x-cache': 'HIT',
+25 silly registry.get     'x-cache-hits': '1',
+25 silly registry.get     'x-timer': 'S1499019606.010653,VS0,VE144',
+25 silly registry.get     vary: 'Accept-Encoding' } ]
+26 verbose etag firebase-admin from cache
+27 silly addNameRange number 2 { name: 'firebase-admin', range: '*', hasData: true }
+28 silly addNameRange versions [ 'firebase-admin',
+28 silly addNameRange   [ '1.0.0',
+28 silly addNameRange     '1.0.1',
+28 silly addNameRange     '1.0.4',
+28 silly addNameRange     '1.0.5',
+28 silly addNameRange     '1.0.6',
+28 silly addNameRange     '1.0.7',
+28 silly addNameRange     '1.0.8',
+28 silly addNameRange     '1.0.9',
+28 silly addNameRange     '1.1.0',
+28 silly addNameRange     '1.2.0',
+28 silly addNameRange     '2.0.0',
+28 silly addNameRange     '2.0.1',
+28 silly addNameRange     '2.1.0',
+28 silly addNameRange     '2.1.1',
+28 silly addNameRange     '2.2.0',
+28 silly addNameRange     '3.0.0',
+28 silly addNameRange     '4.0.0',
+28 silly addNameRange     '4.0.1',
+28 silly addNameRange     '4.0.2',
+28 silly addNameRange     '4.0.3',
+28 silly addNameRange     '4.0.4',
+28 silly addNameRange     '4.0.5',
+28 silly addNameRange     '4.0.6',
+28 silly addNameRange     '4.1.0',
+28 silly addNameRange     '4.1.1',
+28 silly addNameRange     '4.1.2',
+28 silly addNameRange     '4.1.3',
+28 silly addNameRange     '4.1.4',
+28 silly addNameRange     '4.2.0',
+28 silly addNameRange     '4.2.1',
+28 silly addNameRange     '5.0.0' ] ]
+29 verbose addNamed [ 'firebase-admin', '5.0.0' ]
+30 verbose addNamed [ '5.0.0', '5.0.0' ]
+31 silly lockFile 6ec7bc50-firebase-admin-5-0-0 firebase-admin@5.0.0
+32 verbose lock firebase-admin@5.0.0 C:\Users\him\AppData\Roaming\npm-cache\6ec7bc50-firebase-admin-5-0-0.lock
+33 silly lockFile 6ec7bc50-firebase-admin-5-0-0 firebase-admin@5.0.0
+34 silly lockFile 6ec7bc50-firebase-admin-5-0-0 firebase-admin@5.0.0
+35 silly lockFile 226f78e7-firebase-admin firebase-admin@
+36 silly lockFile 226f78e7-firebase-admin firebase-admin@
+37 silly resolved [ { name: 'firebase-admin',
+37 silly resolved     version: '5.0.0',
+37 silly resolved     description: 'Firebase admin SDK for Node.js',
+37 silly resolved     author: { name: 'Firebase', url: 'https://firebase.google.com/' },
+37 silly resolved     license: 'Apache-2.0',
+37 silly resolved     homepage: 'https://firebase.google.com/',
+37 silly resolved     scripts: { test: 'gulp' },
+37 silly resolved     keywords: [ 'admin', 'database', 'Firebase', 'realtime', 'authentication' ],
+37 silly resolved     main: 'lib/index.js',
+37 silly resolved     files:
+37 silly resolved      [ 'lib/',
+37 silly resolved        'LICENSE',
+37 silly resolved        'README.md',
+37 silly resolved        'package.json',
+37 silly resolved        'npm-shrinkwrap.json' ],
+37 silly resolved     types: './lib/index.d.ts',
+37 silly resolved     dependencies:
+37 silly resolved      { '@types/jsonwebtoken': '^7.1.33',
+37 silly resolved        'faye-websocket': '0.9.3',
+37 silly resolved        jsonwebtoken: '7.1.9',
+37 silly resolved        'node-forge': '0.7.1' },
+37 silly resolved     devDependencies:
+37 silly resolved      { '@types/chai': '^3.4.34',
+37 silly resolved        '@types/chai-as-promised': '0.0.29',
+37 silly resolved        '@types/firebase-token-generator': '^2.0.28',
+37 silly resolved        '@types/lodash': '^4.14.38',
+37 silly resolved        '@types/mocha': '^2.2.32',
+37 silly resolved        '@types/nock': '^8.0.33',
+37 silly resolved        '@types/request': '0.0.32',
+37 silly resolved        '@types/request-promise': '^4.1.33',
+37 silly resolved        '@types/sinon': '^1.16.31',
+37 silly resolved        '@types/sinon-chai': '^2.7.27',
+37 silly resolved        chai: '^3.5.0',
+37 silly resolved        'chai-as-promised': '^6.0.0',
+37 silly resolved        chalk: '^1.1.3',
+37 silly resolved        del: '^2.2.1',
+37 silly resolved        firebase: '^3.6.9',
+37 silly resolved        'firebase-token-generator': '^2.0.0',
+37 silly resolved        gulp: '^3.9.1',
+37 silly resolved        'gulp-exit': '0.0.2',
+37 silly resolved        'gulp-header': '^1.8.8',
+37 silly resolved        'gulp-istanbul': '^1.1.1',
+37 silly resolved        'gulp-mocha': '^3.0.1',
+37 silly resolved        'gulp-replace': '^0.5.4',
+37 silly resolved        'gulp-tslint': '^6.0.2',
+37 silly resolved        'gulp-typescript': '^3.1.2',
+37 silly resolved        lodash: '^4.6.1',
+37 silly resolved        merge2: '^1.0.2',
+37 silly resolved        nock: '^8.0.0',
+37 silly resolved        request: '^2.75.0',
+37 silly resolved        'request-promise': '^4.1.1',
+37 silly resolved        'run-sequence': '^1.1.5',
+37 silly resolved        sinon: '^1.17.3',
+37 silly resolved        'sinon-chai': '^2.8.0',
+37 silly resolved        tslint: '^3.5.0',
+37 silly resolved        typescript: '^2.0.3',
+37 silly resolved        typings: '^1.0.4' },
+37 silly resolved     readme: '# Firebase Admin Node.js SDK\n\n\n## Table of Contents\n\n * [Overview](#overview)\n * [Installation](#installation)\n * [Contributing](#contributing)\n * [Documentation](#documentation)\n * [Acknowledgments](#acknowledgments)\n * [License](#license)\n\n\n## Overview\n\n[Firebase](https://firebase.google.com) provides the tools and infrastructure\nyou need to develop your app, grow your user base, and earn money. The Firebase\nAdmin Node.js SDK provides admin (second-party) access to several Firebase\nservices.\n\nFor more information, visit the\n[Firebase Admin SDK setup guide](https://firebase.google.com/docs/admin/setup/).\n\n\n## Installation\n\nThe Firebase Admin Node.js SDK is available on npm as `firebase-admin`:\n\n```bash\n$ npm install --save firebase-admin\n```\n\nTo use the module in your application, `require` it from any JavaScript file:\n\n```js\nvar admin = require("firebase-admin");\n```\n\nIf you are using ES2015, you can `import` the module instead:\n\n```js\nimport * as admin from "firebase-admin";\n```\n\n\n## Contributing\n\nPlease refer to the [CONTRIBUTING page](./CONTRIBUTING.md) for more information\nabout how you can contribute to this project. We welcome bug reports, feature\nrequests, code review feedback, and also pull requests.\n\n\n## Documentation\n\n* [Setup Guide](https://firebase.google.com/docs/admin/setup/)\n* [Database Guide](https://firebase.google.com/docs/database/admin/start/)\n* [Authentication Guide](https://firebase.google.com/docs/auth/admin/)\n* [Cloud Messaging Guide](https://firebase.google.com/docs/cloud-messaging/admin/)\n* [API Reference](https://firebase.google.com/docs/reference/admin/node/)\n* [Release Notes](https://firebase.google.com/support/release-notes/admin/node/)\n\n\n## Acknowledgments\n\nThanks to the team at [Casetext](https://casetext.com/) for transferring\nownership of the `firebase-admin` npm module over to the Firebase team\nand for their longtime use and support of the Firebase platform.\n\n\n## License\n\nFirebase Admin Node.js SDK is licensed under the\n[Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).\n\nYour use of Firebase is governed by the\n[Terms of Service for Firebase Services](https://firebase.google.com/terms/).\n',
+37 silly resolved     readmeFilename: 'README.md',
+37 silly resolved     _id: 'firebase-admin@5.0.0',
+37 silly resolved     _from: 'firebase-admin@' } ]
+38 info install firebase-admin@5.0.0 into C:\Users\him\WebstormProjects\TheHinduWedlock
+39 info installOne firebase-admin@5.0.0
+40 info C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules\firebase-admin unbuild
+41 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\firebase-admin\5.0.0\package.tgz
+42 silly lockFile db23cfa1-lock-node-modules-firebase-admin tar://C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules\firebase-admin
+43 verbose lock tar://C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules\firebase-admin C:\Users\him\AppData\Roaming\npm-cache\db23cfa1-lock-node-modules-firebase-admin.lock
+44 silly lockFile ec206f9e-firebase-admin-5-0-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\firebase-admin\5.0.0\package.tgz
+45 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\firebase-admin\5.0.0\package.tgz C:\Users\him\AppData\Roaming\npm-cache\ec206f9e-firebase-admin-5-0-0-package-tgz.lock
+46 silly gunzTarPerm modes [ '755', '644' ]
+47 silly gunzTarPerm extractEntry package.json
+48 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+49 silly gunzTarPerm extractEntry README.md
+50 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+51 silly gunzTarPerm extractEntry LICENSE
+52 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+53 silly gunzTarPerm extractEntry lib/default-namespace.js
+54 silly gunzTarPerm modified mode [ 'lib/default-namespace.js', 438, 420 ]
+55 silly gunzTarPerm extractEntry lib/firebase-app.js
+56 silly gunzTarPerm modified mode [ 'lib/firebase-app.js', 438, 420 ]
+57 silly gunzTarPerm extractEntry lib/firebase-namespace.js
+58 silly gunzTarPerm modified mode [ 'lib/firebase-namespace.js', 438, 420 ]
+59 silly gunzTarPerm extractEntry lib/firebase-service.js
+60 silly gunzTarPerm modified mode [ 'lib/firebase-service.js', 438, 420 ]
+61 silly gunzTarPerm extractEntry lib/index.js
+62 silly gunzTarPerm modified mode [ 'lib/index.js', 438, 420 ]
+63 silly gunzTarPerm extractEntry lib/auth/auth-api-request.js
+64 silly gunzTarPerm modified mode [ 'lib/auth/auth-api-request.js', 438, 420 ]
+65 silly gunzTarPerm extractEntry lib/auth/auth.js
+66 silly gunzTarPerm modified mode [ 'lib/auth/auth.js', 438, 420 ]
+67 silly gunzTarPerm extractEntry lib/auth/credential.js
+68 silly gunzTarPerm modified mode [ 'lib/auth/credential.js', 438, 420 ]
+69 silly gunzTarPerm extractEntry lib/auth/register-auth.js
+70 silly gunzTarPerm modified mode [ 'lib/auth/register-auth.js', 438, 420 ]
+71 silly gunzTarPerm extractEntry lib/auth/token-generator.js
+72 silly gunzTarPerm modified mode [ 'lib/auth/token-generator.js', 438, 420 ]
+73 silly gunzTarPerm extractEntry lib/auth/user-record.js
+74 silly gunzTarPerm modified mode [ 'lib/auth/user-record.js', 438, 420 ]
+75 silly gunzTarPerm extractEntry lib/database/database.js
+76 silly gunzTarPerm modified mode [ 'lib/database/database.js', 438, 420 ]
+77 silly gunzTarPerm extractEntry lib/index.d.ts
+78 silly gunzTarPerm modified mode [ 'lib/index.d.ts', 438, 420 ]
+79 silly gunzTarPerm extractEntry lib/messaging/messaging-api-request.js
+80 silly gunzTarPerm modified mode [ 'lib/messaging/messaging-api-request.js', 438, 420 ]
+81 silly gunzTarPerm extractEntry lib/messaging/messaging.js
+82 silly gunzTarPerm modified mode [ 'lib/messaging/messaging.js', 438, 420 ]
+83 silly gunzTarPerm extractEntry lib/messaging/register-messaging.js
+84 silly gunzTarPerm modified mode [ 'lib/messaging/register-messaging.js', 438, 420 ]
+85 silly gunzTarPerm extractEntry lib/utils/api-request.js
+86 silly gunzTarPerm modified mode [ 'lib/utils/api-request.js', 438, 420 ]
+87 silly gunzTarPerm extractEntry lib/utils/deep-copy.js
+88 silly gunzTarPerm modified mode [ 'lib/utils/deep-copy.js', 438, 420 ]
+89 silly gunzTarPerm extractEntry lib/utils/error.js
+90 silly gunzTarPerm modified mode [ 'lib/utils/error.js', 438, 420 ]
+91 silly gunzTarPerm extractEntry lib/utils/index.js
+92 silly gunzTarPerm modified mode [ 'lib/utils/index.js', 438, 420 ]
+93 silly gunzTarPerm extractEntry lib/utils/validator.js
+94 silly gunzTarPerm modified mode [ 'lib/utils/validator.js', 438, 420 ]
+95 silly gunzTarPerm extractEntry npm-shrinkwrap.json
+96 silly gunzTarPerm modified mode [ 'npm-shrinkwrap.json', 438, 420 ]
+97 silly lockFile db23cfa1-lock-node-modules-firebase-admin tar://C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules\firebase-admin
+98 silly lockFile db23cfa1-lock-node-modules-firebase-admin tar://C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules\firebase-admin
+99 silly lockFile ec206f9e-firebase-admin-5-0-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\firebase-admin\5.0.0\package.tgz
+100 silly lockFile ec206f9e-firebase-admin-5-0-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\firebase-admin\5.0.0\package.tgz
+101 info preinstall firebase-admin@5.0.0
+102 info shrinkwrap file "C:\\Users\\him\\WebstormProjects\\TheHinduWedlock\\node_modules\\firebase-admin\\npm-shrinkwrap.json"
+103 verbose readDependencies returned deps { '@types/jsonwebtoken': 'https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+103 verbose readDependencies returned deps   '@types/node': 'https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz',
+103 verbose readDependencies returned deps   base64url: 'https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz',
+103 verbose readDependencies returned deps   'buffer-equal-constant-time': 'https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz',
+103 verbose readDependencies returned deps   'ecdsa-sig-formatter': 'https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz',
+103 verbose readDependencies returned deps   'faye-websocket': 'https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz',
+103 verbose readDependencies returned deps   hoek: 'https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz',
+103 verbose readDependencies returned deps   isemail: 'https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz',
+103 verbose readDependencies returned deps   joi: 'https://registry.npmjs.org/joi/-/joi-6.10.1.tgz',
+103 verbose readDependencies returned deps   jsonwebtoken: 'https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz',
+103 verbose readDependencies returned deps   jwa: 'https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz',
+103 verbose readDependencies returned deps   jws: 'https://registry.npmjs.org/jws/-/jws-3.1.4.tgz',
+103 verbose readDependencies returned deps   'lodash.once': 'https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz',
+103 verbose readDependencies returned deps   moment: 'https://registry.npmjs.org/moment/-/moment-2.18.1.tgz',
+103 verbose readDependencies returned deps   ms: 'https://registry.npmjs.org/ms/-/ms-0.7.3.tgz',
+103 verbose readDependencies returned deps   'node-forge': 'https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz',
+103 verbose readDependencies returned deps   'safe-buffer': 'https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz',
+103 verbose readDependencies returned deps   topo: 'https://registry.npmjs.org/topo/-/topo-1.1.0.tgz',
+103 verbose readDependencies returned deps   'websocket-driver': 'https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz',
+103 verbose readDependencies returned deps   'websocket-extensions': 'https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz',
+103 verbose readDependencies returned deps   xtend: 'https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz' }
+104 verbose readDependencies: using existing wrap [ 'C:\\Users\\him\\WebstormProjects\\TheHinduWedlock\\node_modules\\firebase-admin',
+104 verbose readDependencies: using existing wrap   { '@types/jsonwebtoken':
+104 verbose readDependencies: using existing wrap      { version: '7.2.0',
+104 verbose readDependencies: using existing wrap        from: '@types/jsonwebtoken@>=7.1.33 <8.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz' },
+104 verbose readDependencies: using existing wrap     '@types/node':
+104 verbose readDependencies: using existing wrap      { version: '7.0.18',
+104 verbose readDependencies: using existing wrap        from: '@types/node@*',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz' },
+104 verbose readDependencies: using existing wrap     base64url:
+104 verbose readDependencies: using existing wrap      { version: '2.0.0',
+104 verbose readDependencies: using existing wrap        from: 'base64url@>=2.0.0 <3.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz' },
+104 verbose readDependencies: using existing wrap     'buffer-equal-constant-time':
+104 verbose readDependencies: using existing wrap      { version: '1.0.1',
+104 verbose readDependencies: using existing wrap        from: 'buffer-equal-constant-time@1.0.1',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz' },
+104 verbose readDependencies: using existing wrap     'ecdsa-sig-formatter':
+104 verbose readDependencies: using existing wrap      { version: '1.0.9',
+104 verbose readDependencies: using existing wrap        from: 'ecdsa-sig-formatter@1.0.9',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz' },
+104 verbose readDependencies: using existing wrap     'faye-websocket':
+104 verbose readDependencies: using existing wrap      { version: '0.9.3',
+104 verbose readDependencies: using existing wrap        from: 'faye-websocket@0.9.3',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz' },
+104 verbose readDependencies: using existing wrap     hoek:
+104 verbose readDependencies: using existing wrap      { version: '2.16.3',
+104 verbose readDependencies: using existing wrap        from: 'hoek@>=2.0.0 <3.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz' },
+104 verbose readDependencies: using existing wrap     isemail:
+104 verbose readDependencies: using existing wrap      { version: '1.2.0',
+104 verbose readDependencies: using existing wrap        from: 'isemail@>=1.0.0 <2.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz' },
+104 verbose readDependencies: using existing wrap     joi:
+104 verbose readDependencies: using existing wrap      { version: '6.10.1',
+104 verbose readDependencies: using existing wrap        from: 'joi@>=6.10.1 <7.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/joi/-/joi-6.10.1.tgz' },
+104 verbose readDependencies: using existing wrap     jsonwebtoken:
+104 verbose readDependencies: using existing wrap      { version: '7.1.9',
+104 verbose readDependencies: using existing wrap        from: 'jsonwebtoken@7.1.9',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz' },
+104 verbose readDependencies: using existing wrap     jwa:
+104 verbose readDependencies: using existing wrap      { version: '1.1.5',
+104 verbose readDependencies: using existing wrap        from: 'jwa@>=1.1.4 <2.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz' },
+104 verbose readDependencies: using existing wrap     jws:
+104 verbose readDependencies: using existing wrap      { version: '3.1.4',
+104 verbose readDependencies: using existing wrap        from: 'jws@>=3.1.3 <4.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/jws/-/jws-3.1.4.tgz' },
+104 verbose readDependencies: using existing wrap     'lodash.once':
+104 verbose readDependencies: using existing wrap      { version: '4.1.1',
+104 verbose readDependencies: using existing wrap        from: 'lodash.once@>=4.0.0 <5.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz' },
+104 verbose readDependencies: using existing wrap     moment:
+104 verbose readDependencies: using existing wrap      { version: '2.18.1',
+104 verbose readDependencies: using existing wrap        from: 'moment@>=2.0.0 <3.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/moment/-/moment-2.18.1.tgz' },
+104 verbose readDependencies: using existing wrap     ms:
+104 verbose readDependencies: using existing wrap      { version: '0.7.3',
+104 verbose readDependencies: using existing wrap        from: 'ms@>=0.7.1 <0.8.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/ms/-/ms-0.7.3.tgz' },
+104 verbose readDependencies: using existing wrap     'node-forge':
+104 verbose readDependencies: using existing wrap      { version: '0.7.1',
+104 verbose readDependencies: using existing wrap        from: 'node-forge@0.7.1',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz' },
+104 verbose readDependencies: using existing wrap     'safe-buffer':
+104 verbose readDependencies: using existing wrap      { version: '5.0.1',
+104 verbose readDependencies: using existing wrap        from: 'safe-buffer@>=5.0.1 <6.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz' },
+104 verbose readDependencies: using existing wrap     topo:
+104 verbose readDependencies: using existing wrap      { version: '1.1.0',
+104 verbose readDependencies: using existing wrap        from: 'topo@>=1.0.0 <2.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/topo/-/topo-1.1.0.tgz' },
+104 verbose readDependencies: using existing wrap     'websocket-driver':
+104 verbose readDependencies: using existing wrap      { version: '0.6.5',
+104 verbose readDependencies: using existing wrap        from: 'websocket-driver@>=0.5.1',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz' },
+104 verbose readDependencies: using existing wrap     'websocket-extensions':
+104 verbose readDependencies: using existing wrap      { version: '0.1.1',
+104 verbose readDependencies: using existing wrap        from: 'websocket-extensions@>=0.1.1',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz' },
+104 verbose readDependencies: using existing wrap     xtend:
+104 verbose readDependencies: using existing wrap      { version: '4.0.1',
+104 verbose readDependencies: using existing wrap        from: 'xtend@>=4.0.1 <5.0.0',
+104 verbose readDependencies: using existing wrap        resolved: 'https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz' } } ]
+105 verbose from wrap [ '@types/jsonwebtoken',
+105 verbose from wrap   { version: '7.2.0',
+105 verbose from wrap     from: '@types/jsonwebtoken@>=7.1.33 <8.0.0',
+105 verbose from wrap     resolved: 'https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz' } ]
+106 verbose from wrap [ '@types/node',
+106 verbose from wrap   { version: '7.0.18',
+106 verbose from wrap     from: '@types/node@*',
+106 verbose from wrap     resolved: 'https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz' } ]
+107 verbose from wrap [ 'base64url',
+107 verbose from wrap   { version: '2.0.0',
+107 verbose from wrap     from: 'base64url@>=2.0.0 <3.0.0',
+107 verbose from wrap     resolved: 'https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz' } ]
+108 verbose from wrap [ 'buffer-equal-constant-time',
+108 verbose from wrap   { version: '1.0.1',
+108 verbose from wrap     from: 'buffer-equal-constant-time@1.0.1',
+108 verbose from wrap     resolved: 'https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz' } ]
+109 verbose from wrap [ 'ecdsa-sig-formatter',
+109 verbose from wrap   { version: '1.0.9',
+109 verbose from wrap     from: 'ecdsa-sig-formatter@1.0.9',
+109 verbose from wrap     resolved: 'https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz' } ]
+110 verbose from wrap [ 'faye-websocket',
+110 verbose from wrap   { version: '0.9.3',
+110 verbose from wrap     from: 'faye-websocket@0.9.3',
+110 verbose from wrap     resolved: 'https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz' } ]
+111 verbose from wrap [ 'hoek',
+111 verbose from wrap   { version: '2.16.3',
+111 verbose from wrap     from: 'hoek@>=2.0.0 <3.0.0',
+111 verbose from wrap     resolved: 'https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz' } ]
+112 verbose from wrap [ 'isemail',
+112 verbose from wrap   { version: '1.2.0',
+112 verbose from wrap     from: 'isemail@>=1.0.0 <2.0.0',
+112 verbose from wrap     resolved: 'https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz' } ]
+113 verbose from wrap [ 'joi',
+113 verbose from wrap   { version: '6.10.1',
+113 verbose from wrap     from: 'joi@>=6.10.1 <7.0.0',
+113 verbose from wrap     resolved: 'https://registry.npmjs.org/joi/-/joi-6.10.1.tgz' } ]
+114 verbose from wrap [ 'jsonwebtoken',
+114 verbose from wrap   { version: '7.1.9',
+114 verbose from wrap     from: 'jsonwebtoken@7.1.9',
+114 verbose from wrap     resolved: 'https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz' } ]
+115 verbose from wrap [ 'jwa',
+115 verbose from wrap   { version: '1.1.5',
+115 verbose from wrap     from: 'jwa@>=1.1.4 <2.0.0',
+115 verbose from wrap     resolved: 'https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz' } ]
+116 verbose from wrap [ 'jws',
+116 verbose from wrap   { version: '3.1.4',
+116 verbose from wrap     from: 'jws@>=3.1.3 <4.0.0',
+116 verbose from wrap     resolved: 'https://registry.npmjs.org/jws/-/jws-3.1.4.tgz' } ]
+117 verbose from wrap [ 'lodash.once',
+117 verbose from wrap   { version: '4.1.1',
+117 verbose from wrap     from: 'lodash.once@>=4.0.0 <5.0.0',
+117 verbose from wrap     resolved: 'https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz' } ]
+118 verbose from wrap [ 'moment',
+118 verbose from wrap   { version: '2.18.1',
+118 verbose from wrap     from: 'moment@>=2.0.0 <3.0.0',
+118 verbose from wrap     resolved: 'https://registry.npmjs.org/moment/-/moment-2.18.1.tgz' } ]
+119 verbose from wrap [ 'ms',
+119 verbose from wrap   { version: '0.7.3',
+119 verbose from wrap     from: 'ms@>=0.7.1 <0.8.0',
+119 verbose from wrap     resolved: 'https://registry.npmjs.org/ms/-/ms-0.7.3.tgz' } ]
+120 verbose from wrap [ 'node-forge',
+120 verbose from wrap   { version: '0.7.1',
+120 verbose from wrap     from: 'node-forge@0.7.1',
+120 verbose from wrap     resolved: 'https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz' } ]
+121 verbose from wrap [ 'safe-buffer',
+121 verbose from wrap   { version: '5.0.1',
+121 verbose from wrap     from: 'safe-buffer@>=5.0.1 <6.0.0',
+121 verbose from wrap     resolved: 'https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz' } ]
+122 verbose from wrap [ 'topo',
+122 verbose from wrap   { version: '1.1.0',
+122 verbose from wrap     from: 'topo@>=1.0.0 <2.0.0',
+122 verbose from wrap     resolved: 'https://registry.npmjs.org/topo/-/topo-1.1.0.tgz' } ]
+123 verbose from wrap [ 'websocket-driver',
+123 verbose from wrap   { version: '0.6.5',
+123 verbose from wrap     from: 'websocket-driver@>=0.5.1',
+123 verbose from wrap     resolved: 'https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz' } ]
+124 verbose from wrap [ 'websocket-extensions',
+124 verbose from wrap   { version: '0.1.1',
+124 verbose from wrap     from: 'websocket-extensions@>=0.1.1',
+124 verbose from wrap     resolved: 'https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz' } ]
+125 verbose from wrap [ 'xtend',
+125 verbose from wrap   { version: '4.0.1',
+125 verbose from wrap     from: 'xtend@>=4.0.1 <5.0.0',
+125 verbose from wrap     resolved: 'https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz' } ]
+126 verbose readDependencies returned deps { '@types/jsonwebtoken': 'https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+126 verbose readDependencies returned deps   '@types/node': 'https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz',
+126 verbose readDependencies returned deps   base64url: 'https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz',
+126 verbose readDependencies returned deps   'buffer-equal-constant-time': 'https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz',
+126 verbose readDependencies returned deps   'ecdsa-sig-formatter': 'https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz',
+126 verbose readDependencies returned deps   'faye-websocket': 'https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz',
+126 verbose readDependencies returned deps   hoek: 'https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz',
+126 verbose readDependencies returned deps   isemail: 'https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz',
+126 verbose readDependencies returned deps   joi: 'https://registry.npmjs.org/joi/-/joi-6.10.1.tgz',
+126 verbose readDependencies returned deps   jsonwebtoken: 'https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz',
+126 verbose readDependencies returned deps   jwa: 'https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz',
+126 verbose readDependencies returned deps   jws: 'https://registry.npmjs.org/jws/-/jws-3.1.4.tgz',
+126 verbose readDependencies returned deps   'lodash.once': 'https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz',
+126 verbose readDependencies returned deps   moment: 'https://registry.npmjs.org/moment/-/moment-2.18.1.tgz',
+126 verbose readDependencies returned deps   ms: 'https://registry.npmjs.org/ms/-/ms-0.7.3.tgz',
+126 verbose readDependencies returned deps   'node-forge': 'https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz',
+126 verbose readDependencies returned deps   'safe-buffer': 'https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz',
+126 verbose readDependencies returned deps   topo: 'https://registry.npmjs.org/topo/-/topo-1.1.0.tgz',
+126 verbose readDependencies returned deps   'websocket-driver': 'https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz',
+126 verbose readDependencies returned deps   'websocket-extensions': 'https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz',
+126 verbose readDependencies returned deps   xtend: 'https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz' }
+127 verbose shrinkwrap skipping @types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz (not in shrinkwrap)
+128 verbose cache add [ '@types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+128 verbose cache add   null ]
+129 verbose cache add name=undefined spec="@types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz" args=["@types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz",null]
+130 verbose parsed url { protocol: null,
+130 verbose parsed url   slashes: null,
+130 verbose parsed url   auth: null,
+130 verbose parsed url   host: null,
+130 verbose parsed url   port: null,
+130 verbose parsed url   hostname: null,
+130 verbose parsed url   hash: null,
+130 verbose parsed url   search: null,
+130 verbose parsed url   query: null,
+130 verbose parsed url   pathname: '@types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+130 verbose parsed url   path: '@types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+130 verbose parsed url   href: '@types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz' }
+131 verbose shrinkwrap skipping @types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz (not in shrinkwrap)
+132 verbose cache add [ '@types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz',
+132 verbose cache add   null ]
+133 verbose cache add name=undefined spec="@types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz" args=["@types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz",null]
+134 verbose parsed url { protocol: null,
+134 verbose parsed url   slashes: null,
+134 verbose parsed url   auth: null,
+134 verbose parsed url   host: null,
+134 verbose parsed url   port: null,
+134 verbose parsed url   hostname: null,
+134 verbose parsed url   hash: null,
+134 verbose parsed url   search: null,
+134 verbose parsed url   query: null,
+134 verbose parsed url   pathname: '@types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz',
+134 verbose parsed url   path: '@types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz',
+134 verbose parsed url   href: '@types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz' }
+135 verbose cache add [ 'base64url@https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz',
+135 verbose cache add   null ]
+136 verbose cache add name=undefined spec="base64url@https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz" args=["base64url@https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz",null]
+137 verbose parsed url { protocol: null,
+137 verbose parsed url   slashes: null,
+137 verbose parsed url   auth: null,
+137 verbose parsed url   host: null,
+137 verbose parsed url   port: null,
+137 verbose parsed url   hostname: null,
+137 verbose parsed url   hash: null,
+137 verbose parsed url   search: null,
+137 verbose parsed url   query: null,
+137 verbose parsed url   pathname: 'base64url@https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz',
+137 verbose parsed url   path: 'base64url@https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz',
+137 verbose parsed url   href: 'base64url@https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz' }
+138 verbose cache add [ 'buffer-equal-constant-time@https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz',
+138 verbose cache add   null ]
+139 verbose cache add name=undefined spec="buffer-equal-constant-time@https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz" args=["buffer-equal-constant-time@https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz",null]
+140 verbose parsed url { protocol: null,
+140 verbose parsed url   slashes: null,
+140 verbose parsed url   auth: null,
+140 verbose parsed url   host: null,
+140 verbose parsed url   port: null,
+140 verbose parsed url   hostname: null,
+140 verbose parsed url   hash: null,
+140 verbose parsed url   search: null,
+140 verbose parsed url   query: null,
+140 verbose parsed url   pathname: 'buffer-equal-constant-time@https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz',
+140 verbose parsed url   path: 'buffer-equal-constant-time@https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz',
+140 verbose parsed url   href: 'buffer-equal-constant-time@https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz' }
+141 verbose cache add [ 'ecdsa-sig-formatter@https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz',
+141 verbose cache add   null ]
+142 verbose cache add name=undefined spec="ecdsa-sig-formatter@https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz" args=["ecdsa-sig-formatter@https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz",null]
+143 verbose parsed url { protocol: null,
+143 verbose parsed url   slashes: null,
+143 verbose parsed url   auth: null,
+143 verbose parsed url   host: null,
+143 verbose parsed url   port: null,
+143 verbose parsed url   hostname: null,
+143 verbose parsed url   hash: null,
+143 verbose parsed url   search: null,
+143 verbose parsed url   query: null,
+143 verbose parsed url   pathname: 'ecdsa-sig-formatter@https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz',
+143 verbose parsed url   path: 'ecdsa-sig-formatter@https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz',
+143 verbose parsed url   href: 'ecdsa-sig-formatter@https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz' }
+144 verbose cache add [ 'faye-websocket@https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz',
+144 verbose cache add   null ]
+145 verbose cache add name=undefined spec="faye-websocket@https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz" args=["faye-websocket@https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz",null]
+146 verbose parsed url { protocol: null,
+146 verbose parsed url   slashes: null,
+146 verbose parsed url   auth: null,
+146 verbose parsed url   host: null,
+146 verbose parsed url   port: null,
+146 verbose parsed url   hostname: null,
+146 verbose parsed url   hash: null,
+146 verbose parsed url   search: null,
+146 verbose parsed url   query: null,
+146 verbose parsed url   pathname: 'faye-websocket@https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz',
+146 verbose parsed url   path: 'faye-websocket@https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz',
+146 verbose parsed url   href: 'faye-websocket@https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz' }
+147 verbose cache add [ 'hoek@https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz',
+147 verbose cache add   null ]
+148 verbose cache add name=undefined spec="hoek@https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz" args=["hoek@https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz",null]
+149 verbose parsed url { protocol: null,
+149 verbose parsed url   slashes: null,
+149 verbose parsed url   auth: null,
+149 verbose parsed url   host: null,
+149 verbose parsed url   port: null,
+149 verbose parsed url   hostname: null,
+149 verbose parsed url   hash: null,
+149 verbose parsed url   search: null,
+149 verbose parsed url   query: null,
+149 verbose parsed url   pathname: 'hoek@https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz',
+149 verbose parsed url   path: 'hoek@https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz',
+149 verbose parsed url   href: 'hoek@https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz' }
+150 verbose cache add [ 'isemail@https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz',
+150 verbose cache add   null ]
+151 verbose cache add name=undefined spec="isemail@https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz" args=["isemail@https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz",null]
+152 verbose parsed url { protocol: null,
+152 verbose parsed url   slashes: null,
+152 verbose parsed url   auth: null,
+152 verbose parsed url   host: null,
+152 verbose parsed url   port: null,
+152 verbose parsed url   hostname: null,
+152 verbose parsed url   hash: null,
+152 verbose parsed url   search: null,
+152 verbose parsed url   query: null,
+152 verbose parsed url   pathname: 'isemail@https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz',
+152 verbose parsed url   path: 'isemail@https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz',
+152 verbose parsed url   href: 'isemail@https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz' }
+153 verbose cache add [ 'joi@https://registry.npmjs.org/joi/-/joi-6.10.1.tgz', null ]
+154 verbose cache add name=undefined spec="joi@https://registry.npmjs.org/joi/-/joi-6.10.1.tgz" args=["joi@https://registry.npmjs.org/joi/-/joi-6.10.1.tgz",null]
+155 verbose parsed url { protocol: null,
+155 verbose parsed url   slashes: null,
+155 verbose parsed url   auth: null,
+155 verbose parsed url   host: null,
+155 verbose parsed url   port: null,
+155 verbose parsed url   hostname: null,
+155 verbose parsed url   hash: null,
+155 verbose parsed url   search: null,
+155 verbose parsed url   query: null,
+155 verbose parsed url   pathname: 'joi@https://registry.npmjs.org/joi/-/joi-6.10.1.tgz',
+155 verbose parsed url   path: 'joi@https://registry.npmjs.org/joi/-/joi-6.10.1.tgz',
+155 verbose parsed url   href: 'joi@https://registry.npmjs.org/joi/-/joi-6.10.1.tgz' }
+156 verbose cache add [ 'jsonwebtoken@https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz',
+156 verbose cache add   null ]
+157 verbose cache add name=undefined spec="jsonwebtoken@https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz" args=["jsonwebtoken@https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz",null]
+158 verbose parsed url { protocol: null,
+158 verbose parsed url   slashes: null,
+158 verbose parsed url   auth: null,
+158 verbose parsed url   host: null,
+158 verbose parsed url   port: null,
+158 verbose parsed url   hostname: null,
+158 verbose parsed url   hash: null,
+158 verbose parsed url   search: null,
+158 verbose parsed url   query: null,
+158 verbose parsed url   pathname: 'jsonwebtoken@https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz',
+158 verbose parsed url   path: 'jsonwebtoken@https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz',
+158 verbose parsed url   href: 'jsonwebtoken@https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz' }
+159 verbose cache add [ 'jwa@https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz', null ]
+160 verbose cache add name=undefined spec="jwa@https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz" args=["jwa@https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz",null]
+161 verbose parsed url { protocol: null,
+161 verbose parsed url   slashes: null,
+161 verbose parsed url   auth: null,
+161 verbose parsed url   host: null,
+161 verbose parsed url   port: null,
+161 verbose parsed url   hostname: null,
+161 verbose parsed url   hash: null,
+161 verbose parsed url   search: null,
+161 verbose parsed url   query: null,
+161 verbose parsed url   pathname: 'jwa@https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz',
+161 verbose parsed url   path: 'jwa@https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz',
+161 verbose parsed url   href: 'jwa@https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz' }
+162 verbose cache add [ 'jws@https://registry.npmjs.org/jws/-/jws-3.1.4.tgz', null ]
+163 verbose cache add name=undefined spec="jws@https://registry.npmjs.org/jws/-/jws-3.1.4.tgz" args=["jws@https://registry.npmjs.org/jws/-/jws-3.1.4.tgz",null]
+164 verbose parsed url { protocol: null,
+164 verbose parsed url   slashes: null,
+164 verbose parsed url   auth: null,
+164 verbose parsed url   host: null,
+164 verbose parsed url   port: null,
+164 verbose parsed url   hostname: null,
+164 verbose parsed url   hash: null,
+164 verbose parsed url   search: null,
+164 verbose parsed url   query: null,
+164 verbose parsed url   pathname: 'jws@https://registry.npmjs.org/jws/-/jws-3.1.4.tgz',
+164 verbose parsed url   path: 'jws@https://registry.npmjs.org/jws/-/jws-3.1.4.tgz',
+164 verbose parsed url   href: 'jws@https://registry.npmjs.org/jws/-/jws-3.1.4.tgz' }
+165 verbose cache add [ 'lodash.once@https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz',
+165 verbose cache add   null ]
+166 verbose cache add name=undefined spec="lodash.once@https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz" args=["lodash.once@https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz",null]
+167 verbose parsed url { protocol: null,
+167 verbose parsed url   slashes: null,
+167 verbose parsed url   auth: null,
+167 verbose parsed url   host: null,
+167 verbose parsed url   port: null,
+167 verbose parsed url   hostname: null,
+167 verbose parsed url   hash: null,
+167 verbose parsed url   search: null,
+167 verbose parsed url   query: null,
+167 verbose parsed url   pathname: 'lodash.once@https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz',
+167 verbose parsed url   path: 'lodash.once@https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz',
+167 verbose parsed url   href: 'lodash.once@https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz' }
+168 verbose cache add [ 'moment@https://registry.npmjs.org/moment/-/moment-2.18.1.tgz',
+168 verbose cache add   null ]
+169 verbose cache add name=undefined spec="moment@https://registry.npmjs.org/moment/-/moment-2.18.1.tgz" args=["moment@https://registry.npmjs.org/moment/-/moment-2.18.1.tgz",null]
+170 verbose parsed url { protocol: null,
+170 verbose parsed url   slashes: null,
+170 verbose parsed url   auth: null,
+170 verbose parsed url   host: null,
+170 verbose parsed url   port: null,
+170 verbose parsed url   hostname: null,
+170 verbose parsed url   hash: null,
+170 verbose parsed url   search: null,
+170 verbose parsed url   query: null,
+170 verbose parsed url   pathname: 'moment@https://registry.npmjs.org/moment/-/moment-2.18.1.tgz',
+170 verbose parsed url   path: 'moment@https://registry.npmjs.org/moment/-/moment-2.18.1.tgz',
+170 verbose parsed url   href: 'moment@https://registry.npmjs.org/moment/-/moment-2.18.1.tgz' }
+171 verbose cache add name="" spec="types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz" args=["","types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz"]
+172 verbose parsed url { protocol: null,
+172 verbose parsed url   slashes: null,
+172 verbose parsed url   auth: null,
+172 verbose parsed url   host: null,
+172 verbose parsed url   port: null,
+172 verbose parsed url   hostname: null,
+172 verbose parsed url   hash: null,
+172 verbose parsed url   search: null,
+172 verbose parsed url   query: null,
+172 verbose parsed url   pathname: 'types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+172 verbose parsed url   path: 'types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+172 verbose parsed url   href: 'types/jsonwebtoken@https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz' }
+173 verbose cache add name="" spec="types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz" args=["","types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz"]
+174 verbose parsed url { protocol: null,
+174 verbose parsed url   slashes: null,
+174 verbose parsed url   auth: null,
+174 verbose parsed url   host: null,
+174 verbose parsed url   port: null,
+174 verbose parsed url   hostname: null,
+174 verbose parsed url   hash: null,
+174 verbose parsed url   search: null,
+174 verbose parsed url   query: null,
+174 verbose parsed url   pathname: 'types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz',
+174 verbose parsed url   path: 'types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz',
+174 verbose parsed url   href: 'types/node@https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz' }
+175 verbose cache add name="base64url" spec="https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz" args=["base64url","https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz"]
+176 verbose parsed url { protocol: 'https:',
+176 verbose parsed url   slashes: true,
+176 verbose parsed url   auth: null,
+176 verbose parsed url   host: 'registry.npmjs.org',
+176 verbose parsed url   port: null,
+176 verbose parsed url   hostname: 'registry.npmjs.org',
+176 verbose parsed url   hash: null,
+176 verbose parsed url   search: null,
+176 verbose parsed url   query: null,
+176 verbose parsed url   pathname: '/base64url/-/base64url-2.0.0.tgz',
+176 verbose parsed url   path: '/base64url/-/base64url-2.0.0.tgz',
+176 verbose parsed url   href: 'https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz' }
+177 silly lockFile deb1957c-rg-base64url-base64url-2-0-0-tgz https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz
+178 verbose lock https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz C:\Users\him\AppData\Roaming\npm-cache\deb1957c-rg-base64url-base64url-2-0-0-tgz.lock
+179 verbose cache add name="buffer-equal-constant-time" spec="https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz" args=["buffer-equal-constant-time","https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz"]
+180 verbose parsed url { protocol: 'https:',
+180 verbose parsed url   slashes: true,
+180 verbose parsed url   auth: null,
+180 verbose parsed url   host: 'registry.npmjs.org',
+180 verbose parsed url   port: null,
+180 verbose parsed url   hostname: 'registry.npmjs.org',
+180 verbose parsed url   hash: null,
+180 verbose parsed url   search: null,
+180 verbose parsed url   query: null,
+180 verbose parsed url   pathname: '/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz',
+180 verbose parsed url   path: '/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz',
+180 verbose parsed url   href: 'https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz' }
+181 silly lockFile 511ba7d3-er-equal-constant-time-1-0-1-tgz https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz
+182 verbose lock https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz C:\Users\him\AppData\Roaming\npm-cache\511ba7d3-er-equal-constant-time-1-0-1-tgz.lock
+183 verbose cache add name="ecdsa-sig-formatter" spec="https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz" args=["ecdsa-sig-formatter","https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz"]
+184 verbose parsed url { protocol: 'https:',
+184 verbose parsed url   slashes: true,
+184 verbose parsed url   auth: null,
+184 verbose parsed url   host: 'registry.npmjs.org',
+184 verbose parsed url   port: null,
+184 verbose parsed url   hostname: 'registry.npmjs.org',
+184 verbose parsed url   hash: null,
+184 verbose parsed url   search: null,
+184 verbose parsed url   query: null,
+184 verbose parsed url   pathname: '/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz',
+184 verbose parsed url   path: '/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz',
+184 verbose parsed url   href: 'https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz' }
+185 silly lockFile a46b1650-er-ecdsa-sig-formatter-1-0-9-tgz https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz
+186 verbose lock https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz C:\Users\him\AppData\Roaming\npm-cache\a46b1650-er-ecdsa-sig-formatter-1-0-9-tgz.lock
+187 verbose cache add name="faye-websocket" spec="https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz" args=["faye-websocket","https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz"]
+188 verbose parsed url { protocol: 'https:',
+188 verbose parsed url   slashes: true,
+188 verbose parsed url   auth: null,
+188 verbose parsed url   host: 'registry.npmjs.org',
+188 verbose parsed url   port: null,
+188 verbose parsed url   hostname: 'registry.npmjs.org',
+188 verbose parsed url   hash: null,
+188 verbose parsed url   search: null,
+188 verbose parsed url   query: null,
+188 verbose parsed url   pathname: '/faye-websocket/-/faye-websocket-0.9.3.tgz',
+188 verbose parsed url   path: '/faye-websocket/-/faye-websocket-0.9.3.tgz',
+188 verbose parsed url   href: 'https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz' }
+189 silly lockFile d3d0f514-bsocket-faye-websocket-0-9-3-tgz https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz
+190 verbose lock https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz C:\Users\him\AppData\Roaming\npm-cache\d3d0f514-bsocket-faye-websocket-0-9-3-tgz.lock
+191 verbose cache add name="hoek" spec="https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz" args=["hoek","https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz"]
+192 verbose parsed url { protocol: 'https:',
+192 verbose parsed url   slashes: true,
+192 verbose parsed url   auth: null,
+192 verbose parsed url   host: 'registry.npmjs.org',
+192 verbose parsed url   port: null,
+192 verbose parsed url   hostname: 'registry.npmjs.org',
+192 verbose parsed url   hash: null,
+192 verbose parsed url   search: null,
+192 verbose parsed url   query: null,
+192 verbose parsed url   pathname: '/hoek/-/hoek-2.16.3.tgz',
+192 verbose parsed url   path: '/hoek/-/hoek-2.16.3.tgz',
+192 verbose parsed url   href: 'https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz' }
+193 silly lockFile 46e0e6ca-y-npmjs-org-hoek-hoek-2-16-3-tgz https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz
+194 verbose lock https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz C:\Users\him\AppData\Roaming\npm-cache\46e0e6ca-y-npmjs-org-hoek-hoek-2-16-3-tgz.lock
+195 verbose cache add name="isemail" spec="https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz" args=["isemail","https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz"]
+196 verbose parsed url { protocol: 'https:',
+196 verbose parsed url   slashes: true,
+196 verbose parsed url   auth: null,
+196 verbose parsed url   host: 'registry.npmjs.org',
+196 verbose parsed url   port: null,
+196 verbose parsed url   hostname: 'registry.npmjs.org',
+196 verbose parsed url   hash: null,
+196 verbose parsed url   search: null,
+196 verbose parsed url   query: null,
+196 verbose parsed url   pathname: '/isemail/-/isemail-1.2.0.tgz',
+196 verbose parsed url   path: '/isemail/-/isemail-1.2.0.tgz',
+196 verbose parsed url   href: 'https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz' }
+197 silly lockFile 2fdc1687-js-org-isemail-isemail-1-2-0-tgz https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz
+198 verbose lock https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz C:\Users\him\AppData\Roaming\npm-cache\2fdc1687-js-org-isemail-isemail-1-2-0-tgz.lock
+199 verbose cache add name="joi" spec="https://registry.npmjs.org/joi/-/joi-6.10.1.tgz" args=["joi","https://registry.npmjs.org/joi/-/joi-6.10.1.tgz"]
+200 verbose parsed url { protocol: 'https:',
+200 verbose parsed url   slashes: true,
+200 verbose parsed url   auth: null,
+200 verbose parsed url   host: 'registry.npmjs.org',
+200 verbose parsed url   port: null,
+200 verbose parsed url   hostname: 'registry.npmjs.org',
+200 verbose parsed url   hash: null,
+200 verbose parsed url   search: null,
+200 verbose parsed url   query: null,
+200 verbose parsed url   pathname: '/joi/-/joi-6.10.1.tgz',
+200 verbose parsed url   path: '/joi/-/joi-6.10.1.tgz',
+200 verbose parsed url   href: 'https://registry.npmjs.org/joi/-/joi-6.10.1.tgz' }
+201 silly lockFile 284d6568-try-npmjs-org-joi-joi-6-10-1-tgz https://registry.npmjs.org/joi/-/joi-6.10.1.tgz
+202 verbose lock https://registry.npmjs.org/joi/-/joi-6.10.1.tgz C:\Users\him\AppData\Roaming\npm-cache\284d6568-try-npmjs-org-joi-joi-6-10-1-tgz.lock
+203 verbose cache add name="jsonwebtoken" spec="https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz" args=["jsonwebtoken","https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz"]
+204 verbose parsed url { protocol: 'https:',
+204 verbose parsed url   slashes: true,
+204 verbose parsed url   auth: null,
+204 verbose parsed url   host: 'registry.npmjs.org',
+204 verbose parsed url   port: null,
+204 verbose parsed url   hostname: 'registry.npmjs.org',
+204 verbose parsed url   hash: null,
+204 verbose parsed url   search: null,
+204 verbose parsed url   query: null,
+204 verbose parsed url   pathname: '/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz',
+204 verbose parsed url   path: '/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz',
+204 verbose parsed url   href: 'https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz' }
+205 silly lockFile 37942cff-nwebtoken-jsonwebtoken-7-1-9-tgz https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz
+206 verbose lock https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz C:\Users\him\AppData\Roaming\npm-cache\37942cff-nwebtoken-jsonwebtoken-7-1-9-tgz.lock
+207 verbose cache add name="jwa" spec="https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz" args=["jwa","https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz"]
+208 verbose parsed url { protocol: 'https:',
+208 verbose parsed url   slashes: true,
+208 verbose parsed url   auth: null,
+208 verbose parsed url   host: 'registry.npmjs.org',
+208 verbose parsed url   port: null,
+208 verbose parsed url   hostname: 'registry.npmjs.org',
+208 verbose parsed url   hash: null,
+208 verbose parsed url   search: null,
+208 verbose parsed url   query: null,
+208 verbose parsed url   pathname: '/jwa/-/jwa-1.1.5.tgz',
+208 verbose parsed url   path: '/jwa/-/jwa-1.1.5.tgz',
+208 verbose parsed url   href: 'https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz' }
+209 silly lockFile fbd08253-stry-npmjs-org-jwa-jwa-1-1-5-tgz https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz
+210 verbose lock https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz C:\Users\him\AppData\Roaming\npm-cache\fbd08253-stry-npmjs-org-jwa-jwa-1-1-5-tgz.lock
+211 verbose cache add name="jws" spec="https://registry.npmjs.org/jws/-/jws-3.1.4.tgz" args=["jws","https://registry.npmjs.org/jws/-/jws-3.1.4.tgz"]
+212 verbose parsed url { protocol: 'https:',
+212 verbose parsed url   slashes: true,
+212 verbose parsed url   auth: null,
+212 verbose parsed url   host: 'registry.npmjs.org',
+212 verbose parsed url   port: null,
+212 verbose parsed url   hostname: 'registry.npmjs.org',
+212 verbose parsed url   hash: null,
+212 verbose parsed url   search: null,
+212 verbose parsed url   query: null,
+212 verbose parsed url   pathname: '/jws/-/jws-3.1.4.tgz',
+212 verbose parsed url   path: '/jws/-/jws-3.1.4.tgz',
+212 verbose parsed url   href: 'https://registry.npmjs.org/jws/-/jws-3.1.4.tgz' }
+213 silly lockFile 71d366af-stry-npmjs-org-jws-jws-3-1-4-tgz https://registry.npmjs.org/jws/-/jws-3.1.4.tgz
+214 verbose lock https://registry.npmjs.org/jws/-/jws-3.1.4.tgz C:\Users\him\AppData\Roaming\npm-cache\71d366af-stry-npmjs-org-jws-jws-3-1-4-tgz.lock
+215 verbose cache add name="lodash.once" spec="https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz" args=["lodash.once","https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz"]
+216 verbose parsed url { protocol: 'https:',
+216 verbose parsed url   slashes: true,
+216 verbose parsed url   auth: null,
+216 verbose parsed url   host: 'registry.npmjs.org',
+216 verbose parsed url   port: null,
+216 verbose parsed url   hostname: 'registry.npmjs.org',
+216 verbose parsed url   hash: null,
+216 verbose parsed url   search: null,
+216 verbose parsed url   query: null,
+216 verbose parsed url   pathname: '/lodash.once/-/lodash.once-4.1.1.tgz',
+216 verbose parsed url   path: '/lodash.once/-/lodash.once-4.1.1.tgz',
+216 verbose parsed url   href: 'https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz' }
+217 silly lockFile 0a4fc233-odash-once-lodash-once-4-1-1-tgz https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz
+218 verbose lock https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz C:\Users\him\AppData\Roaming\npm-cache\0a4fc233-odash-once-lodash-once-4-1-1-tgz.lock
+219 verbose cache add name="moment" spec="https://registry.npmjs.org/moment/-/moment-2.18.1.tgz" args=["moment","https://registry.npmjs.org/moment/-/moment-2.18.1.tgz"]
+220 verbose parsed url { protocol: 'https:',
+220 verbose parsed url   slashes: true,
+220 verbose parsed url   auth: null,
+220 verbose parsed url   host: 'registry.npmjs.org',
+220 verbose parsed url   port: null,
+220 verbose parsed url   hostname: 'registry.npmjs.org',
+220 verbose parsed url   hash: null,
+220 verbose parsed url   search: null,
+220 verbose parsed url   query: null,
+220 verbose parsed url   pathname: '/moment/-/moment-2.18.1.tgz',
+220 verbose parsed url   path: '/moment/-/moment-2.18.1.tgz',
+220 verbose parsed url   href: 'https://registry.npmjs.org/moment/-/moment-2.18.1.tgz' }
+221 silly lockFile 56939703-mjs-org-moment-moment-2-18-1-tgz https://registry.npmjs.org/moment/-/moment-2.18.1.tgz
+222 verbose lock https://registry.npmjs.org/moment/-/moment-2.18.1.tgz C:\Users\him\AppData\Roaming\npm-cache\56939703-mjs-org-moment-moment-2-18-1-tgz.lock
+223 verbose cache add name="types/jsonwebtoken" spec="https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz" args=["types/jsonwebtoken","https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz"]
+224 verbose parsed url { protocol: 'https:',
+224 verbose parsed url   slashes: true,
+224 verbose parsed url   auth: null,
+224 verbose parsed url   host: 'registry.npmjs.org',
+224 verbose parsed url   port: null,
+224 verbose parsed url   hostname: 'registry.npmjs.org',
+224 verbose parsed url   hash: null,
+224 verbose parsed url   search: null,
+224 verbose parsed url   query: null,
+224 verbose parsed url   pathname: '/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+224 verbose parsed url   path: '/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+224 verbose parsed url   href: 'https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz' }
+225 silly lockFile d02e0f6d-nwebtoken-jsonwebtoken-7-2-0-tgz https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz
+226 verbose lock https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz C:\Users\him\AppData\Roaming\npm-cache\d02e0f6d-nwebtoken-jsonwebtoken-7-2-0-tgz.lock
+227 verbose cache add name="types/node" spec="https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz" args=["types/node","https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz"]
+228 verbose parsed url { protocol: 'https:',
+228 verbose parsed url   slashes: true,
+228 verbose parsed url   auth: null,
+228 verbose parsed url   host: 'registry.npmjs.org',
+228 verbose parsed url   port: null,
+228 verbose parsed url   hostname: 'registry.npmjs.org',
+228 verbose parsed url   hash: null,
+228 verbose parsed url   search: null,
+228 verbose parsed url   query: null,
+228 verbose parsed url   pathname: '/@types/node/-/node-7.0.18.tgz',
+228 verbose parsed url   path: '/@types/node/-/node-7.0.18.tgz',
+228 verbose parsed url   href: 'https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz' }
+229 silly lockFile 438cfe86-s-org-types-node-node-7-0-18-tgz https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz
+230 verbose lock https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz C:\Users\him\AppData\Roaming\npm-cache\438cfe86-s-org-types-node-node-7-0-18-tgz.lock
+231 verbose addRemoteTarball [ 'https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz',
+231 verbose addRemoteTarball   null ]
+232 verbose addRemoteTarball [ 'https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz',
+232 verbose addRemoteTarball   null ]
+233 verbose addRemoteTarball [ 'https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz',
+233 verbose addRemoteTarball   null ]
+234 verbose addRemoteTarball [ 'https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz',
+234 verbose addRemoteTarball   null ]
+235 verbose addRemoteTarball [ 'https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz', null ]
+236 verbose addRemoteTarball [ 'https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz',
+236 verbose addRemoteTarball   null ]
+237 verbose addRemoteTarball [ 'https://registry.npmjs.org/joi/-/joi-6.10.1.tgz', null ]
+238 verbose addRemoteTarball [ 'https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz',
+238 verbose addRemoteTarball   null ]
+239 verbose addRemoteTarball [ 'https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz', null ]
+240 verbose addRemoteTarball [ 'https://registry.npmjs.org/jws/-/jws-3.1.4.tgz', null ]
+241 verbose addRemoteTarball [ 'https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz',
+241 verbose addRemoteTarball   null ]
+242 verbose addRemoteTarball [ 'https://registry.npmjs.org/moment/-/moment-2.18.1.tgz',
+242 verbose addRemoteTarball   null ]
+243 verbose addRemoteTarball [ 'https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz',
+243 verbose addRemoteTarball   null ]
+244 verbose cache add [ 'ms@https://registry.npmjs.org/ms/-/ms-0.7.3.tgz', null ]
+245 verbose cache add name=undefined spec="ms@https://registry.npmjs.org/ms/-/ms-0.7.3.tgz" args=["ms@https://registry.npmjs.org/ms/-/ms-0.7.3.tgz",null]
+246 verbose parsed url { protocol: null,
+246 verbose parsed url   slashes: null,
+246 verbose parsed url   auth: null,
+246 verbose parsed url   host: null,
+246 verbose parsed url   port: null,
+246 verbose parsed url   hostname: null,
+246 verbose parsed url   hash: null,
+246 verbose parsed url   search: null,
+246 verbose parsed url   query: null,
+246 verbose parsed url   pathname: 'ms@https://registry.npmjs.org/ms/-/ms-0.7.3.tgz',
+246 verbose parsed url   path: 'ms@https://registry.npmjs.org/ms/-/ms-0.7.3.tgz',
+246 verbose parsed url   href: 'ms@https://registry.npmjs.org/ms/-/ms-0.7.3.tgz' }
+247 verbose cache add [ 'node-forge@https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz',
+247 verbose cache add   null ]
+248 verbose cache add name=undefined spec="node-forge@https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz" args=["node-forge@https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz",null]
+249 verbose parsed url { protocol: null,
+249 verbose parsed url   slashes: null,
+249 verbose parsed url   auth: null,
+249 verbose parsed url   host: null,
+249 verbose parsed url   port: null,
+249 verbose parsed url   hostname: null,
+249 verbose parsed url   hash: null,
+249 verbose parsed url   search: null,
+249 verbose parsed url   query: null,
+249 verbose parsed url   pathname: 'node-forge@https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz',
+249 verbose parsed url   path: 'node-forge@https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz',
+249 verbose parsed url   href: 'node-forge@https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz' }
+250 verbose cache add [ 'safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz',
+250 verbose cache add   null ]
+251 verbose cache add name=undefined spec="safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz" args=["safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz",null]
+252 verbose parsed url { protocol: null,
+252 verbose parsed url   slashes: null,
+252 verbose parsed url   auth: null,
+252 verbose parsed url   host: null,
+252 verbose parsed url   port: null,
+252 verbose parsed url   hostname: null,
+252 verbose parsed url   hash: null,
+252 verbose parsed url   search: null,
+252 verbose parsed url   query: null,
+252 verbose parsed url   pathname: 'safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz',
+252 verbose parsed url   path: 'safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz',
+252 verbose parsed url   href: 'safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz' }
+253 verbose cache add [ 'topo@https://registry.npmjs.org/topo/-/topo-1.1.0.tgz',
+253 verbose cache add   null ]
+254 verbose cache add name=undefined spec="topo@https://registry.npmjs.org/topo/-/topo-1.1.0.tgz" args=["topo@https://registry.npmjs.org/topo/-/topo-1.1.0.tgz",null]
+255 verbose parsed url { protocol: null,
+255 verbose parsed url   slashes: null,
+255 verbose parsed url   auth: null,
+255 verbose parsed url   host: null,
+255 verbose parsed url   port: null,
+255 verbose parsed url   hostname: null,
+255 verbose parsed url   hash: null,
+255 verbose parsed url   search: null,
+255 verbose parsed url   query: null,
+255 verbose parsed url   pathname: 'topo@https://registry.npmjs.org/topo/-/topo-1.1.0.tgz',
+255 verbose parsed url   path: 'topo@https://registry.npmjs.org/topo/-/topo-1.1.0.tgz',
+255 verbose parsed url   href: 'topo@https://registry.npmjs.org/topo/-/topo-1.1.0.tgz' }
+256 verbose cache add [ 'websocket-driver@https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz',
+256 verbose cache add   null ]
+257 verbose cache add name=undefined spec="websocket-driver@https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz" args=["websocket-driver@https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz",null]
+258 verbose parsed url { protocol: null,
+258 verbose parsed url   slashes: null,
+258 verbose parsed url   auth: null,
+258 verbose parsed url   host: null,
+258 verbose parsed url   port: null,
+258 verbose parsed url   hostname: null,
+258 verbose parsed url   hash: null,
+258 verbose parsed url   search: null,
+258 verbose parsed url   query: null,
+258 verbose parsed url   pathname: 'websocket-driver@https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz',
+258 verbose parsed url   path: 'websocket-driver@https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz',
+258 verbose parsed url   href: 'websocket-driver@https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz' }
+259 verbose cache add [ 'websocket-extensions@https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz',
+259 verbose cache add   null ]
+260 verbose cache add name=undefined spec="websocket-extensions@https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz" args=["websocket-extensions@https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz",null]
+261 verbose parsed url { protocol: null,
+261 verbose parsed url   slashes: null,
+261 verbose parsed url   auth: null,
+261 verbose parsed url   host: null,
+261 verbose parsed url   port: null,
+261 verbose parsed url   hostname: null,
+261 verbose parsed url   hash: null,
+261 verbose parsed url   search: null,
+261 verbose parsed url   query: null,
+261 verbose parsed url   pathname: 'websocket-extensions@https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz',
+261 verbose parsed url   path: 'websocket-extensions@https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz',
+261 verbose parsed url   href: 'websocket-extensions@https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz' }
+262 verbose cache add [ 'xtend@https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz',
+262 verbose cache add   null ]
+263 verbose cache add name=undefined spec="xtend@https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz" args=["xtend@https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz",null]
+264 verbose parsed url { protocol: null,
+264 verbose parsed url   slashes: null,
+264 verbose parsed url   auth: null,
+264 verbose parsed url   host: null,
+264 verbose parsed url   port: null,
+264 verbose parsed url   hostname: null,
+264 verbose parsed url   hash: null,
+264 verbose parsed url   search: null,
+264 verbose parsed url   query: null,
+264 verbose parsed url   pathname: 'xtend@https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz',
+264 verbose parsed url   path: 'xtend@https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz',
+264 verbose parsed url   href: 'xtend@https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz' }
+265 verbose addRemoteTarball [ 'https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz',
+265 verbose addRemoteTarball   null ]
+266 verbose cache add name="ms" spec="https://registry.npmjs.org/ms/-/ms-0.7.3.tgz" args=["ms","https://registry.npmjs.org/ms/-/ms-0.7.3.tgz"]
+267 verbose parsed url { protocol: 'https:',
+267 verbose parsed url   slashes: true,
+267 verbose parsed url   auth: null,
+267 verbose parsed url   host: 'registry.npmjs.org',
+267 verbose parsed url   port: null,
+267 verbose parsed url   hostname: 'registry.npmjs.org',
+267 verbose parsed url   hash: null,
+267 verbose parsed url   search: null,
+267 verbose parsed url   query: null,
+267 verbose parsed url   pathname: '/ms/-/ms-0.7.3.tgz',
+267 verbose parsed url   path: '/ms/-/ms-0.7.3.tgz',
+267 verbose parsed url   href: 'https://registry.npmjs.org/ms/-/ms-0.7.3.tgz' }
+268 silly lockFile c7a6b88d-gistry-npmjs-org-ms-ms-0-7-3-tgz https://registry.npmjs.org/ms/-/ms-0.7.3.tgz
+269 verbose lock https://registry.npmjs.org/ms/-/ms-0.7.3.tgz C:\Users\him\AppData\Roaming\npm-cache\c7a6b88d-gistry-npmjs-org-ms-ms-0-7-3-tgz.lock
+270 verbose cache add name="node-forge" spec="https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz" args=["node-forge","https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz"]
+271 verbose parsed url { protocol: 'https:',
+271 verbose parsed url   slashes: true,
+271 verbose parsed url   auth: null,
+271 verbose parsed url   host: 'registry.npmjs.org',
+271 verbose parsed url   port: null,
+271 verbose parsed url   hostname: 'registry.npmjs.org',
+271 verbose parsed url   hash: null,
+271 verbose parsed url   search: null,
+271 verbose parsed url   query: null,
+271 verbose parsed url   pathname: '/node-forge/-/node-forge-0.7.1.tgz',
+271 verbose parsed url   path: '/node-forge/-/node-forge-0.7.1.tgz',
+271 verbose parsed url   href: 'https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz' }
+272 silly lockFile 45e45355--node-forge-node-forge-0-7-1-tgz https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz
+273 verbose lock https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz C:\Users\him\AppData\Roaming\npm-cache\45e45355--node-forge-node-forge-0-7-1-tgz.lock
+274 verbose cache add name="safe-buffer" spec="https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz" args=["safe-buffer","https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz"]
+275 verbose parsed url { protocol: 'https:',
+275 verbose parsed url   slashes: true,
+275 verbose parsed url   auth: null,
+275 verbose parsed url   host: 'registry.npmjs.org',
+275 verbose parsed url   port: null,
+275 verbose parsed url   hostname: 'registry.npmjs.org',
+275 verbose parsed url   hash: null,
+275 verbose parsed url   search: null,
+275 verbose parsed url   query: null,
+275 verbose parsed url   pathname: '/safe-buffer/-/safe-buffer-5.0.1.tgz',
+275 verbose parsed url   path: '/safe-buffer/-/safe-buffer-5.0.1.tgz',
+275 verbose parsed url   href: 'https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz' }
+276 silly lockFile d7622d6e-afe-buffer-safe-buffer-5-0-1-tgz https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz
+277 verbose lock https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz C:\Users\him\AppData\Roaming\npm-cache\d7622d6e-afe-buffer-safe-buffer-5-0-1-tgz.lock
+278 verbose cache add name="topo" spec="https://registry.npmjs.org/topo/-/topo-1.1.0.tgz" args=["topo","https://registry.npmjs.org/topo/-/topo-1.1.0.tgz"]
+279 verbose parsed url { protocol: 'https:',
+279 verbose parsed url   slashes: true,
+279 verbose parsed url   auth: null,
+279 verbose parsed url   host: 'registry.npmjs.org',
+279 verbose parsed url   port: null,
+279 verbose parsed url   hostname: 'registry.npmjs.org',
+279 verbose parsed url   hash: null,
+279 verbose parsed url   search: null,
+279 verbose parsed url   query: null,
+279 verbose parsed url   pathname: '/topo/-/topo-1.1.0.tgz',
+279 verbose parsed url   path: '/topo/-/topo-1.1.0.tgz',
+279 verbose parsed url   href: 'https://registry.npmjs.org/topo/-/topo-1.1.0.tgz' }
+280 silly lockFile 0edc6e7e-ry-npmjs-org-topo-topo-1-1-0-tgz https://registry.npmjs.org/topo/-/topo-1.1.0.tgz
+281 verbose lock https://registry.npmjs.org/topo/-/topo-1.1.0.tgz C:\Users\him\AppData\Roaming\npm-cache\0edc6e7e-ry-npmjs-org-topo-topo-1-1-0-tgz.lock
+282 verbose cache add name="websocket-driver" spec="https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz" args=["websocket-driver","https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz"]
+283 verbose parsed url { protocol: 'https:',
+283 verbose parsed url   slashes: true,
+283 verbose parsed url   auth: null,
+283 verbose parsed url   host: 'registry.npmjs.org',
+283 verbose parsed url   port: null,
+283 verbose parsed url   hostname: 'registry.npmjs.org',
+283 verbose parsed url   hash: null,
+283 verbose parsed url   search: null,
+283 verbose parsed url   query: null,
+283 verbose parsed url   pathname: '/websocket-driver/-/websocket-driver-0.6.5.tgz',
+283 verbose parsed url   path: '/websocket-driver/-/websocket-driver-0.6.5.tgz',
+283 verbose parsed url   href: 'https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz' }
+284 silly lockFile 05645949-river-websocket-driver-0-6-5-tgz https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz
+285 verbose lock https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz C:\Users\him\AppData\Roaming\npm-cache\05645949-river-websocket-driver-0-6-5-tgz.lock
+286 verbose cache add name="websocket-extensions" spec="https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz" args=["websocket-extensions","https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz"]
+287 verbose parsed url { protocol: 'https:',
+287 verbose parsed url   slashes: true,
+287 verbose parsed url   auth: null,
+287 verbose parsed url   host: 'registry.npmjs.org',
+287 verbose parsed url   port: null,
+287 verbose parsed url   hostname: 'registry.npmjs.org',
+287 verbose parsed url   hash: null,
+287 verbose parsed url   search: null,
+287 verbose parsed url   query: null,
+287 verbose parsed url   pathname: '/websocket-extensions/-/websocket-extensions-0.1.1.tgz',
+287 verbose parsed url   path: '/websocket-extensions/-/websocket-extensions-0.1.1.tgz',
+287 verbose parsed url   href: 'https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz' }
+288 silly lockFile dde8c79d-s-websocket-extensions-0-1-1-tgz https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz
+289 verbose lock https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz C:\Users\him\AppData\Roaming\npm-cache\dde8c79d-s-websocket-extensions-0-1-1-tgz.lock
+290 verbose cache add name="xtend" spec="https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz" args=["xtend","https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz"]
+291 verbose parsed url { protocol: 'https:',
+291 verbose parsed url   slashes: true,
+291 verbose parsed url   auth: null,
+291 verbose parsed url   host: 'registry.npmjs.org',
+291 verbose parsed url   port: null,
+291 verbose parsed url   hostname: 'registry.npmjs.org',
+291 verbose parsed url   hash: null,
+291 verbose parsed url   search: null,
+291 verbose parsed url   query: null,
+291 verbose parsed url   pathname: '/xtend/-/xtend-4.0.1.tgz',
+291 verbose parsed url   path: '/xtend/-/xtend-4.0.1.tgz',
+291 verbose parsed url   href: 'https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz' }
+292 silly lockFile 4a412089--npmjs-org-xtend-xtend-4-0-1-tgz https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz
+293 verbose lock https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz C:\Users\him\AppData\Roaming\npm-cache\4a412089--npmjs-org-xtend-xtend-4-0-1-tgz.lock
+294 info retry fetch attempt 1 at 23:50:04
+295 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604532-0.028574120486155152\tmp.tgz
+296 info retry fetch attempt 1 at 23:50:04
+297 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\tmp.tgz
+298 verbose addRemoteTarball [ 'https://registry.npmjs.org/ms/-/ms-0.7.3.tgz', null ]
+299 verbose addRemoteTarball [ 'https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz',
+299 verbose addRemoteTarball   null ]
+300 verbose addRemoteTarball [ 'https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz',
+300 verbose addRemoteTarball   null ]
+301 verbose addRemoteTarball [ 'https://registry.npmjs.org/topo/-/topo-1.1.0.tgz', null ]
+302 info retry fetch attempt 1 at 23:50:04
+303 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\tmp.tgz
+304 verbose addRemoteTarball [ 'https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz',
+304 verbose addRemoteTarball   null ]
+305 verbose addRemoteTarball [ 'https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz',
+305 verbose addRemoteTarball   null ]
+306 verbose addRemoteTarball [ 'https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz', null ]
+307 info retry fetch attempt 1 at 23:50:04
+308 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\tmp.tgz
+309 http GET https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz
+310 info retry fetch attempt 1 at 23:50:04
+311 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\tmp.tgz
+312 info retry fetch attempt 1 at 23:50:04
+313 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\tmp.tgz
+314 info retry fetch attempt 1 at 23:50:04
+315 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\tmp.tgz
+316 info retry fetch attempt 1 at 23:50:04
+317 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.6118056969717145\tmp.tgz
+318 info retry fetch attempt 1 at 23:50:04
+319 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.2988035953603685\tmp.tgz
+320 info retry fetch attempt 1 at 23:50:04
+321 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\tmp.tgz
+322 info retry fetch attempt 1 at 23:50:04
+323 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\tmp.tgz
+324 info retry fetch attempt 1 at 23:50:04
+325 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\tmp.tgz
+326 info retry fetch attempt 1 at 23:50:04
+327 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.09587472165003419\tmp.tgz
+328 info retry fetch attempt 1 at 23:50:04
+329 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\tmp.tgz
+330 info retry fetch attempt 1 at 23:50:04
+331 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\tmp.tgz
+332 http GET https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz
+333 info retry fetch attempt 1 at 23:50:04
+334 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.517329370835796\tmp.tgz
+335 info retry fetch attempt 1 at 23:50:04
+336 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\tmp.tgz
+337 info retry fetch attempt 1 at 23:50:04
+338 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\tmp.tgz
+339 info retry fetch attempt 1 at 23:50:04
+340 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604542-0.5591531069949269\tmp.tgz
+341 info retry fetch attempt 1 at 23:50:04
+342 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\tmp.tgz
+343 info retry fetch attempt 1 at 23:50:04
+344 verbose fetch to= C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\tmp.tgz
+345 http GET https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz
+346 http GET https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz
+347 http GET https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz
+348 http GET https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz
+349 http GET https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz
+350 http GET https://registry.npmjs.org/joi/-/joi-6.10.1.tgz
+351 http GET https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz
+352 http GET https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz
+353 http GET https://registry.npmjs.org/jws/-/jws-3.1.4.tgz
+354 http GET https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz
+355 http GET https://registry.npmjs.org/moment/-/moment-2.18.1.tgz
+356 http GET https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz
+357 http GET https://registry.npmjs.org/ms/-/ms-0.7.3.tgz
+358 http GET https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz
+359 http GET https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz
+360 http GET https://registry.npmjs.org/topo/-/topo-1.1.0.tgz
+361 http GET https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz
+362 http GET https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz
+363 http GET https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz
+364 http 200 https://registry.npmjs.org/base64url/-/base64url-2.0.0.tgz
+365 http 200 https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz
+366 http 200 https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz
+367 http 200 https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz
+368 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\tmp.tgz
+369 silly lockFile 8f74f4ff-04527-0-7684197800699621-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package
+370 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package C:\Users\him\AppData\Roaming\npm-cache\8f74f4ff-04527-0-7684197800699621-package.lock
+371 silly lockFile f9471dd6-04527-0-7684197800699621-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\tmp.tgz
+372 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\f9471dd6-04527-0-7684197800699621-tmp-tgz.lock
+373 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\tmp.tgz
+374 silly lockFile ec2fb6ae-9604527-0-80685881129466-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package
+375 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package C:\Users\him\AppData\Roaming\npm-cache\ec2fb6ae-9604527-0-80685881129466-package.lock
+376 silly lockFile 29b113bf-9604527-0-80685881129466-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\tmp.tgz
+377 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\29b113bf-9604527-0-80685881129466-tmp-tgz.lock
+378 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\tmp.tgz
+379 silly lockFile a460bbc9-4526-0-11909212451428175-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package
+380 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package C:\Users\him\AppData\Roaming\npm-cache\a460bbc9-4526-0-11909212451428175-package.lock
+381 silly lockFile 2bf7b57d-4526-0-11909212451428175-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\tmp.tgz
+382 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\2bf7b57d-4526-0-11909212451428175-tmp-tgz.lock
+383 silly gunzTarPerm modes [ '755', '644' ]
+384 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\tmp.tgz
+385 silly lockFile aef7cb84-04524-0-6296695440541953-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package
+386 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package C:\Users\him\AppData\Roaming\npm-cache\aef7cb84-04524-0-6296695440541953-package.lock
+387 silly lockFile cd8e7526-04524-0-6296695440541953-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\tmp.tgz
+388 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\cd8e7526-04524-0-6296695440541953-tmp-tgz.lock
+389 silly gunzTarPerm modes [ '755', '644' ]
+390 silly gunzTarPerm modes [ '755', '644' ]
+391 silly gunzTarPerm modes [ '755', '644' ]
+392 silly gunzTarPerm extractEntry package.json
+393 silly gunzTarPerm extractEntry package.json
+394 silly gunzTarPerm extractEntry package.json
+395 silly gunzTarPerm extractEntry README.md
+396 silly gunzTarPerm extractEntry LICENSE
+397 silly gunzTarPerm extractEntry package.json
+398 silly gunzTarPerm extractEntry README.md
+399 silly gunzTarPerm extractEntry CHANGELOG.md
+400 silly gunzTarPerm extractEntry .npmignore
+401 silly gunzTarPerm extractEntry README.md
+402 silly gunzTarPerm extractEntry index.js
+403 silly gunzTarPerm extractEntry dist/base64url.js
+404 http 200 https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz
+405 http 200 https://registry.npmjs.org/isemail/-/isemail-1.2.0.tgz
+406 http 200 https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-7.1.9.tgz
+407 http 200 https://registry.npmjs.org/joi/-/joi-6.10.1.tgz
+408 silly gunzTarPerm extractEntry dist/pad-string.js
+409 silly gunzTarPerm extractEntry dist/.gitkeep
+410 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\tmp.tgz
+411 silly lockFile 2eda1a3c-04528-0-6917357726488262-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package
+412 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package C:\Users\him\AppData\Roaming\npm-cache\2eda1a3c-04528-0-6917357726488262-package.lock
+413 silly lockFile b37651a6-04528-0-6917357726488262-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\tmp.tgz
+414 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\b37651a6-04528-0-6917357726488262-tmp-tgz.lock
+415 silly gunzTarPerm extractEntry src/ecdsa-sig-formatter.js
+416 silly gunzTarPerm extractEntry index.js
+417 silly gunzTarPerm extractEntry test.js
+418 silly gunzTarPerm modes [ '755', '644' ]
+419 silly gunzTarPerm extractEntry examples/autobahn_client.js
+420 silly gunzTarPerm extractEntry dist/base64url.d.ts
+421 silly gunzTarPerm extractEntry dist/pad-string.d.ts
+422 silly gunzTarPerm extractEntry package.json
+423 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+424 silly gunzTarPerm extractEntry .travis.yml
+425 silly gunzTarPerm extractEntry .npmignore
+426 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+427 silly gunzTarPerm extractEntry README.md
+428 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+429 silly gunzTarPerm extractEntry src/param-bytes-for-alg.js
+430 silly gunzTarPerm extractEntry typings/globals/node/index.d.ts
+431 silly gunzTarPerm extractEntry typings/globals/node/typings.json
+432 silly gunzTarPerm extractEntry typings/index.d.ts
+433 silly gunzTarPerm extractEntry readme.md
+434 silly gunzTarPerm extractEntry LICENSE.txt
+435 silly gunzTarPerm extractEntry LICENSE
+436 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+437 silly gunzTarPerm extractEntry index.js
+438 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+439 silly gunzTarPerm extractEntry examples/client.js
+440 silly gunzTarPerm extractEntry examples/proxy_server.js
+441 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.2988035953603685\tmp.tgz
+442 silly lockFile 7b5227f0-04529-0-2988035953603685-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.2988035953603685\package
+443 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.2988035953603685\package C:\Users\him\AppData\Roaming\npm-cache\7b5227f0-04529-0-2988035953603685-package.lock
+444 silly lockFile bbbd5094-04529-0-2988035953603685-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.2988035953603685\tmp.tgz
+445 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.2988035953603685\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\bbbd5094-04529-0-2988035953603685-tmp-tgz.lock
+446 silly gunzTarPerm modes [ '755', '644' ]
+447 silly gunzTarPerm extractEntry .travis.yml
+448 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+449 silly gunzTarPerm extractEntry Makefile
+450 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+451 silly gunzTarPerm extractEntry package.json
+452 http 200 https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz
+453 silly gunzTarPerm extractEntry examples/server.js
+454 silly gunzTarPerm extractEntry examples/haproxy.conf
+455 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\tmp.tgz
+456 silly lockFile 2d1b33e6-04529-0-8733715808484703-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package
+457 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package C:\Users\him\AppData\Roaming\npm-cache\2d1b33e6-04529-0-8733715808484703-package.lock
+458 silly lockFile fa7dca81-04529-0-8733715808484703-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\tmp.tgz
+459 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\fa7dca81-04529-0-8733715808484703-tmp-tgz.lock
+460 silly gunzTarPerm extractEntry .npmignore
+461 silly gunzTarPerm extractEntry README.md
+462 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\tmp.tgz
+463 silly lockFile 9d8acc66-04528-0-3451553510967642-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package
+464 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package C:\Users\him\AppData\Roaming\npm-cache\9d8acc66-04528-0-3451553510967642-package.lock
+465 silly lockFile bb8690c8-04528-0-3451553510967642-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\tmp.tgz
+466 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\bb8690c8-04528-0-3451553510967642-tmp-tgz.lock
+467 silly gunzTarPerm modes [ '755', '644' ]
+468 silly gunzTarPerm modes [ '755', '644' ]
+469 silly gunzTarPerm extractEntry lib/isemail.js
+470 silly gunzTarPerm modified mode [ 'lib/isemail.js', 438, 420 ]
+471 silly gunzTarPerm extractEntry test/isemail.js
+472 silly gunzTarPerm modified mode [ 'test/isemail.js', 438, 420 ]
+473 silly gunzTarPerm extractEntry test/mocha.opts
+474 silly gunzTarPerm modified mode [ 'test/mocha.opts', 438, 420 ]
+475 silly gunzTarPerm extractEntry test/tests.json
+476 silly gunzTarPerm modified mode [ 'test/tests.json', 438, 420 ]
+477 silly gunzTarPerm extractEntry package.json
+478 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+479 silly gunzTarPerm extractEntry package.json
+480 silly gunzTarPerm extractEntry examples/sse.html
+481 silly gunzTarPerm extractEntry examples/ws.html
+482 silly gunzTarPerm extractEntry LICENSE
+483 silly gunzTarPerm extractEntry verify.js
+484 silly gunzTarPerm extractEntry .npmignore
+485 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+486 silly gunzTarPerm extractEntry README.md
+487 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+488 silly gunzTarPerm extractEntry .npmignore
+489 silly gunzTarPerm extractEntry README.md
+490 http 200 https://registry.npmjs.org/jws/-/jws-3.1.4.tgz
+491 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\tmp.tgz
+492 silly lockFile 67b464a8-04530-0-3741825215984136-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package
+493 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package C:\Users\him\AppData\Roaming\npm-cache\67b464a8-04530-0-3741825215984136-package.lock
+494 silly lockFile 61f7cc7f-04530-0-3741825215984136-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\tmp.tgz
+495 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\61f7cc7f-04530-0-3741825215984136-tmp-tgz.lock
+496 http 200 https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz
+497 silly gunzTarPerm extractEntry sign.js
+498 http 200 https://registry.npmjs.org/moment/-/moment-2.18.1.tgz
+499 silly gunzTarPerm extractEntry lib/faye/eventsource.js
+500 silly gunzTarPerm extractEntry lib/faye/websocket.js
+501 silly gunzTarPerm modes [ '755', '644' ]
+502 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\tmp.tgz
+503 silly lockFile a89b1a73-04530-0-5453076416160911-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package
+504 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package C:\Users\him\AppData\Roaming\npm-cache\a89b1a73-04530-0-5453076416160911-package.lock
+505 silly lockFile a7e4ab19-04530-0-5453076416160911-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\tmp.tgz
+506 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\a7e4ab19-04530-0-5453076416160911-tmp-tgz.lock
+507 silly gunzTarPerm extractEntry LICENSE
+508 silly gunzTarPerm extractEntry LICENSE
+509 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+510 silly gunzTarPerm extractEntry index.js
+511 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+512 silly gunzTarPerm modes [ '755', '644' ]
+513 silly gunzTarPerm extractEntry package.json
+514 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+515 silly lockFile a460bbc9-4526-0-11909212451428175-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package
+516 silly lockFile a460bbc9-4526-0-11909212451428175-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package
+517 silly gunzTarPerm extractEntry lib/faye/websocket/api.js
+518 silly gunzTarPerm extractEntry lib/faye/websocket/client.js
+519 silly gunzTarPerm extractEntry .travis.yml
+520 silly gunzTarPerm extractEntry images/hoek.png
+521 silly lockFile 2bf7b57d-4526-0-11909212451428175-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\tmp.tgz
+522 silly lockFile 2bf7b57d-4526-0-11909212451428175-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\tmp.tgz
+523 silly gunzTarPerm extractEntry package.json
+524 silly gunzTarPerm extractEntry .npmignore
+525 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+526 silly gunzTarPerm extractEntry LICENSE
+527 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+528 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\buffer-equal-constant-time\\1.0.1\\package.tgz',
+528 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604526-0.11909212451428175\\package' ]
+529 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+530 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package
+531 silly lockFile a460bbc9-4526-0-11909212451428175-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package
+532 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package C:\Users\him\AppData\Roaming\npm-cache\a460bbc9-4526-0-11909212451428175-package.lock
+533 silly lockFile 47e0fbf8--constant-time-1-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+534 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\47e0fbf8--constant-time-1-0-1-package-tgz.lock
+535 silly lockFile 8f74f4ff-04527-0-7684197800699621-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package
+536 silly lockFile 8f74f4ff-04527-0-7684197800699621-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package
+537 silly gunzTarPerm extractEntry README.md
+538 silly gunzTarPerm extractEntry LICENSE
+539 silly lockFile f9471dd6-04527-0-7684197800699621-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\tmp.tgz
+540 silly lockFile f9471dd6-04527-0-7684197800699621-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\tmp.tgz
+541 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\ecdsa-sig-formatter\\1.0.9\\package.tgz',
+541 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604527-0.7684197800699621\\package' ]
+542 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+543 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package
+544 silly lockFile 8f74f4ff-04527-0-7684197800699621-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package
+545 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package C:\Users\him\AppData\Roaming\npm-cache\8f74f4ff-04527-0-7684197800699621-package.lock
+546 silly lockFile 12507e41--sig-formatter-1-0-9-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+547 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz C:\Users\him\AppData\Roaming\npm-cache\12507e41--sig-formatter-1-0-9-package-tgz.lock
+548 silly gunzTarPerm extractEntry index.js
+549 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+550 silly gunzTarPerm extractEntry lib/data-stream.js
+551 silly gunzTarPerm modified mode [ 'lib/data-stream.js', 436, 420 ]
+552 silly gunzTarPerm extractEntry lib/faye/websocket/api/event.js
+553 silly gunzTarPerm extractEntry lib/faye/websocket/api/event_target.js
+554 silly gunzTarPerm extractEntry index.js
+555 silly gunzTarPerm extractEntry decode.js
+556 silly gunzTarPerm extractEntry index.js
+557 silly gunzTarPerm extractEntry lib/sign-stream.js
+558 silly gunzTarPerm modified mode [ 'lib/sign-stream.js', 436, 420 ]
+559 silly gunzTarPerm extractEntry lib/tostring.js
+560 silly gunzTarPerm modified mode [ 'lib/tostring.js', 436, 420 ]
+561 http 200 https://registry.npmjs.org/ms/-/ms-0.7.3.tgz
+562 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\tmp.tgz
+563 silly lockFile 3ecc68ea-04540-0-2732617147266865-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package
+564 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package C:\Users\him\AppData\Roaming\npm-cache\3ecc68ea-04540-0-2732617147266865-package.lock
+565 silly lockFile abde1d2f-04540-0-2732617147266865-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\tmp.tgz
+566 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\abde1d2f-04540-0-2732617147266865-tmp-tgz.lock
+567 silly gunzTarPerm extractEntry bin/changelog
+568 silly gunzTarPerm extractEntry CHANGELOG.md
+569 silly gunzTarPerm modes [ '755', '644' ]
+570 silly gunzTarPerm extractEntry lib/verify-stream.js
+571 silly gunzTarPerm modified mode [ 'lib/verify-stream.js', 436, 420 ]
+572 silly gunzTarPerm extractEntry readme.md
+573 silly gunzTarPerm modified mode [ 'readme.md', 436, 420 ]
+574 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.6118056969717145\tmp.tgz
+575 silly lockFile c2fce5f1-04529-0-6118056969717145-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.6118056969717145\package
+576 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.6118056969717145\package C:\Users\him\AppData\Roaming\npm-cache\c2fce5f1-04529-0-6118056969717145-package.lock
+577 silly lockFile 8882397f-04529-0-6118056969717145-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.6118056969717145\tmp.tgz
+578 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.6118056969717145\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\8882397f-04529-0-6118056969717145-tmp-tgz.lock
+579 silly gunzTarPerm extractEntry package.json
+580 silly gunzTarPerm modes [ '755', '644' ]
+581 silly gunzTarPerm extractEntry index.js
+582 silly gunzTarPerm extractEntry license.md
+583 silly gunzTarPerm extractEntry CHANGELOG.md
+584 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+585 silly gunzTarPerm extractEntry lib/escape.js
+586 silly gunzTarPerm extractEntry lib/index.js
+587 silly gunzTarPerm extractEntry package.json
+588 silly gunzTarPerm extractEntry lib/JsonWebTokenError.js
+589 silly gunzTarPerm extractEntry lib/NotBeforeError.js
+590 silly gunzTarPerm extractEntry .npmignore
+591 silly gunzTarPerm extractEntry README.md
+592 silly gunzTarPerm extractEntry readme.md
+593 silly lockFile 2d1b33e6-04529-0-8733715808484703-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package
+594 silly lockFile 2d1b33e6-04529-0-8733715808484703-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package
+595 silly lockFile fa7dca81-04529-0-8733715808484703-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\tmp.tgz
+596 silly lockFile fa7dca81-04529-0-8733715808484703-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\tmp.tgz
+597 silly gunzTarPerm extractEntry CONTRIBUTING.md
+598 silly gunzTarPerm extractEntry test/escaper.js
+599 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\jwa\\1.1.5\\package.tgz',
+599 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604529-0.8733715808484703\\package' ]
+600 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+601 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package
+602 silly lockFile 2d1b33e6-04529-0-8733715808484703-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package
+603 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package C:\Users\him\AppData\Roaming\npm-cache\2d1b33e6-04529-0-8733715808484703-package.lock
+604 silly lockFile 32449cbc--npm-cache-jwa-1-1-5-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+605 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz C:\Users\him\AppData\Roaming\npm-cache\32449cbc--npm-cache-jwa-1-1-5-package-tgz.lock
+606 silly gunzTarPerm extractEntry LICENSE
+607 silly gunzTarPerm extractEntry generate-readme-toc.js
+608 silly lockFile a460bbc9-4526-0-11909212451428175-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package
+609 silly lockFile a460bbc9-4526-0-11909212451428175-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604526-0.11909212451428175\package
+610 silly gunzTarPerm extractEntry lib/TokenExpiredError.js
+611 silly gunzTarPerm extractEntry lib/timespan.js
+612 silly lockFile 47e0fbf8--constant-time-1-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+613 silly lockFile 47e0fbf8--constant-time-1-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+614 silly gunzTarPerm extractEntry test/index.js
+615 silly gunzTarPerm extractEntry test/modules/test1.js
+616 silly lockFile e4bc1af2-qual-constant-time-1-0-1-package C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package
+617 verbose lock C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package C:\Users\him\AppData\Roaming\npm-cache\e4bc1af2-qual-constant-time-1-0-1-package.lock
+618 silly lockFile a89b1a73-04530-0-5453076416160911-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package
+619 silly lockFile a89b1a73-04530-0-5453076416160911-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package
+620 silly gunzTarPerm extractEntry .eslintignore
+621 silly gunzTarPerm extractEntry examples/conditionalRequire.js
+622 silly lockFile a7e4ab19-04530-0-5453076416160911-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\tmp.tgz
+623 silly lockFile a7e4ab19-04530-0-5453076416160911-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\tmp.tgz
+624 silly gunzTarPerm extractEntry .travis.yml
+625 silly gunzTarPerm extractEntry .jshintrc
+626 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\lodash.once\\4.1.1\\package.tgz',
+626 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604530-0.5453076416160911\\package' ]
+627 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+628 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package
+629 silly lockFile a89b1a73-04530-0-5453076416160911-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package
+630 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package C:\Users\him\AppData\Roaming\npm-cache\a89b1a73-04530-0-5453076416160911-package.lock
+631 silly lockFile 423205f3-he-lodash-once-4-1-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+632 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\423205f3-he-lodash-once-4-1-1-package-tgz.lock
+633 silly lockFile e4bc1af2-qual-constant-time-1-0-1-package C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package
+634 silly lockFile e4bc1af2-qual-constant-time-1-0-1-package C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package
+635 silly lockFile 8f74f4ff-04527-0-7684197800699621-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package
+636 silly lockFile 8f74f4ff-04527-0-7684197800699621-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.7684197800699621\package
+637 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+638 silly lockFile 93d78778-qual-constant-time-1-0-1-package tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package
+639 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package C:\Users\him\AppData\Roaming\npm-cache\93d78778-qual-constant-time-1-0-1-package.lock
+640 silly lockFile 47e0fbf8--constant-time-1-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+641 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\47e0fbf8--constant-time-1-0-1-package-tgz.lock
+642 silly lockFile 12507e41--sig-formatter-1-0-9-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+643 silly lockFile 12507e41--sig-formatter-1-0-9-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+644 silly gunzTarPerm extractEntry test/async_sign.tests.js
+645 silly gunzTarPerm extractEntry test/invalid_exp.tests.js
+646 silly gunzTarPerm modes [ '755', '644' ]
+647 silly lockFile 0f5dfc2b-cdsa-sig-formatter-1-0-9-package C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package
+648 verbose lock C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package C:\Users\him\AppData\Roaming\npm-cache\0f5dfc2b-cdsa-sig-formatter-1-0-9-package.lock
+649 silly gunzTarPerm extractEntry examples/customMessage.js
+650 silly gunzTarPerm extractEntry examples/multipleWhen.js
+651 silly gunzTarPerm extractEntry package.json
+652 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+653 silly gunzTarPerm extractEntry .npmignore
+654 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+655 silly gunzTarPerm extractEntry README.md
+656 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+657 silly gunzTarPerm extractEntry test/verify.tests.js
+658 silly gunzTarPerm extractEntry test/issue_147.tests.js
+659 silly lockFile 3ecc68ea-04540-0-2732617147266865-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package
+660 silly lockFile 3ecc68ea-04540-0-2732617147266865-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package
+661 silly lockFile abde1d2f-04540-0-2732617147266865-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\tmp.tgz
+662 silly lockFile abde1d2f-04540-0-2732617147266865-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\tmp.tgz
+663 silly gunzTarPerm extractEntry .travis.yml
+664 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\ms\\0.7.3\\package.tgz',
+664 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604540-0.2732617147266865\\package' ]
+665 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+666 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package
+667 silly lockFile 3ecc68ea-04540-0-2732617147266865-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package
+668 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package C:\Users\him\AppData\Roaming\npm-cache\3ecc68ea-04540-0-2732617147266865-package.lock
+669 silly lockFile c089334e-g-npm-cache-ms-0-7-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+670 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz C:\Users\him\AppData\Roaming\npm-cache\c089334e-g-npm-cache-ms-0-7-3-package-tgz.lock
+671 silly lockFile 0f5dfc2b-cdsa-sig-formatter-1-0-9-package C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package
+672 silly lockFile 0f5dfc2b-cdsa-sig-formatter-1-0-9-package C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package
+673 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+674 silly lockFile 90592b0b-cdsa-sig-formatter-1-0-9-package tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package
+675 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package C:\Users\him\AppData\Roaming\npm-cache\90592b0b-cdsa-sig-formatter-1-0-9-package.lock
+676 silly lockFile 12507e41--sig-formatter-1-0-9-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+677 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz C:\Users\him\AppData\Roaming\npm-cache\12507e41--sig-formatter-1-0-9-package-tgz.lock
+678 silly gunzTarPerm extractEntry index.js
+679 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+680 silly gunzTarPerm extractEntry test.js
+681 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+682 silly gunzTarPerm modes [ '755', '644' ]
+683 silly gunzTarPerm extractEntry images/joi.png
+684 silly gunzTarPerm modified mode [ 'images/joi.png', 509, 493 ]
+685 silly gunzTarPerm extractEntry images/validation.png
+686 silly gunzTarPerm modified mode [ 'images/validation.png', 509, 493 ]
+687 silly gunzTarPerm extractEntry .travis.yml
+688 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+689 silly gunzTarPerm extractEntry LICENSE.txt
+690 silly gunzTarPerm modified mode [ 'LICENSE.txt', 438, 420 ]
+691 silly gunzTarPerm extractEntry package.json
+692 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+693 silly lockFile 2d1b33e6-04529-0-8733715808484703-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package
+694 silly lockFile 2d1b33e6-04529-0-8733715808484703-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604529-0.8733715808484703\package
+695 silly gunzTarPerm extractEntry README.md
+696 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+697 silly gunzTarPerm extractEntry LICENSE
+698 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+699 silly lockFile 32449cbc--npm-cache-jwa-1-1-5-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+700 silly lockFile 32449cbc--npm-cache-jwa-1-1-5-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+701 silly gunzTarPerm extractEntry lib/alternatives.js
+702 silly lockFile 750c12ac-ming-npm-cache-jwa-1-1-5-package C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package
+703 verbose lock C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package C:\Users\him\AppData\Roaming\npm-cache\750c12ac-ming-npm-cache-jwa-1-1-5-package.lock
+704 silly lockFile a89b1a73-04530-0-5453076416160911-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package
+705 silly lockFile a89b1a73-04530-0-5453076416160911-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.5453076416160911\package
+706 silly lockFile 423205f3-he-lodash-once-4-1-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+707 silly lockFile 423205f3-he-lodash-once-4-1-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+708 silly gunzTarPerm extractEntry src/ecdsa-sig-formatter.js
+709 silly gunzTarPerm modified mode [ 'src/ecdsa-sig-formatter.js', 438, 420 ]
+710 silly lockFile 7c29c98e--cache-lodash-once-4-1-1-package C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package
+711 verbose lock C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package C:\Users\him\AppData\Roaming\npm-cache\7c29c98e--cache-lodash-once-4-1-1-package.lock
+712 silly gunzTarPerm extractEntry lib/binary.js
+713 silly gunzTarPerm extractEntry lib/boolean.js
+714 silly lockFile 750c12ac-ming-npm-cache-jwa-1-1-5-package C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package
+715 silly lockFile 750c12ac-ming-npm-cache-jwa-1-1-5-package C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package
+716 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+717 silly lockFile 7f9ca96d-ming-npm-cache-jwa-1-1-5-package tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package
+718 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package C:\Users\him\AppData\Roaming\npm-cache\7f9ca96d-ming-npm-cache-jwa-1-1-5-package.lock
+719 silly lockFile 32449cbc--npm-cache-jwa-1-1-5-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+720 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz C:\Users\him\AppData\Roaming\npm-cache\32449cbc--npm-cache-jwa-1-1-5-package-tgz.lock
+721 silly lockFile 67b464a8-04530-0-3741825215984136-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package
+722 silly lockFile 67b464a8-04530-0-3741825215984136-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package
+723 silly lockFile 3ecc68ea-04540-0-2732617147266865-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package
+724 silly lockFile 3ecc68ea-04540-0-2732617147266865-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.2732617147266865\package
+725 silly lockFile 61f7cc7f-04530-0-3741825215984136-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\tmp.tgz
+726 silly lockFile 61f7cc7f-04530-0-3741825215984136-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\tmp.tgz
+727 silly lockFile c089334e-g-npm-cache-ms-0-7-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+728 silly lockFile c089334e-g-npm-cache-ms-0-7-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+729 silly gunzTarPerm modes [ '755', '644' ]
+730 silly lockFile 7c29c98e--cache-lodash-once-4-1-1-package C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package
+731 silly lockFile 7c29c98e--cache-lodash-once-4-1-1-package C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package
+732 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\jws\\3.1.4\\package.tgz',
+732 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604530-0.3741825215984136\\package' ]
+733 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+734 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package
+735 silly lockFile 67b464a8-04530-0-3741825215984136-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package
+736 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package C:\Users\him\AppData\Roaming\npm-cache\67b464a8-04530-0-3741825215984136-package.lock
+737 silly lockFile d705ffe7--npm-cache-jws-3-1-4-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+738 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz C:\Users\him\AppData\Roaming\npm-cache\d705ffe7--npm-cache-jws-3-1-4-package-tgz.lock
+739 silly lockFile ec2fb6ae-9604527-0-80685881129466-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package
+740 silly lockFile ec2fb6ae-9604527-0-80685881129466-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package
+741 silly lockFile 3824e96f-aming-npm-cache-ms-0-7-3-package C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package
+742 verbose lock C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package C:\Users\him\AppData\Roaming\npm-cache\3824e96f-aming-npm-cache-ms-0-7-3-package.lock
+743 silly gunzTarPerm extractEntry src/param-bytes-for-alg.js
+744 silly gunzTarPerm modified mode [ 'src/param-bytes-for-alg.js', 438, 420 ]
+745 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+746 silly lockFile 36bdb202--cache-lodash-once-4-1-1-package tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package
+747 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package C:\Users\him\AppData\Roaming\npm-cache\36bdb202--cache-lodash-once-4-1-1-package.lock
+748 silly lockFile 423205f3-he-lodash-once-4-1-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+749 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\423205f3-he-lodash-once-4-1-1-package-tgz.lock
+750 http 200 https://registry.npmjs.org/node-forge/-/node-forge-0.7.1.tgz
+751 silly lockFile 29b113bf-9604527-0-80685881129466-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\tmp.tgz
+752 silly lockFile 29b113bf-9604527-0-80685881129466-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\tmp.tgz
+753 silly gunzTarPerm extractEntry lib/cast.js
+754 silly gunzTarPerm extractEntry lib/date.js
+755 silly gunzTarPerm extractEntry package.json
+756 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+757 silly gunzTarPerm extractEntry test/issue_196.tests.js
+758 silly gunzTarPerm extractEntry test/iat.tests.js
+759 silly gunzTarPerm modes [ '755', '644' ]
+760 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\faye-websocket\\0.9.3\\package.tgz',
+760 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604527-0.80685881129466\\package' ]
+761 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+762 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package
+763 silly lockFile ec2fb6ae-9604527-0-80685881129466-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package
+764 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package C:\Users\him\AppData\Roaming\npm-cache\ec2fb6ae-9604527-0-80685881129466-package.lock
+765 silly lockFile 833ee03c-faye-websocket-0-9-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+766 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz C:\Users\him\AppData\Roaming\npm-cache\833ee03c-faye-websocket-0-9-3-package-tgz.lock
+767 silly gunzTarPerm extractEntry .npmignore
+768 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+769 silly gunzTarPerm extractEntry README.md
+770 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+771 silly lockFile 3824e96f-aming-npm-cache-ms-0-7-3-package C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package
+772 silly lockFile 3824e96f-aming-npm-cache-ms-0-7-3-package C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package
+773 silly gunzTarPerm extractEntry package.json
+774 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+775 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+776 silly lockFile 37d9c70d-aming-npm-cache-ms-0-7-3-package tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package
+777 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package C:\Users\him\AppData\Roaming\npm-cache\37d9c70d-aming-npm-cache-ms-0-7-3-package.lock
+778 silly lockFile c089334e-g-npm-cache-ms-0-7-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+779 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz C:\Users\him\AppData\Roaming\npm-cache\c089334e-g-npm-cache-ms-0-7-3-package-tgz.lock
+780 silly gunzTarPerm extractEntry lib/array.js
+781 silly gunzTarPerm extractEntry lib/index.js
+782 silly gunzTarPerm modes [ '755', '644' ]
+783 silly gunzTarPerm extractEntry test/jwt.hs.tests.js
+784 silly gunzTarPerm extractEntry test/jwt.rs.tests.js
+785 silly gunzTarPerm extractEntry test/modules/test2.js
+786 silly gunzTarPerm extractEntry test/modules/test3.js
+787 silly gunzTarPerm extractEntry README.md
+788 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+789 silly gunzTarPerm extractEntry LICENSE
+790 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+791 silly gunzTarPerm extractEntry LICENSE
+792 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+793 silly gunzTarPerm extractEntry index.js
+794 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+795 silly gunzTarPerm extractEntry lib/language.js
+796 silly gunzTarPerm extractEntry lib/number.js
+797 silly gunzTarPerm extractEntry package.json
+798 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+799 silly gunzTarPerm extractEntry index.js
+800 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+801 silly gunzTarPerm extractEntry readme.md
+802 silly gunzTarPerm modified mode [ 'readme.md', 438, 420 ]
+803 silly gunzTarPerm extractEntry test/buffer.tests.js
+804 silly gunzTarPerm extractEntry test/non_object_values.tests.js
+805 silly gunzTarPerm extractEntry index.js
+806 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+807 silly gunzTarPerm extractEntry test/modules/ignore.txt
+808 silly gunzTarPerm extractEntry test/undefined_secretOrPublickey.tests.js
+809 silly gunzTarPerm extractEntry test/expires_format.tests.js
+810 silly lockFile 93d78778-qual-constant-time-1-0-1-package tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package
+811 silly lockFile 93d78778-qual-constant-time-1-0-1-package tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package
+812 silly lockFile 47e0fbf8--constant-time-1-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+813 silly lockFile 47e0fbf8--constant-time-1-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+814 verbose chmod C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz 644
+815 silly chown skipping for windows C:\Users\him\AppData\Roaming\npm-cache\buffer-equal-constant-time\1.0.1\package.tgz
+816 silly gunzTarPerm extractEntry test/set_headers.tests.js
+817 silly gunzTarPerm extractEntry test/encoding.tests.js
+818 silly lockFile 511ba7d3-er-equal-constant-time-1-0-1-tgz https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz
+819 silly lockFile 511ba7d3-er-equal-constant-time-1-0-1-tgz https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz
+820 silly gunzTarPerm extractEntry test/rsa-public-key.tests.js
+821 silly gunzTarPerm extractEntry test/issue_70.tests.js
+822 silly lockFile ec2fb6ae-9604527-0-80685881129466-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package
+823 silly lockFile ec2fb6ae-9604527-0-80685881129466-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604527-0.80685881129466\package
+824 silly lockFile 67b464a8-04530-0-3741825215984136-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package
+825 silly lockFile 67b464a8-04530-0-3741825215984136-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604530-0.3741825215984136\package
+826 silly lockFile 833ee03c-faye-websocket-0-9-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+827 silly lockFile 833ee03c-faye-websocket-0-9-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+828 silly lockFile d705ffe7--npm-cache-jws-3-1-4-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+829 silly lockFile d705ffe7--npm-cache-jws-3-1-4-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+830 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.09587472165003419\tmp.tgz
+831 silly lockFile bff590b5-4531-0-09587472165003419-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.09587472165003419\package
+832 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.09587472165003419\package C:\Users\him\AppData\Roaming\npm-cache\bff590b5-4531-0-09587472165003419-package.lock
+833 silly lockFile 2403a2fe-4531-0-09587472165003419-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.09587472165003419\tmp.tgz
+834 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.09587472165003419\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\2403a2fe-4531-0-09587472165003419-tmp-tgz.lock
+835 silly lockFile a2d94b76-che-faye-websocket-0-9-3-package C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package
+836 verbose lock C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package C:\Users\him\AppData\Roaming\npm-cache\a2d94b76-che-faye-websocket-0-9-3-package.lock
+837 silly lockFile 0594c2cd-ming-npm-cache-jws-3-1-4-package C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package
+838 verbose lock C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package C:\Users\him\AppData\Roaming\npm-cache\0594c2cd-ming-npm-cache-jws-3-1-4-package.lock
+839 silly gunzTarPerm extractEntry test/wrong_alg.tests.js
+840 silly gunzTarPerm extractEntry test/noTimestamp.tests.js
+841 silly gunzTarPerm modes [ '755', '644' ]
+842 silly lockFile 90592b0b-cdsa-sig-formatter-1-0-9-package tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package
+843 silly lockFile 90592b0b-cdsa-sig-formatter-1-0-9-package tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package
+844 silly gunzTarPerm extractEntry package.json
+845 silly lockFile 12507e41--sig-formatter-1-0-9-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+846 silly lockFile 12507e41--sig-formatter-1-0-9-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+847 silly lockFile 37d9c70d-aming-npm-cache-ms-0-7-3-package tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package
+848 silly lockFile 37d9c70d-aming-npm-cache-ms-0-7-3-package tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package
+849 verbose chmod C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz 644
+850 silly chown skipping for windows C:\Users\him\AppData\Roaming\npm-cache\ecdsa-sig-formatter\1.0.9\package.tgz
+851 silly gunzTarPerm extractEntry README.md
+852 silly gunzTarPerm extractEntry LICENSE
+853 silly lockFile c089334e-g-npm-cache-ms-0-7-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+854 silly lockFile c089334e-g-npm-cache-ms-0-7-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+855 silly lockFile a46b1650-er-ecdsa-sig-formatter-1-0-9-tgz https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz
+856 silly lockFile a46b1650-er-ecdsa-sig-formatter-1-0-9-tgz https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.9.tgz
+857 http 200 https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz
+858 verbose chmod C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz 644
+859 silly chown skipping for windows C:\Users\him\AppData\Roaming\npm-cache\ms\0.7.3\package.tgz
+860 http 200 https://registry.npmjs.org/topo/-/topo-1.1.0.tgz
+861 silly lockFile c7a6b88d-gistry-npmjs-org-ms-ms-0-7-3-tgz https://registry.npmjs.org/ms/-/ms-0.7.3.tgz
+862 silly lockFile c7a6b88d-gistry-npmjs-org-ms-ms-0-7-3-tgz https://registry.npmjs.org/ms/-/ms-0.7.3.tgz
+863 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\tmp.tgz
+864 silly lockFile b898aefe-604541-0-555945364292711-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package
+865 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package C:\Users\him\AppData\Roaming\npm-cache\b898aefe-604541-0-555945364292711-package.lock
+866 silly lockFile 617e1636-604541-0-555945364292711-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\tmp.tgz
+867 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\617e1636-604541-0-555945364292711-tmp-tgz.lock
+868 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\tmp.tgz
+869 silly lockFile c169a72d-04541-0-5654047867283225-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package
+870 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package C:\Users\him\AppData\Roaming\npm-cache\c169a72d-04541-0-5654047867283225-package.lock
+871 silly lockFile 18158715-04541-0-5654047867283225-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\tmp.tgz
+872 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\18158715-04541-0-5654047867283225-tmp-tgz.lock
+873 silly lockFile 0594c2cd-ming-npm-cache-jws-3-1-4-package C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package
+874 silly lockFile 0594c2cd-ming-npm-cache-jws-3-1-4-package C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package
+875 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+876 silly lockFile 93050921-ming-npm-cache-jws-3-1-4-package tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package
+877 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package C:\Users\him\AppData\Roaming\npm-cache\93050921-ming-npm-cache-jws-3-1-4-package.lock
+878 silly lockFile d705ffe7--npm-cache-jws-3-1-4-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+879 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz C:\Users\him\AppData\Roaming\npm-cache\d705ffe7--npm-cache-jws-3-1-4-package-tgz.lock
+880 silly gunzTarPerm extractEntry test/rsa-public-key.pem
+881 silly gunzTarPerm extractEntry test/rsa-private.pem
+882 silly gunzTarPerm modes [ '755', '644' ]
+883 silly gunzTarPerm modes [ '755', '644' ]
+884 silly lockFile a2d94b76-che-faye-websocket-0-9-3-package C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package
+885 silly lockFile a2d94b76-che-faye-websocket-0-9-3-package C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package
+886 silly gunzTarPerm extractEntry lib/object.js
+887 silly gunzTarPerm extractEntry lib/ref.js
+888 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+889 silly lockFile 5fe3ad98-che-faye-websocket-0-9-3-package tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package
+890 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package C:\Users\him\AppData\Roaming\npm-cache\5fe3ad98-che-faye-websocket-0-9-3-package.lock
+891 silly lockFile 833ee03c-faye-websocket-0-9-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+892 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz C:\Users\him\AppData\Roaming\npm-cache\833ee03c-faye-websocket-0-9-3-package-tgz.lock
+893 silly gunzTarPerm modes [ '755', '644' ]
+894 silly gunzTarPerm extractEntry package.json
+895 silly gunzTarPerm extractEntry package.json
+896 silly gunzTarPerm modes [ '755', '644' ]
+897 silly lockFile 2eda1a3c-04528-0-6917357726488262-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package
+898 silly lockFile 2eda1a3c-04528-0-6917357726488262-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package
+899 silly gunzTarPerm extractEntry ender.js
+900 silly gunzTarPerm extractEntry moment.js
+901 silly lockFile 7f9ca96d-ming-npm-cache-jwa-1-1-5-package tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package
+902 silly lockFile 7f9ca96d-ming-npm-cache-jwa-1-1-5-package tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package
+903 silly lockFile b37651a6-04528-0-6917357726488262-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\tmp.tgz
+904 silly lockFile b37651a6-04528-0-6917357726488262-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\tmp.tgz
+905 silly lockFile 32449cbc--npm-cache-jwa-1-1-5-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+906 silly lockFile 32449cbc--npm-cache-jwa-1-1-5-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+907 silly gunzTarPerm extractEntry .npmignore
+908 silly gunzTarPerm extractEntry README.md
+909 silly gunzTarPerm extractEntry README.md
+910 silly gunzTarPerm extractEntry LICENSE
+911 silly gunzTarPerm extractEntry browser.js
+912 silly gunzTarPerm extractEntry index.js
+913 silly gunzTarPerm extractEntry test.js
+914 silly gunzTarPerm extractEntry .travis.yml
+915 silly gunzTarPerm extractEntry package.json
+916 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+917 http 200 https://registry.npmjs.org/websocket-driver/-/websocket-driver-0.6.5.tgz
+918 verbose chmod C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz 644
+919 silly chown skipping for windows C:\Users\him\AppData\Roaming\npm-cache\jwa\1.1.5\package.tgz
+920 silly gunzTarPerm extractEntry test/rsa-public.pem
+921 silly gunzTarPerm extractEntry test/pub.pem
+922 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\isemail\\1.2.0\\package.tgz',
+922 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604528-0.6917357726488262\\package' ]
+923 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package.tgz
+924 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package
+925 silly lockFile 2eda1a3c-04528-0-6917357726488262-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package
+926 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package C:\Users\him\AppData\Roaming\npm-cache\2eda1a3c-04528-0-6917357726488262-package.lock
+927 silly lockFile 4c2ba6b3--cache-isemail-1-2-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package.tgz
+928 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package.tgz C:\Users\him\AppData\Roaming\npm-cache\4c2ba6b3--cache-isemail-1-2-0-package-tgz.lock
+929 silly gunzTarPerm extractEntry package.json
+930 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+931 silly lockFile fbd08253-stry-npmjs-org-jwa-jwa-1-1-5-tgz https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz
+932 silly lockFile fbd08253-stry-npmjs-org-jwa-jwa-1-1-5-tgz https://registry.npmjs.org/jwa/-/jwa-1.1.5.tgz
+933 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604542-0.5591531069949269\tmp.tgz
+934 silly lockFile c8258e8b-04542-0-5591531069949269-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604542-0.5591531069949269\package
+935 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604542-0.5591531069949269\package C:\Users\him\AppData\Roaming\npm-cache\c8258e8b-04542-0-5591531069949269-package.lock
+936 silly lockFile 4c9fd839-04542-0-5591531069949269-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604542-0.5591531069949269\tmp.tgz
+937 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604542-0.5591531069949269\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\4c9fd839-04542-0-5591531069949269-tmp-tgz.lock
+938 silly lockFile 36bdb202--cache-lodash-once-4-1-1-package tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package
+939 silly lockFile 36bdb202--cache-lodash-once-4-1-1-package tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package
+940 silly gunzTarPerm extractEntry .npmignore
+941 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+942 silly gunzTarPerm extractEntry LICENSE
+943 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+944 silly lockFile 423205f3-he-lodash-once-4-1-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+945 silly lockFile 423205f3-he-lodash-once-4-1-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+946 silly gunzTarPerm extractEntry README.md
+947 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+948 silly gunzTarPerm extractEntry CHANGELOG.md
+949 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 438, 420 ]
+950 silly gunzTarPerm modes [ '755', '644' ]
+951 verbose chmod C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz 644
+952 silly chown skipping for windows C:\Users\him\AppData\Roaming\npm-cache\lodash.once\4.1.1\package.tgz
+953 silly gunzTarPerm extractEntry LICENSE
+954 silly gunzTarPerm extractEntry CONTRIBUTING.md
+955 http 200 https://registry.npmjs.org/websocket-extensions/-/websocket-extensions-0.1.1.tgz
+956 silly lockFile 0a4fc233-odash-once-lodash-once-4-1-1-tgz https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz
+957 silly lockFile 0a4fc233-odash-once-lodash-once-4-1-1-tgz https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz
+958 silly gunzTarPerm extractEntry package.js
+959 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\tmp.tgz
+960 silly lockFile 0f2d8a4b-4544-0-24890485731884837-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\package
+961 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\package C:\Users\him\AppData\Roaming\npm-cache\0f2d8a4b-4544-0-24890485731884837-package.lock
+962 silly lockFile dd62f2a5-4544-0-24890485731884837-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\tmp.tgz
+963 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\dd62f2a5-4544-0-24890485731884837-tmp-tgz.lock
+964 silly gunzTarPerm extractEntry package.json
+965 silly gunzTarPerm extractEntry index.js
+966 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+967 silly gunzTarPerm extractEntry CHANGELOG.md
+968 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 438, 420 ]
+969 silly gunzTarPerm modes [ '755', '644' ]
+970 silly gunzTarPerm extractEntry README.md
+971 silly gunzTarPerm extractEntry CHANGELOG.md
+972 silly gunzTarPerm extractEntry examples/autobahn_client.js
+973 silly gunzTarPerm modified mode [ 'examples/autobahn_client.js', 438, 420 ]
+974 silly gunzTarPerm extractEntry .travis.yml
+975 silly gunzTarPerm extractEntry lib/index.js
+976 silly gunzTarPerm extractEntry min/locales.js
+977 silly gunzTarPerm extractEntry min/locales.min.js
+978 silly gunzTarPerm extractEntry package.json
+979 http 200 https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz
+980 silly gunzTarPerm extractEntry lib/data-stream.js
+981 silly gunzTarPerm modified mode [ 'lib/data-stream.js', 438, 420 ]
+982 silly gunzTarPerm extractEntry lib/sign-stream.js
+983 silly gunzTarPerm modified mode [ 'lib/sign-stream.js', 438, 420 ]
+984 silly lockFile aef7cb84-04524-0-6296695440541953-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package
+985 silly lockFile aef7cb84-04524-0-6296695440541953-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package
+986 silly lockFile cd8e7526-04524-0-6296695440541953-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\tmp.tgz
+987 silly lockFile cd8e7526-04524-0-6296695440541953-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\tmp.tgz
+988 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\tmp.tgz
+989 silly lockFile a2a09d68-4545-0-12149233603850007-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package
+990 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package C:\Users\him\AppData\Roaming\npm-cache\a2a09d68-4545-0-12149233603850007-package.lock
+991 silly lockFile 54998b23-4545-0-12149233603850007-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\tmp.tgz
+992 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\54998b23-4545-0-12149233603850007-tmp-tgz.lock
+993 silly gunzTarPerm extractEntry README.md
+994 silly gunzTarPerm extractEntry CHANGELOG.md
+995 silly gunzTarPerm extractEntry lib/parser.js
+996 silly gunzTarPerm extractEntry lib/websocket_extensions.js
+997 silly gunzTarPerm extractEntry lib/pipeline/README.md
+998 silly gunzTarPerm extractEntry lib/pipeline/cell.js
+999 silly gunzTarPerm extractEntry lib/pipeline/functor.js
+1000 silly gunzTarPerm extractEntry lib/pipeline/index.js
+1001 silly gunzTarPerm extractEntry lib/pipeline/pledge.js
+1002 silly gunzTarPerm extractEntry lib/pipeline/ring_buffer.js
+1003 silly gunzTarPerm extractEntry CODE_OF_CONDUCT.md
+1004 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\base64url\\2.0.0\\package.tgz',
+1004 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604524-0.6296695440541953\\package' ]
+1005 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package.tgz
+1006 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package
+1007 silly lockFile aef7cb84-04524-0-6296695440541953-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package
+1008 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package C:\Users\him\AppData\Roaming\npm-cache\aef7cb84-04524-0-6296695440541953-package.lock
+1009 silly lockFile 74c6ad3a-ache-base64url-2-0-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package.tgz
+1010 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package.tgz C:\Users\him\AppData\Roaming\npm-cache\74c6ad3a-ache-base64url-2-0-0-package-tgz.lock
+1011 silly gunzTarPerm modes [ '755', '644' ]
+1012 silly gunzTarPerm extractEntry API.md
+1013 silly gunzTarPerm extractEntry test/index.js
+1014 silly gunzTarPerm extractEntry min/moment-with-locales.js
+1015 silly gunzTarPerm extractEntry package.json
+1016 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+1017 silly gunzTarPerm extractEntry .npmignore
+1018 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+1019 silly gunzTarPerm extractEntry README.md
+1020 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+1021 silly gunzTarPerm extractEntry examples/client.js
+1022 silly gunzTarPerm modified mode [ 'examples/client.js', 438, 420 ]
+1023 silly gunzTarPerm extractEntry examples/proxy_server.js
+1024 silly gunzTarPerm modified mode [ 'examples/proxy_server.js', 438, 420 ]
+1025 silly gunzTarPerm extractEntry lib/any.js
+1026 silly gunzTarPerm extractEntry lib/string.js
+1027 silly lockFile 9d8acc66-04528-0-3451553510967642-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package
+1028 silly lockFile 9d8acc66-04528-0-3451553510967642-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package
+1029 silly lockFile 2eda1a3c-04528-0-6917357726488262-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package
+1030 silly lockFile 2eda1a3c-04528-0-6917357726488262-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.6917357726488262\package
+1031 silly lockFile bb8690c8-04528-0-3451553510967642-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\tmp.tgz
+1032 silly lockFile bb8690c8-04528-0-3451553510967642-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\tmp.tgz
+1033 silly lockFile 4c2ba6b3--cache-isemail-1-2-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package.tgz
+1034 silly lockFile 4c2ba6b3--cache-isemail-1-2-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package.tgz
+1035 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\hoek\\2.16.3\\package.tgz',
+1035 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604528-0.3451553510967642\\package' ]
+1036 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package.tgz
+1037 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package
+1038 silly lockFile 9d8acc66-04528-0-3451553510967642-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package
+1039 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package C:\Users\him\AppData\Roaming\npm-cache\9d8acc66-04528-0-3451553510967642-package.lock
+1040 silly lockFile cc7ef1aa-pm-cache-hoek-2-16-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package.tgz
+1041 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package.tgz C:\Users\him\AppData\Roaming\npm-cache\cc7ef1aa-pm-cache-hoek-2-16-3-package-tgz.lock
+1042 silly lockFile 459c9c43--npm-cache-isemail-1-2-0-package C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package
+1043 verbose lock C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package C:\Users\him\AppData\Roaming\npm-cache\459c9c43--npm-cache-isemail-1-2-0-package.lock
+1044 silly lockFile 459c9c43--npm-cache-isemail-1-2-0-package C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package
+1045 silly lockFile 459c9c43--npm-cache-isemail-1-2-0-package C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package
+1046 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package.tgz
+1047 silly lockFile 40c20606--npm-cache-isemail-1-2-0-package tar://C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package
+1048 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package C:\Users\him\AppData\Roaming\npm-cache\40c20606--npm-cache-isemail-1-2-0-package.lock
+1049 silly lockFile 4c2ba6b3--cache-isemail-1-2-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package.tgz
+1050 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\isemail\1.2.0\package.tgz C:\Users\him\AppData\Roaming\npm-cache\4c2ba6b3--cache-isemail-1-2-0-package-tgz.lock
+1051 silly gunzTarPerm modes [ '755', '644' ]
+1052 silly gunzTarPerm extractEntry package.json
+1053 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1054 silly gunzTarPerm extractEntry .npmignore
+1055 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1056 silly gunzTarPerm extractEntry README.md
+1057 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1058 silly lockFile aef7cb84-04524-0-6296695440541953-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package
+1059 silly lockFile aef7cb84-04524-0-6296695440541953-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604524-0.6296695440541953\package
+1060 silly lockFile 74c6ad3a-ache-base64url-2-0-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package.tgz
+1061 silly lockFile 74c6ad3a-ache-base64url-2-0-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package.tgz
+1062 silly lockFile 9b09d7d5-pm-cache-base64url-2-0-0-package C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package
+1063 verbose lock C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package C:\Users\him\AppData\Roaming\npm-cache\9b09d7d5-pm-cache-base64url-2-0-0-package.lock
+1064 silly lockFile 9b09d7d5-pm-cache-base64url-2-0-0-package C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package
+1065 silly lockFile 9b09d7d5-pm-cache-base64url-2-0-0-package C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package
+1066 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package.tgz
+1067 silly lockFile 5af32a59-pm-cache-base64url-2-0-0-package tar://C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package
+1068 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package C:\Users\him\AppData\Roaming\npm-cache\5af32a59-pm-cache-base64url-2-0-0-package.lock
+1069 silly lockFile 74c6ad3a-ache-base64url-2-0-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package.tgz
+1070 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\base64url\2.0.0\package.tgz C:\Users\him\AppData\Roaming\npm-cache\74c6ad3a-ache-base64url-2-0-0-package-tgz.lock
+1071 silly gunzTarPerm modes [ '755', '644' ]
+1072 http 200 https://registry.npmjs.org/@types/node/-/node-7.0.18.tgz
+1073 silly gunzTarPerm extractEntry package.json
+1074 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1075 silly gunzTarPerm extractEntry index.js
+1076 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+1077 silly gunzTarPerm extractEntry dist/base64url.js
+1078 silly gunzTarPerm modified mode [ 'dist/base64url.js', 438, 420 ]
+1079 silly gunzTarPerm extractEntry test/priv.pem
+1080 silly gunzTarPerm extractEntry test/util/fakeDate.js
+1081 silly gunzTarPerm extractEntry lib/tostring.js
+1082 silly gunzTarPerm modified mode [ 'lib/tostring.js', 438, 420 ]
+1083 silly gunzTarPerm extractEntry lib/verify-stream.js
+1084 silly gunzTarPerm modified mode [ 'lib/verify-stream.js', 438, 420 ]
+1085 silly gunzTarPerm extractEntry test/invalid_pub.pem
+1086 silly gunzTarPerm extractEntry dist/pad-string.js
+1087 silly gunzTarPerm modified mode [ 'dist/pad-string.js', 438, 420 ]
+1088 silly gunzTarPerm extractEntry dist/.gitkeep
+1089 silly gunzTarPerm modified mode [ 'dist/.gitkeep', 438, 420 ]
+1090 silly gunzTarPerm extractEntry LICENCE
+1091 silly gunzTarPerm modified mode [ 'LICENCE', 436, 420 ]
+1092 silly gunzTarPerm extractEntry immutable.js
+1093 silly gunzTarPerm modified mode [ 'immutable.js', 436, 420 ]
+1094 silly gunzTarPerm extractEntry examples/server.js
+1095 silly gunzTarPerm modified mode [ 'examples/server.js', 438, 420 ]
+1096 silly gunzTarPerm extractEntry examples/haproxy.conf
+1097 silly gunzTarPerm modified mode [ 'examples/haproxy.conf', 438, 420 ]
+1098 silly gunzTarPerm extractEntry LICENSE
+1099 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+1100 silly gunzTarPerm extractEntry index.js
+1101 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+1102 silly gunzTarPerm extractEntry dist/base64url.d.ts
+1103 silly gunzTarPerm modified mode [ 'dist/base64url.d.ts', 438, 420 ]
+1104 silly gunzTarPerm extractEntry dist/pad-string.d.ts
+1105 silly gunzTarPerm modified mode [ 'dist/pad-string.d.ts', 438, 420 ]
+1106 silly gunzTarPerm extractEntry lib/errors.js
+1107 silly gunzTarPerm extractEntry lib/string/ip.js
+1108 silly gunzTarPerm extractEntry readme.md
+1109 silly gunzTarPerm modified mode [ 'readme.md', 438, 420 ]
+1110 silly gunzTarPerm extractEntry mutable.js
+1111 silly gunzTarPerm modified mode [ 'mutable.js', 436, 420 ]
+1112 silly gunzTarPerm extractEntry test.js
+1113 silly gunzTarPerm modified mode [ 'test.js', 436, 420 ]
+1114 silly gunzTarPerm extractEntry .travis.yml
+1115 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+1116 silly gunzTarPerm extractEntry Makefile
+1117 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+1118 silly gunzTarPerm extractEntry examples/sse.html
+1119 silly gunzTarPerm modified mode [ 'examples/sse.html', 438, 420 ]
+1120 silly gunzTarPerm extractEntry examples/ws.html
+1121 silly gunzTarPerm modified mode [ 'examples/ws.html', 438, 420 ]
+1122 silly gunzTarPerm extractEntry .jshintrc
+1123 silly gunzTarPerm modified mode [ '.jshintrc', 436, 420 ]
+1124 silly gunzTarPerm extractEntry Makefile
+1125 silly gunzTarPerm modified mode [ 'Makefile', 436, 420 ]
+1126 silly gunzTarPerm extractEntry lib/string/rfc3986.js
+1127 silly gunzTarPerm extractEntry lib/string/uri.js
+1128 silly gunzTarPerm extractEntry examples/tcp_server.js
+1129 silly gunzTarPerm extractEntry lib/websocket/driver.js
+1130 silly gunzTarPerm extractEntry readme.md
+1131 silly gunzTarPerm modified mode [ 'readme.md', 438, 420 ]
+1132 silly gunzTarPerm extractEntry typings/globals/node/index.d.ts
+1133 silly gunzTarPerm modified mode [ 'typings/globals/node/index.d.ts', 438, 420 ]
+1134 silly gunzTarPerm extractEntry lib/faye/eventsource.js
+1135 silly gunzTarPerm modified mode [ 'lib/faye/eventsource.js', 438, 420 ]
+1136 silly gunzTarPerm extractEntry lib/faye/websocket.js
+1137 silly gunzTarPerm modified mode [ 'lib/faye/websocket.js', 438, 420 ]
+1138 silly gunzTarPerm extractEntry lib/isemail.js
+1139 silly gunzTarPerm modified mode [ 'lib/isemail.js', 438, 420 ]
+1140 silly gunzTarPerm extractEntry test/isemail.js
+1141 silly gunzTarPerm modified mode [ 'test/isemail.js', 438, 420 ]
+1142 silly gunzTarPerm extractEntry test/mocha.opts
+1143 silly gunzTarPerm modified mode [ 'test/mocha.opts', 438, 420 ]
+1144 silly gunzTarPerm extractEntry test/tests.json
+1145 silly gunzTarPerm modified mode [ 'test/tests.json', 438, 420 ]
+1146 silly gunzTarPerm extractEntry API.md
+1147 silly gunzTarPerm extractEntry CONTRIBUTING.md
+1148 silly gunzTarPerm extractEntry typings/globals/node/typings.json
+1149 silly gunzTarPerm modified mode [ 'typings/globals/node/typings.json', 438, 420 ]
+1150 silly gunzTarPerm extractEntry lib/faye/websocket/api.js
+1151 silly gunzTarPerm modified mode [ 'lib/faye/websocket/api.js', 438, 420 ]
+1152 silly gunzTarPerm extractEntry lib/faye/websocket/client.js
+1153 silly gunzTarPerm modified mode [ 'lib/faye/websocket/client.js', 438, 420 ]
+1154 silly gunzTarPerm extractEntry lib/websocket/http_parser.js
+1155 silly gunzTarPerm extractEntry lib/websocket/streams.js
+1156 silly gunzTarPerm extractEntry typings/index.d.ts
+1157 silly gunzTarPerm modified mode [ 'typings/index.d.ts', 438, 420 ]
+1158 silly gunzTarPerm extractEntry lib/websocket/driver/base.js
+1159 silly gunzTarPerm extractEntry lib/websocket/driver/client.js
+1160 silly gunzTarPerm extractEntry test/alternatives.js
+1161 silly gunzTarPerm extractEntry test/binary.js
+1162 silly lockFile 9d8acc66-04528-0-3451553510967642-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package
+1163 silly lockFile 9d8acc66-04528-0-3451553510967642-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604528-0.3451553510967642\package
+1164 silly lockFile cc7ef1aa-pm-cache-hoek-2-16-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package.tgz
+1165 silly lockFile cc7ef1aa-pm-cache-hoek-2-16-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package.tgz
+1166 silly gunzTarPerm extractEntry lib/faye/websocket/api/event.js
+1167 silly gunzTarPerm modified mode [ 'lib/faye/websocket/api/event.js', 438, 420 ]
+1168 silly gunzTarPerm extractEntry lib/faye/websocket/api/event_target.js
+1169 silly gunzTarPerm modified mode [ 'lib/faye/websocket/api/event_target.js', 438, 420 ]
+1170 silly lockFile 62464eda-ng-npm-cache-hoek-2-16-3-package C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package
+1171 verbose lock C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package C:\Users\him\AppData\Roaming\npm-cache\62464eda-ng-npm-cache-hoek-2-16-3-package.lock
+1172 silly lockFile c169a72d-04541-0-5654047867283225-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package
+1173 silly lockFile c169a72d-04541-0-5654047867283225-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package
+1174 silly lockFile 18158715-04541-0-5654047867283225-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\tmp.tgz
+1175 silly lockFile 18158715-04541-0-5654047867283225-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\tmp.tgz
+1176 silly gunzTarPerm extractEntry lib/websocket/driver/draft75.js
+1177 silly gunzTarPerm extractEntry lib/websocket/driver/draft76.js
+1178 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\safe-buffer\\5.0.1\\package.tgz',
+1178 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604541-0.5654047867283225\\package' ]
+1179 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package.tgz
+1180 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package
+1181 silly lockFile c169a72d-04541-0-5654047867283225-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package
+1182 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package C:\Users\him\AppData\Roaming\npm-cache\c169a72d-04541-0-5654047867283225-package.lock
+1183 silly lockFile 56a6e93c-he-safe-buffer-5-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package.tgz
+1184 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\56a6e93c-he-safe-buffer-5-0-1-package-tgz.lock
+1185 silly gunzTarPerm extractEntry test/boolean.js
+1186 silly gunzTarPerm extractEntry test/date.js
+1187 silly lockFile 62464eda-ng-npm-cache-hoek-2-16-3-package C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package
+1188 silly lockFile 62464eda-ng-npm-cache-hoek-2-16-3-package C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package
+1189 silly gunzTarPerm extractEntry lib/websocket/driver/headers.js
+1190 silly gunzTarPerm extractEntry lib/websocket/driver/hybi.js
+1191 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package.tgz
+1192 silly lockFile d6316595-ng-npm-cache-hoek-2-16-3-package tar://C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package
+1193 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package C:\Users\him\AppData\Roaming\npm-cache\d6316595-ng-npm-cache-hoek-2-16-3-package.lock
+1194 silly lockFile cc7ef1aa-pm-cache-hoek-2-16-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package.tgz
+1195 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\hoek\2.16.3\package.tgz C:\Users\him\AppData\Roaming\npm-cache\cc7ef1aa-pm-cache-hoek-2-16-3-package-tgz.lock
+1196 silly gunzTarPerm modes [ '755', '644' ]
+1197 silly gunzTarPerm extractEntry package.json
+1198 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1199 silly gunzTarPerm extractEntry lib/websocket/driver/proxy.js
+1200 silly gunzTarPerm extractEntry lib/websocket/driver/server.js
+1201 silly lockFile b898aefe-604541-0-555945364292711-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package
+1202 silly lockFile b898aefe-604541-0-555945364292711-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package
+1203 silly gunzTarPerm extractEntry .npmignore
+1204 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1205 silly gunzTarPerm extractEntry README.md
+1206 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1207 silly lockFile a2a09d68-4545-0-12149233603850007-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package
+1208 silly lockFile a2a09d68-4545-0-12149233603850007-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package
+1209 silly lockFile 617e1636-604541-0-555945364292711-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\tmp.tgz
+1210 silly lockFile 617e1636-604541-0-555945364292711-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\tmp.tgz
+1211 silly lockFile 54998b23-4545-0-12149233603850007-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\tmp.tgz
+1212 silly lockFile 54998b23-4545-0-12149233603850007-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\tmp.tgz
+1213 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\topo\\1.1.0\\package.tgz',
+1213 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604541-0.555945364292711\\package' ]
+1214 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package.tgz
+1215 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package
+1216 silly lockFile b898aefe-604541-0-555945364292711-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package
+1217 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package C:\Users\him\AppData\Roaming\npm-cache\b898aefe-604541-0-555945364292711-package.lock
+1218 silly lockFile ca1b46f1-npm-cache-topo-1-1-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package.tgz
+1219 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package.tgz C:\Users\him\AppData\Roaming\npm-cache\ca1b46f1-npm-cache-topo-1-1-0-package-tgz.lock
+1220 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\xtend\\4.0.1\\package.tgz',
+1220 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604545-0.12149233603850007\\package' ]
+1221 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+1222 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package
+1223 silly lockFile a2a09d68-4545-0-12149233603850007-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package
+1224 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package C:\Users\him\AppData\Roaming\npm-cache\a2a09d68-4545-0-12149233603850007-package.lock
+1225 silly lockFile f0279cd1-pm-cache-xtend-4-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+1226 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\f0279cd1-pm-cache-xtend-4-0-1-package-tgz.lock
+1227 silly gunzTarPerm extractEntry LICENSE
+1228 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+1229 silly gunzTarPerm extractEntry test/errors.js
+1230 silly gunzTarPerm extractEntry test/array.js
+1231 silly lockFile 93050921-ming-npm-cache-jws-3-1-4-package tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package
+1232 silly lockFile 93050921-ming-npm-cache-jws-3-1-4-package tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package
+1233 silly lockFile d705ffe7--npm-cache-jws-3-1-4-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+1234 silly lockFile d705ffe7--npm-cache-jws-3-1-4-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+1235 silly gunzTarPerm extractEntry lib/websocket/driver/stream_reader.js
+1236 silly gunzTarPerm extractEntry lib/websocket/driver/hybi/frame.js
+1237 silly gunzTarPerm extractEntry .travis.yml
+1238 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+1239 silly gunzTarPerm extractEntry CONTRIBUTING.md
+1240 silly gunzTarPerm modified mode [ 'CONTRIBUTING.md', 438, 420 ]
+1241 verbose chmod C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz 644
+1242 silly chown skipping for windows C:\Users\him\AppData\Roaming\npm-cache\jws\3.1.4\package.tgz
+1243 silly lockFile 71d366af-stry-npmjs-org-jws-jws-3-1-4-tgz https://registry.npmjs.org/jws/-/jws-3.1.4.tgz
+1244 silly lockFile 71d366af-stry-npmjs-org-jws-jws-3-1-4-tgz https://registry.npmjs.org/jws/-/jws-3.1.4.tgz
+1245 silly gunzTarPerm extractEntry test/helper.js
+1246 silly gunzTarPerm extractEntry test/index.js
+1247 silly gunzTarPerm extractEntry lib/websocket/driver/hybi/message.js
+1248 http 200 https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz
+1249 silly gunzTarPerm extractEntry test/number.js
+1250 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\tmp.tgz
+1251 silly lockFile f7dc1593-04531-0-7932349764741957-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\package
+1252 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\package C:\Users\him\AppData\Roaming\npm-cache\f7dc1593-04531-0-7932349764741957-package.lock
+1253 silly lockFile 3c52ddba-04531-0-7932349764741957-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\tmp.tgz
+1254 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\3c52ddba-04531-0-7932349764741957-tmp-tgz.lock
+1255 silly gunzTarPerm modes [ '755', '644' ]
+1256 silly gunzTarPerm extractEntry README.md
+1257 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1258 silly gunzTarPerm extractEntry images/hoek.png
+1259 silly gunzTarPerm modified mode [ 'images/hoek.png', 438, 420 ]
+1260 silly gunzTarPerm extractEntry lib/escape.js
+1261 silly gunzTarPerm modified mode [ 'lib/escape.js', 438, 420 ]
+1262 silly lockFile c169a72d-04541-0-5654047867283225-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package
+1263 silly lockFile c169a72d-04541-0-5654047867283225-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.5654047867283225\package
+1264 silly lockFile 56a6e93c-he-safe-buffer-5-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package.tgz
+1265 silly lockFile 56a6e93c-he-safe-buffer-5-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package.tgz
+1266 silly gunzTarPerm extractEntry index.d.ts
+1267 silly gunzTarPerm modified mode [ 'index.d.ts', 438, 420 ]
+1268 silly gunzTarPerm extractEntry package.json
+1269 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1270 silly gunzTarPerm extractEntry test/object.js
+1271 silly gunzTarPerm extractEntry test/ref.js
+1272 silly lockFile 7c34fd1c--cache-safe-buffer-5-0-1-package C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package
+1273 verbose lock C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package C:\Users\him\AppData\Roaming\npm-cache\7c34fd1c--cache-safe-buffer-5-0-1-package.lock
+1274 silly gunzTarPerm extractEntry lib/index.js
+1275 silly gunzTarPerm modified mode [ 'lib/index.js', 438, 420 ]
+1276 silly gunzTarPerm extractEntry test/escaper.js
+1277 silly gunzTarPerm modified mode [ 'test/escaper.js', 438, 420 ]
+1278 silly gunzTarPerm extractEntry types-metadata.json
+1279 silly gunzTarPerm modified mode [ 'types-metadata.json', 438, 420 ]
+1280 silly lockFile a2a09d68-4545-0-12149233603850007-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package
+1281 silly lockFile a2a09d68-4545-0-12149233603850007-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604545-0.12149233603850007\package
+1282 silly lockFile f0279cd1-pm-cache-xtend-4-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+1283 silly lockFile f0279cd1-pm-cache-xtend-4-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+1284 silly lockFile 7c34fd1c--cache-safe-buffer-5-0-1-package C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package
+1285 silly lockFile 7c34fd1c--cache-safe-buffer-5-0-1-package C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package
+1286 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604532-0.028574120486155152\tmp.tgz
+1287 silly lockFile 2b49255d-532-0-028574120486155152-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604532-0.028574120486155152\package
+1288 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604532-0.028574120486155152\package C:\Users\him\AppData\Roaming\npm-cache\2b49255d-532-0-028574120486155152-package.lock
+1289 silly lockFile 0b60a184-532-0-028574120486155152-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604532-0.028574120486155152\tmp.tgz
+1290 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604532-0.028574120486155152\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\0b60a184-532-0-028574120486155152-tmp-tgz.lock
+1291 silly lockFile 35f1ece4-ng-npm-cache-xtend-4-0-1-package C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package
+1292 verbose lock C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package C:\Users\him\AppData\Roaming\npm-cache\35f1ece4-ng-npm-cache-xtend-4-0-1-package.lock
+1293 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package.tgz
+1294 silly lockFile e6b0919c--cache-safe-buffer-5-0-1-package tar://C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package
+1295 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package C:\Users\him\AppData\Roaming\npm-cache\e6b0919c--cache-safe-buffer-5-0-1-package.lock
+1296 silly lockFile 56a6e93c-he-safe-buffer-5-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package.tgz
+1297 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\safe-buffer\5.0.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\56a6e93c-he-safe-buffer-5-0-1-package-tgz.lock
+1298 silly gunzTarPerm modes [ '755', '644' ]
+1299 silly gunzTarPerm modes [ '755', '644' ]
+1300 silly gunzTarPerm extractEntry test/index.js
+1301 silly gunzTarPerm modified mode [ 'test/index.js', 438, 420 ]
+1302 silly gunzTarPerm extractEntry test/modules/test1.js
+1303 silly gunzTarPerm modified mode [ 'test/modules/test1.js', 438, 420 ]
+1304 silly lockFile 5fe3ad98-che-faye-websocket-0-9-3-package tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package
+1305 silly lockFile 5fe3ad98-che-faye-websocket-0-9-3-package tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package
+1306 silly lockFile 833ee03c-faye-websocket-0-9-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+1307 silly lockFile 833ee03c-faye-websocket-0-9-3-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+1308 silly lockFile 35f1ece4-ng-npm-cache-xtend-4-0-1-package C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package
+1309 silly lockFile 35f1ece4-ng-npm-cache-xtend-4-0-1-package C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package
+1310 silly gunzTarPerm extractEntry LICENSE
+1311 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+1312 silly gunzTarPerm extractEntry package.json
+1313 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1314 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+1315 silly lockFile cb6a84ee-ng-npm-cache-xtend-4-0-1-package tar://C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package
+1316 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package C:\Users\him\AppData\Roaming\npm-cache\cb6a84ee-ng-npm-cache-xtend-4-0-1-package.lock
+1317 silly lockFile f0279cd1-pm-cache-xtend-4-0-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz
+1318 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\xtend\4.0.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\f0279cd1-pm-cache-xtend-4-0-1-package-tgz.lock
+1319 verbose chmod C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz 644
+1320 silly chown skipping for windows C:\Users\him\AppData\Roaming\npm-cache\faye-websocket\0.9.3\package.tgz
+1321 silly gunzTarPerm extractEntry test/modules/test2.js
+1322 silly gunzTarPerm modified mode [ 'test/modules/test2.js', 438, 420 ]
+1323 silly gunzTarPerm extractEntry test/modules/test3.js
+1324 silly gunzTarPerm modified mode [ 'test/modules/test3.js', 438, 420 ]
+1325 silly lockFile d3d0f514-bsocket-faye-websocket-0-9-3-tgz https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz
+1326 silly lockFile d3d0f514-bsocket-faye-websocket-0-9-3-tgz https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.9.3.tgz
+1327 silly gunzTarPerm extractEntry README.md
+1328 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1329 silly gunzTarPerm extractEntry index.d.ts
+1330 silly gunzTarPerm modified mode [ 'index.d.ts', 438, 420 ]
+1331 silly gunzTarPerm modes [ '755', '644' ]
+1332 silly gunzTarPerm extractEntry README.md
+1333 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1334 silly gunzTarPerm extractEntry LICENSE
+1335 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+1336 silly gunzTarPerm extractEntry browser.js
+1337 silly gunzTarPerm modified mode [ 'browser.js', 438, 420 ]
+1338 silly gunzTarPerm extractEntry index.js
+1339 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+1340 silly gunzTarPerm extractEntry test.js
+1341 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+1342 silly gunzTarPerm extractEntry .travis.yml
+1343 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+1344 silly lockFile b898aefe-604541-0-555945364292711-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package
+1345 silly lockFile b898aefe-604541-0-555945364292711-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604541-0.555945364292711\package
+1346 silly lockFile ca1b46f1-npm-cache-topo-1-1-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package.tgz
+1347 silly lockFile ca1b46f1-npm-cache-topo-1-1-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package.tgz
+1348 silly gunzTarPerm extractEntry package.json
+1349 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1350 silly lockFile 21dd03d2-ing-npm-cache-topo-1-1-0-package C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package
+1351 verbose lock C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package C:\Users\him\AppData\Roaming\npm-cache\21dd03d2-ing-npm-cache-topo-1-1-0-package.lock
+1352 silly gunzTarPerm extractEntry package.json
+1353 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1354 silly gunzTarPerm extractEntry .npmignore
+1355 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1356 silly gunzTarPerm extractEntry README.md
+1357 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1358 silly lockFile 0f2d8a4b-4544-0-24890485731884837-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\package
+1359 silly lockFile 0f2d8a4b-4544-0-24890485731884837-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\package
+1360 silly lockFile dd62f2a5-4544-0-24890485731884837-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\tmp.tgz
+1361 silly lockFile dd62f2a5-4544-0-24890485731884837-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\tmp.tgz
+1362 silly gunzTarPerm extractEntry test/any.js
+1363 silly gunzTarPerm extractEntry test/string.js
+1364 verbose tar pack [ 'C:\\Users\\him\\AppData\\Roaming\\npm-cache\\websocket-extensions\\0.1.1\\package.tgz',
+1364 verbose tar pack   'C:\\Users\\him\\AppData\\Local\\Temp\\npm-8828-WJxhdOSQ\\1499019604544-0.24890485731884837\\package' ]
+1365 verbose tarball C:\Users\him\AppData\Roaming\npm-cache\websocket-extensions\0.1.1\package.tgz
+1366 verbose folder C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\package
+1367 silly lockFile 0f2d8a4b-4544-0-24890485731884837-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\package
+1368 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604544-0.24890485731884837\package C:\Users\him\AppData\Roaming\npm-cache\0f2d8a4b-4544-0-24890485731884837-package.lock
+1369 silly lockFile 6b3ac68c-ket-extensions-0-1-1-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\websocket-extensions\0.1.1\package.tgz
+1370 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\websocket-extensions\0.1.1\package.tgz C:\Users\him\AppData\Roaming\npm-cache\6b3ac68c-ket-extensions-0-1-1-package-tgz.lock
+1371 silly gunzTarPerm extractEntry LICENCE
+1372 silly gunzTarPerm modified mode [ 'LICENCE', 438, 420 ]
+1373 silly gunzTarPerm extractEntry immutable.js
+1374 silly gunzTarPerm modified mode [ 'immutable.js', 438, 420 ]
+1375 silly lockFile 21dd03d2-ing-npm-cache-topo-1-1-0-package C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package
+1376 silly lockFile 21dd03d2-ing-npm-cache-topo-1-1-0-package C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package
+1377 silly lockFile f7dc1593-04531-0-7932349764741957-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\package
+1378 silly lockFile f7dc1593-04531-0-7932349764741957-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\package
+1379 verbose tar unpack C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package.tgz
+1380 silly lockFile a3096949-ing-npm-cache-topo-1-1-0-package tar://C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package
+1381 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package C:\Users\him\AppData\Roaming\npm-cache\a3096949-ing-npm-cache-topo-1-1-0-package.lock
+1382 silly lockFile ca1b46f1-npm-cache-topo-1-1-0-package-tgz tar://C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package.tgz
+1383 verbose lock tar://C:\Users\him\AppData\Roaming\npm-cache\topo\1.1.0\package.tgz C:\Users\him\AppData\Roaming\npm-cache\ca1b46f1-npm-cache-topo-1-1-0-package-tgz.lock
+1384 silly lockFile 3c52ddba-04531-0-7932349764741957-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\tmp.tgz
+1385 silly lockFile 3c52ddba-04531-0-7932349764741957-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604531-0.7932349764741957\tmp.tgz
+1386 silly lockFile d02e0f6d-nwebtoken-jsonwebtoken-7-2-0-tgz https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz
+1387 silly lockFile d02e0f6d-nwebtoken-jsonwebtoken-7-2-0-tgz https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-7.2.0.tgz
+1388 silly gunzTarPerm extractEntry test/function.js
+1389 verbose about to build C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules\firebase-admin
+1390 info C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules\firebase-admin unbuild
+1391 info preuninstall firebase-admin@5.0.0
+1392 silly gunzTarPerm modes [ '755', '644' ]
+1393 info uninstall firebase-admin@5.0.0
+1394 silly gunzTarPerm extractEntry mutable.js
+1395 silly gunzTarPerm modified mode [ 'mutable.js', 438, 420 ]
+1396 silly gunzTarPerm extractEntry test.js
+1397 silly gunzTarPerm modified mode [ 'test.js', 438, 420 ]
+1398 verbose true,C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules,C:\Users\him\WebstormProjects\TheHinduWedlock\node_modules unbuild firebase-admin@5.0.0
+1399 info postuninstall firebase-admin@5.0.0
+1400 silly gunzTarPerm extractEntry package.json
+1401 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+1402 silly gunzTarPerm extractEntry .npmignore
+1403 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+1404 silly gunzTarPerm extractEntry README.md
+1405 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+1406 silly gunzTarPerm extractEntry .jshintrc
+1407 silly gunzTarPerm modified mode [ '.jshintrc', 438, 420 ]
+1408 silly gunzTarPerm extractEntry Makefile
+1409 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+1410 silly gunzTarPerm extractEntry LICENSE
+1411 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+1412 silly gunzTarPerm extractEntry .travis.yml
+1413 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+1414 verbose tar unpack C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.517329370835796\tmp.tgz
+1415 silly lockFile a063909f-604540-0-517329370835796-package tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.517329370835796\package
+1416 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.517329370835796\package C:\Users\him\AppData\Roaming\npm-cache\a063909f-604540-0-517329370835796-package.lock
+1417 silly lockFile 8257d1af-604540-0-517329370835796-tmp-tgz tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.517329370835796\tmp.tgz
+1418 verbose lock tar://C:\Users\him\AppData\Local\Temp\npm-8828-WJxhdOSQ\1499019604540-0.517329370835796\tmp.tgz C:\Users\him\AppData\Roaming\npm-cache\8257d1af-604540-0-517329370835796-tmp-tgz.lock
+1419 silly gunzTarPerm extractEntry API.md
+1420 silly gunzTarPerm modified mode [ 'API.md', 438, 420 ]
+1421 silly gunzTarPerm extractEntry CONTRIBUTING.md
+1422 silly gunzTarPerm modified mode [ 'CONTRIBUTING.md', 438, 420 ]
+1423 error Error: Invalid name: "@types/jsonwebtoken"
+1423 error     at ensureValidName (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\node_modules\normalize-package-data\lib\fixer.js:302:15)
+1423 error     at Object.module.exports.fixNameField (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\node_modules\normalize-package-data\lib\fixer.js:206:5)
+1423 error     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\node_modules\normalize-package-data\lib\normalize.js:29:38
+1423 error     at Array.forEach (native)
+1423 error     at normalize (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\node_modules\normalize-package-data\lib\normalize.js:28:15)
+1423 error     at final (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:328:33)
+1423 error     at then (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:126:33)
+1423 error     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:252:40
+1423 error     at fs.js:266:14
+1423 error     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:105:5
+1424 error If you need help, you may report this *entire* log,
+1424 error including the npm and node versions, at:
+1424 error     <http://github.com/npm/npm/issues>
+1425 error System Windows_NT 6.2.9200
+1426 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "firebase-admin" "--save"
+1427 error cwd C:\Users\him\WebstormProjects\TheHinduWedlock
+1428 error node -v v0.10.26
+1429 error npm -v 1.4.3
+1430 verbose exit [ 1, true ]
