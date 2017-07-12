@@ -13,6 +13,7 @@ var Language = require('../models/LanguageModel');
 var MaritalStatus = require('../models/MaritalStatusModel')
 var Physical = require('../models/PhysicalModel');
 var State = require('../models/StateModel');
+var City  =  require('../models/CityModel');
 var async = require('async');
 
 exports.add_category = function (req, res, next) {
@@ -241,7 +242,26 @@ exports.add_state = function (req, res, next) {
 };
 
 
-
+exports.add_city = function (req, res, next) {
+    var city = new City(
+        {
+            city_id: req.body.city_id,
+            state_id: req.body.state_id,
+            city: req.body.city_name
+        }
+    );
+    city.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        res.json({
+            'response_code': '200',
+            'status': 'success',
+            'message': 'Data inserted successfully',
+            'state': city
+        });
+    })
+};
 
 
 

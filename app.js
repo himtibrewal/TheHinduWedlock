@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
-var admin = require("firebase-admin");
+
 // var multer = require('multer');
 // var formidable = require('formidable');
 

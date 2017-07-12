@@ -31,6 +31,8 @@ router.post('/marital', adminController.add_maritial);
 router.post('/physical', adminController.add_physical);
 //add state
 router.post('/state', adminController.add_state);
+//add state
+router.post('/city', adminController.add_city);
 
 
 module.exports = router;

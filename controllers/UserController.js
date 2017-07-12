@@ -24,7 +24,7 @@ var Language = require('../models/LanguageModel');
 var MaritalStatus = require('../models/MaritalStatusModel')
 var Physical = require('../models/PhysicalModel');
 var State = require('../models/StateModel');
-
+var City = require('../models/CityModel');
 
 var async = require('async')
 
@@ -237,7 +237,6 @@ exports.uploadimage = function (req, res, next) {
 };
 
 
-
 exports.alldata = function (req, res, next) {
 
     async.parallel({
@@ -279,6 +278,14 @@ exports.alldata = function (req, res, next) {
         },
         physical: function (callback) {
             Physical.find({}).sort('_id')
+                .exec(callback)
+        },
+        state: function (callback) {
+            State.find({}).sort('_id')
+                .exec(callback)
+        },
+        city: function (callback) {
+            City.find({}).sort('_id')
                 .exec(callback)
         }
 
