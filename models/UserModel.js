@@ -2,6 +2,7 @@
  * Created by him on 05-Apr-17.
  */
 var mongoose = require('mongoose');
+var AutoIncrement = require('mongoose-sequence');
 
 var Schema = mongoose.Schema;
 
@@ -63,7 +64,7 @@ var userSchema = new Schema(
         //career  detail
         occupation: {type: String},
         income: {type: String},
-       // income_to:{type:String},
+        // income_to:{type:String},
         about_career: {type: String},
         organization_name: {type: String},
         setting_abord: {type: String},
@@ -155,7 +156,7 @@ var userSchema = new Schema(
 
     }
 );
-
+userSchema.plugin(AutoIncrement, {inc_field: 'id'});
 module.exports = mongoose.model('user_detail', userSchema);
 
 

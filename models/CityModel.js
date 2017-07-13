@@ -7,6 +7,7 @@
  */
 var mongoose = require('mongoose');
 
+
 var Schema = mongoose.Schema;
 
 var citySchema = new Schema(
@@ -16,4 +17,5 @@ var citySchema = new Schema(
         city: {type: String, required: true}
     }
 );
+
 module.exports = mongoose.model('City', citySchema);
