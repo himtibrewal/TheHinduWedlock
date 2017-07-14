@@ -17,7 +17,7 @@ var userSchema = new Schema(
         from_image: {type: String},
         manage_by: {type: String},
 
-        //basic  info
+        //basic  info //
         name: {type: String},
         name_show: {type: String},
         gender: {type: String, enum: ['Male', 'Female', 'Other'], default: 'Other'},
