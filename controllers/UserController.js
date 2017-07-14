@@ -174,9 +174,34 @@ exports.updateuser_about_your = function (req, res, next) {
 
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
         if (err) {
-            res.json({"response_code": "202", "message": "Something went wrong"});
+            doc.json({"response_code": "202", "message": "Something went wrong"});
         }
-        res.json({"response_code": "200", "message": "data added successfully"});
+        doc.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+
+exports.updatereg_family_detail = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        family_status: req.body.family_status,
+        family_type: req.body.family_type,
+        family_values: req.body.family_values,
+        family_income: req.body.family_income,
+        father_occupation: req.body.father_occupation,
+        mother_occupation: req.body.mother_occupation,
+        brother: req.body.brother,
+        married_brother: req.body.married_brother,
+        sister: req.body.sister,
+        sister_married: req.body.sister_married
+    };
+
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            doc.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        doc.json({"response_code": "200", "message": "data added successfully"});
     });
 };
 
