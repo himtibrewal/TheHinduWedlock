@@ -21,7 +21,7 @@ var userSchema = new Schema(
         name: {type: String},
         name_show: {type: String},
         gender: {type: String, enum: ['Male', 'Female', 'Other'], default: 'Other'},
-        dob: {type: Date},
+        dob: {type: String},
         height: {type: String},
         country: {type: String, default: 'India'},
         state: {type: String},
