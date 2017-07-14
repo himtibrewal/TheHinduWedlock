@@ -166,6 +166,21 @@ exports.create_new_user = function (req, res, next) {
     });
 };
 
+
+exports.updateuser_about_your = function (req, res, next) {
+
+    var id = req.body.id;
+    var data = {createfor: req.body.about_your_self}
+
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+
 //userLogin  from  app
 exports.user_login = function (req, res, next) {
 

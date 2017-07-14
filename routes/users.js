@@ -23,6 +23,8 @@ router.post('/sendrequest', userController.sent_interest);
 
 router.post('/alldata', userController.alldata);
 
+router.post('/update_your_self', userController.updateuser_about_your);
+
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {

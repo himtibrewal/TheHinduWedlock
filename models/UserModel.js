@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema(
     {
-        m_id: {type: String},
+        id: {type: Number},
         createfor: {type: String},
 
         //photo _detail
@@ -156,7 +156,7 @@ var userSchema = new Schema(
 
     }
 );
-userSchema.plugin(AutoIncrement, {inc_field: 'id'});
+userSchema.plugin(AutoIncrement, {inc_field: 'user_id'});
 module.exports = mongoose.model('user_detail', userSchema);
 
 
