@@ -181,6 +181,7 @@ exports.updateuser_about_your = function (req, res, next) {
 };
 
 
+//for update  family  detail
 exports.updatereg_family_detail = function (req, res, next) {
 
     var id = req.body.user_id;
