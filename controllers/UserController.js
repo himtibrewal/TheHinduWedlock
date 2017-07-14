@@ -169,7 +169,7 @@ exports.create_new_user = function (req, res, next) {
 
 exports.updateuser_about_your = function (req, res, next) {
 
-    var id = req.body.id;
+    var id = req.body.user_id;
     var data = {about_your_self: req.body.about_your_self}
 
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
