@@ -195,7 +195,10 @@ exports.updatereg_family_detail = function (req, res, next) {
         brother: req.body.brother,
         married_brother: req.body.married_brother,
         sister: req.body.sister,
-        sister_married: req.body.sister_married
+        sister_married: req.body.sister_married,
+        family_based_on: req.body.family_based_on,
+        gotra: req.body.gotra
+
     };
 
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
