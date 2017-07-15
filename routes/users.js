@@ -25,8 +25,9 @@ router.post('/alldata', userController.alldata);
 
 router.post('/update_your_self', userController.updateuser_about_your);
 
-router.post('/update_about_family', userController.updatereg_family_detail);
+router.post('/update_family_detail', userController.updatereg_family_detail);
 
+router.post('/update_about_family', userController.updateuser_about_family);
 
 
 var storage = multer.diskStorage({

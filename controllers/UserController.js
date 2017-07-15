@@ -181,6 +181,19 @@ exports.updateuser_about_your = function (req, res, next) {
 };
 
 
+exports.updateuser_about_family = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {about_family: req.body.about_family};
+
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
 //for update  family  detail
 exports.updatereg_family_detail = function (req, res, next) {
 
