@@ -172,20 +172,22 @@ exports.imageupload = function (req, res, next) {
 
     var id = req.body.user_id;
     var token = req.body.token;
+    var key = 'kkkk' + 1;
     var data = {
         image1: req.body.image1 + "&token=" + token,
-        image2: req.body.image2 + "&token=" + token,
-        image3: req.body.image3 + "&token=" + token,
-        image4: req.body.image4 + "&token=" + token,
-        image5: req.body.image5 + "&token=" + token,
-        image6: req.body.image6 + "&token=" + token,
-        image7: req.body.image7 + "&token=" + token,
-        image8: req.body.image8 + "&token=" + token,
-        image9: req.body.image9 + "&token=" + token,
-        image10: req.body.image10 + "&token=" + token,
-        image11: req.body.image11 + "&token=" + token
+        // image2: req.body.image2 + "&token=" + token,
+        // image3: req.body.image3 + "&token=" + token,
+        // image4: req.body.image4 + "&token=" + token,
+        // image5: req.body.image5 + "&token=" + token,
+        // image6: req.body.image6 + "&token=" + token,
+        // image7: req.body.image7 + "&token=" + token,
+        // image8: req.body.image8 + "&token=" + token,
+        // image9: req.body.image9 + "&token=" + token,
+        // image10: req.body.image10 + "&token=" + token,
+        // image11: req.body.image11 + "&token=" + token
 
     };
+
     ImageModel.findOneAndUpdate({user_id: id}, {$set: data}, {upsert: true, new: true}, function (err, doc) {
         if (err) {
 
