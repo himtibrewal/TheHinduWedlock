@@ -35,5 +35,4 @@ var imageSchema = new Schema(
     }
 );
 
-
-module.exports = mongoose.model('Height', imageSchema);
+module.exports = mongoose.model('Image', imageSchema);
