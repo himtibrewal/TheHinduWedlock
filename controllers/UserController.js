@@ -169,16 +169,17 @@ exports.create_new_user = function (req, res, next) {
 
 
 exports.imageupload = function (req, res, next) {
-    var imageupload = new ImageModel(
-        {
+
+    var query = {user_id: req.post.user_id},
+        update = {
             user_id: req.body.user_id,
-            image1: req.body.image1,
-            image2: req.body.image2,
-            image3: req.body.image3,
-            image4: req.body.image4,
-            image5: req.body.image5,
-            image6: req.body.image6,
-            image7: req.body.image7,
+            image1: req.body.image1 + "&token=" + req.body.token,
+            image2: req.body.image2 + "&token=" + req.body.token,
+            image3: req.body.image3 + "&token=" + req.body.token,
+            image4: req.body.image4 + "&token=" + req.body.token,
+            image5: req.body.image5 + "&token=" + req.body.token,
+            image6: req.body.image6 + "&token=" + req.body.token,
+            image7: req.body.image7 + "&token=" + req.body.token,
             image8: req.body.image8,
             image9: req.body.image9,
             image10: req.body.image10,
@@ -192,16 +193,31 @@ exports.imageupload = function (req, res, next) {
             image18: req.body.image18,
             image19: req.body.image19,
             image20: req.body.image20
-        }
-    );
+        },
+        options = {upsert: true};
 
-    imageupload.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        ///successful - redirect to new author record.
-        res.json({'response_code': '200', 'status': 'success', 'imageDetail': imageupload});
+// Find the document
+    ImageModel.findOneAndUpdate(query, update, options, function (error, result) {
+        if (!error) {
+            // If the document doesn't exist
+            if (!result) {
+                // Create it
+                result = new ImageModel({
 
+                    user_id: req.body.user_id,
+                    image1: req.body.image1 + "&token" + req.body.token,
+                    image2: req.body.image2,
+                });
+            }
+            // Save the document
+            result.save(function (error) {
+                if (!error) {
+                    // Do something with the document
+                } else {
+                    throw error;
+                }
+            });
+        }
     });
 };
 
