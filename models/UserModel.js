@@ -151,7 +151,8 @@ var userSchema = new Schema(
         partner_challenge: {type: String},
         partner_about: {type: String},
         manage_strict_partner: {type: String},
-        partner_give_outside: {type: String}
+        partner_give_outside: {type: String},
+        user_uid: {type: String}
 
 
     }

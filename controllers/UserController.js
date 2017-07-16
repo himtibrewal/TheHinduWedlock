@@ -198,7 +198,10 @@ exports.updateuser_about_family = function (req, res, next) {
 exports.updateuser_mobile_verify = function (req, res, next) {
 
     var id = req.body.user_id;
-    var data = {mobile_verify: req.body.mobile_verify};
+    var data = {
+        mobile_verify: req.body.mobile_verify,
+        user_uid: req.body.user_uid
+    };
 
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
         if (err) {
