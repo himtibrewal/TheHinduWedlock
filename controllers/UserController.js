@@ -170,54 +170,29 @@ exports.create_new_user = function (req, res, next) {
 
 exports.imageupload = function (req, res, next) {
 
-    var query = {user_id: req.post.user_id},
-        update = {
-            user_id: req.body.user_id,
-            image1: req.body.image1 + "&token=" + req.body.token,
-            image2: req.body.image2 + "&token=" + req.body.token,
-            image3: req.body.image3 + "&token=" + req.body.token,
-            image4: req.body.image4 + "&token=" + req.body.token,
-            image5: req.body.image5 + "&token=" + req.body.token,
-            image6: req.body.image6 + "&token=" + req.body.token,
-            image7: req.body.image7 + "&token=" + req.body.token,
-            image8: req.body.image8,
-            image9: req.body.image9,
-            image10: req.body.image10,
-            image11: req.body.image11,
-            image12: req.body.image12,
-            image13: req.body.image13,
-            image14: req.body.image14,
-            image15: req.body.image15,
-            image16: req.body.image16,
-            image17: req.body.image17,
-            image18: req.body.image18,
-            image19: req.body.image19,
-            image20: req.body.image20
-        },
-        options = {upsert: true};
+    var id = req.body.user_id;
+    var token = req.body.token;
+    var data = {
+        image1: req.body.image1 + "&token=" + token,
+        image2: req.body.image2 + "&token=" + token,
+        image3: req.body.image3 + "&token=" + token,
+        image4: req.body.image4 + "&token=" + token,
+        image5: req.body.image5 + "&token=" + token,
+        image6: req.body.image6 + "&token=" + token,
+        image7: req.body.image7 + "&token=" + token,
+        image8: req.body.image8 + "&token=" + token,
+        image9: req.body.image9 + "&token=" + token,
+        image10: req.body.image10 + "&token=" + token,
+        image11: req.body.image11 + "&token=" + token
 
-// Find the document
-    ImageModel.findOneAndUpdate(query, update, options, function (error, result) {
-        if (!error) {
-            // If the document doesn't exist
-            if (!result) {
-                // Create it
-                result = new ImageModel({
+    };
+    ImageModel.findOneAndUpdate({user_id: id}, {$set: data}, {upsert: true, new: true}, function (err, doc) {
+        if (err) {
 
-                    user_id: req.body.user_id,
-                    image1: req.body.image1 + "&token" + req.body.token,
-                    image2: req.body.image2,
-                });
-            }
-            // Save the document
-            result.save(function (error) {
-                if (!error) {
-                    // Do something with the document
-                } else {
-                    throw error;
-                }
-            });
+        } else {
+            res.json({"response_code": "200", "message": "data added successfully"});
         }
+
     });
 };
 
@@ -308,8 +283,6 @@ exports.user_login = function (req, res, next) {
         } else {
             res.json({'data': result, "response_code": "200", "message": "Login in Successfully !!"});
         }
-        //  if(!user) return res.send('Not logged in!');
-        //req.session.user = email;
 
     });
 

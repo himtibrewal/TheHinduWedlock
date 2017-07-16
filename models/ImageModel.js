@@ -11,7 +11,7 @@ var Schema = mongoose.Schema;
 
 var imageSchema = new Schema(
     {
-        user_id: {type: Number, required: true},
+        user_id: {type: String},
         image1: {type: String},
         image2: {type: String},
         image3: {type: String},
