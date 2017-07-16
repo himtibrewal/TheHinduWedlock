@@ -25,6 +25,7 @@ var MaritalStatus = require('../models/MaritalStatusModel')
 var Physical = require('../models/PhysicalModel');
 var State = require('../models/StateModel');
 var City = require('../models/CityModel');
+var ImageModel = require('../models/ImageModel');
 
 var async = require('async')
 
@@ -162,6 +163,44 @@ exports.create_new_user = function (req, res, next) {
         }
         //successful - redirect to new author record.
         res.json({'response_code': '200', 'status': 'success', 'userDetail': RegisterData});
+
+    });
+};
+
+
+exports.imageupload = function (req, res, next) {
+    var imageupload = new ImageModel(
+        {
+            user_id: req.body.user_id,
+            image1: req.body.image1,
+            image2: req.body.image2,
+            image3: req.body.image3,
+            image4: req.body.image4,
+            image5: req.body.image5,
+            image6: req.body.image6,
+            image7: req.body.image7,
+            image8: req.body.image8,
+            image9: req.body.image9,
+            image10: req.body.image10,
+            image11: req.body.image11,
+            image12: req.body.image12,
+            image13: req.body.image13,
+            image14: req.body.image14,
+            image15: req.body.image15,
+            image16: req.body.image16,
+            image17: req.body.image17,
+            image18: req.body.image18,
+            image19: req.body.image19,
+            image20: req.body.image20
+        }
+    );
+
+    imageupload.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        //successful - redirect to new author record.
+        res.json({'response_code': '200', 'status': 'success', 'imageDetail': imageupload});
 
     });
 };

@@ -154,7 +154,6 @@ var userSchema = new Schema(
         partner_give_outside: {type: String},
         user_uid: {type: String}
 
-
     }
 );
 userSchema.plugin(AutoIncrement, {inc_field: 'user_id'});

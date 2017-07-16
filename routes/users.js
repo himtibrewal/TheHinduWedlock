@@ -31,6 +31,8 @@ router.post('/update_about_family', userController.updateuser_about_family);
 
 router.post('/mobile_verify', userController.updateuser_mobile_verify);
 
+router.post('/image_upload', userController.imageupload);
+
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
