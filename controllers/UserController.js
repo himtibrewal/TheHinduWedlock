@@ -199,7 +199,7 @@ exports.imageupload = function (req, res, next) {
         if (err) {
             return next(err);
         }
-        //successful - redirect to new author record.
+        ///successful - redirect to new author record.
         res.json({'response_code': '200', 'status': 'success', 'imageDetail': imageupload});
 
     });
