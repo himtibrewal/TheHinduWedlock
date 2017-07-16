@@ -121,7 +121,7 @@ var userSchema = new Schema(
         phone: {type: String},
         alternate_email_id: {type: String},
         alternate_mobile_no: {type: String},
-        email_veriy: {type: String},
+        email_verify: {type: String},
         email_visible: {type: String},
         mobile_visible: {type: String},
         alt_mobile_visible: {type: String},
