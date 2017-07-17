@@ -169,40 +169,48 @@ exports.create_new_user = function (req, res, next) {
 
 
 exports.imageupload = function (req, res, next) {
-
-    var id = req.body.user_id;
-    var token = req.body.token;
-    var key = 'kkkk' + 1;
-    var data = {
-        image1: req.body.image1 + "&token=" + token,
-        // image2: req.body.image2 + "&token=" + token,
-        // image3: req.body.image3 + "&token=" + token,
-        // image4: req.body.image4 + "&token=" + token,
-        // image5: req.body.image5 + "&token=" + token,
-        // image6: req.body.image6 + "&token=" + token,
-        // image7: req.body.image7 + "&token=" + token,
-        // image8: req.body.image8 + "&token=" + token,
-        // image9: req.body.image9 + "&token=" + token,
-        // image10: req.body.image10 + "&token=" + token,
-        // image11: req.body.image11 + "&token=" + token
-
-    };
-
-    ImageModel.findOneAndUpdate({user_id: id}, {$set: data}, {upsert: true, new: true}, function (err, doc) {
-        if (err) {
-
-        } else {
-            res.json({"response_code": "200", "message": "data added successfully"});
-        }
+    var imageModel = new ImageModel({
+        user_id: req.body.user_id,
+        image: req.body.image + "&token=" + token
 
     });
+    imageModel.save(function (err) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json({'response_code': '200', 'status': 'success', 'userImage': imageModel});
+        }
+    });
 };
-
 
 exports.updateuser_about_your = function (req, res, next) {
 
     var id = req.body.user_id;
     var data = {about_your_self: req.body.about_your_self};
+
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_basicdetail = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        name: req.body.name,
+        height: req.body.height,
+        country: req.body.country,
+        state: req.body.state,
+        city: req.body.city,
+        mother_tongue: req.body.mother_tongue,
+        marital_status: req.body.marital_status,
+        manage_by: req.body.manage_by,
+        name_show: req.body.name_show
+
+    };
 
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
         if (err) {

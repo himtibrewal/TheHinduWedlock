@@ -16,3 +16,8 @@
 runtime: nodejs
 env: flex
 # [END runtime]
+
+# [START env]
+env_variables:
+  GCLOUD_STORAGE_BUCKET: thehindu-24e87.appspot.com
+# [END env]
