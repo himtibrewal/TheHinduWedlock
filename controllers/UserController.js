@@ -171,7 +171,7 @@ exports.create_new_user = function (req, res, next) {
 exports.imageupload = function (req, res, next) {
     var imageModel = new ImageModel({
         user_id: req.body.user_id,
-        image: req.body.image + "&token=" + token
+        image: req.body.image + "&token=" + req.body.token
 
     });
     imageModel.save(function (err) {
