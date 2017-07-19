@@ -191,9 +191,7 @@ exports.imageupload = function (req, res, next) {
     var imageModel = new ImageModel({
         user_id: req.body.user_id,
         image: req.body.image + "&token=" + req.body.token
-
     });
-
     imageModel.save(function (err) {
         if (err) {
             return next(err);
