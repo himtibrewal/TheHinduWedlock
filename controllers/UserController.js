@@ -2,17 +2,17 @@
  * Created by him on 08-Apr-17.
  */
 
+'use strict';
 var UserModel = require('../models/UserModel');
 var InterestModel = require('../models/InterestModel');
 var mongoose = require('mongoose');
 var express = require('express');
+const format = require('util').format;
 var router = express.Router();
-var multer = require('multer');
 
-//call  modeel
 
-var categoryModel = require('../models/CategoryModel');
-var complexionModel = require('../models/ComplexionModel');
+//call  model
+
 var Category = require('../models/CategoryModel');
 var Complexion = require('../models/ComplexionModel');
 var Country = require('../models/CountryModel');
@@ -29,10 +29,32 @@ var ImageModel = require('../models/ImageModel');
 
 var async = require('async')
 
+
+// storage
+//     .bucket(bucketName)
+//     .file(filename)
+//     .makePublic()
+//     .then(function () {
+//         console.log('gs://${bucketName}/${filename} is now public.');
+//     })
+//     .catch(function (err) {
+//         console.error('ERROR:', err);
+//     });
+
+
 exports.create_new_user = function (req, res, next) {
+    // var userdata = ['createfor', 'photo', 'photo_count'];
+    // var data;
+    // var x;
+    // for (x in userdata) {
+    //     data += userdata[x] + ":" + userdata[x];
+    // }
+    //
+    // console.log(data);
+
+
     var RegisterData = new UserModel(
         {
-
             m_id: req.body.m_id,
             createfor: req.body.createfor,
             photo: req.body.photo,
@@ -79,7 +101,6 @@ exports.create_new_user = function (req, res, next) {
             school_name: req.body.school_name,
             occupation: req.body.occupation,
             income: req.body.income,
-            //   income_to:req.body.income_to,
             about_career: req.body.about_career,
             organization_name: req.body.organization_name,
             setting_abord: req.body.setting_abord,
@@ -106,50 +127,49 @@ exports.create_new_user = function (req, res, next) {
             food_cook_detail: req.body.food_cook_detail,
             hobbies: req.body.hobbies,
             interest: req.body.interest,
-            favourite_musics: req.body.favourite_musics
-            , favourite_books: req.body.favourite_books
-            , favourite_dress_style: req.body.favourite_dress_style
-            , favourite_sports: req.body.favourite_sports
-            , favourite_cuisines: req.body.favourite_cuisines
-            , favourite_movies: req.body.favourite_movies
-            , favourite_read: req.body.favourite_read
-            , favourite_tv_shows: req.body.favourite_tv_shows
-            , favourite_vaction_distination: req.body.favourite_vaction_distination
-            , email: req.body.email
-            , password: req.body.password
-            , phone: req.body.phone
-            , alternate_email_id: req.body.alternate_email_id
-            , alternate_mobile_no: req.body.alternate_mobile_no
-            , email_veriy: req.body.email_veriy
-            , email_visible: req.body.email_visible
-            , mobile_visible: req.body.mobile_visible
-            , alt_mobile_visible: req.body.alt_mobile_visible
-            , landline_visible: req.body.landline_visible
-            , alt_email_verify: req.body.alt_email_verify
-            , mobile_verify: req.body.mobile_verify
-            , landline_no: req.body.landline_no
-            , suitable_time_to_call_start_time: req.body.suitable_time_to_call_start_time
-            , suitable_time_to_call_end_time: req.body.suitable_time_to_call_end_time
-            , partner_from_age: req.body.partner_from_age
-            , partner_to_age: req.body.partner_to_age
-            , partner_from_height: req.body.partner_from_height
-            , partner_to_height: req.body.partner_to_height
-            , partner_counrtys: req.body.partner_counrtys
-            , partner_marital_status: req.body.partner_marital_status
-            , partner_religion: req.body.partner_religion
-            , partner_caste: req.body.partner_caste
-            , partner_tongue: req.body.partner_tongue
-            , partner_manglik: req.body.partner_manglik
-            , partner_diet: req.body.partner_diet
-            , partner_smoke: req.body.partner_smoke
-            , partner_drink: req.body.partner_drink
-            , partner_complexion: req.body.partner_complexion
-            , partner_bodytype: req.body.partner_bodytype
-            , partner_challenge: req.body.partner_challenge
-            , partner_about: req.body.partner_about
-            , manage_strict_partner: req.body.manage_strict_partner
-            , partner_give_outside: req.body.partner_give_outside
-
+            favourite_musics: req.body.favourite_musics,
+            favourite_books: req.body.favourite_books,
+            favourite_dress_style: req.body.favourite_dress_style,
+            favourite_sports: req.body.favourite_sports,
+            favourite_cuisines: req.body.favourite_cuisines,
+            favourite_movies: req.body.favourite_movies,
+            favourite_read: req.body.favourite_read,
+            favourite_tv_shows: req.body.favourite_tv_shows,
+            favourite_vaction_distination: req.body.favourite_vaction_distination,
+            email: req.body.email,
+            password: req.body.password,
+            phone: req.body.phone,
+            alternate_email_id: req.body.alternate_email_id,
+            alternate_mobile_no: req.body.alternate_mobile_no,
+            email_veriy: req.body.email_veriy,
+            email_visible: req.body.email_visible,
+            mobile_visible: req.body.mobile_visible,
+            alt_mobile_visible: req.body.alt_mobile_visible,
+            landline_visible: req.body.landline_visible,
+            alt_email_verify: req.body.alt_email_verify,
+            mobile_verify: req.body.mobile_verify,
+            landline_no: req.body.landline_no,
+            suitable_time_to_call_start_time: req.body.suitable_time_to_call_start_time,
+            suitable_time_to_call_end_time: req.body.suitable_time_to_call_end_time,
+            partner_from_age: req.body.partner_from_age,
+            partner_to_age: req.body.partner_to_age,
+            partner_from_height: req.body.partner_from_height,
+            partner_to_height: req.body.partner_to_height,
+            partner_counrtys: req.body.partner_counrtys,
+            partner_marital_status: req.body.partner_marital_status,
+            partner_religion: req.body.partner_religion,
+            partner_caste: req.body.partner_caste,
+            partner_tongue: req.body.partner_tongue,
+            partner_manglik: req.body.partner_manglik,
+            partner_diet: req.body.partner_diet,
+            partner_smoke: req.body.partner_smoke,
+            partner_drink: req.body.partner_drink,
+            partner_complexion: req.body.partner_complexion,
+            partner_bodytype: req.body.partner_bodytype,
+            partner_challenge: req.body.partner_challenge,
+            partner_about: req.body.partner_about,
+            manage_strict_partner: req.body.manage_strict_partner,
+            partner_give_outside: req.body.partner_give_outside
         }
     );
 
@@ -161,7 +181,6 @@ exports.create_new_user = function (req, res, next) {
                 return next(err);
             }
         }
-        //successful - redirect to new author record.
         res.json({'response_code': '200', 'status': 'success', 'userDetail': RegisterData});
 
     });
@@ -174,11 +193,22 @@ exports.imageupload = function (req, res, next) {
         image: req.body.image + "&token=" + req.body.token
 
     });
+
     imageModel.save(function (err) {
         if (err) {
             return next(err);
         } else {
-            res.json({'response_code': '200', 'status': 'success', 'userImage': imageModel});
+            ImageModel.find({user_id: req.body.user_id}, function (err, result) {
+                if (err) {
+                    return next(err);
+                } else if (result == null) {
+                    res.json({'data': result, "response_code": "202", "message": "No Image Found"});
+                } else {
+                    res.json({'data': result, "response_code": "200", "message": "Login in Successfully !!"});
+                }
+
+            });
+            //res.json({'response_code': '200', 'status': 'success', 'userImage': imageModel});
         }
     });
 };
@@ -405,38 +435,6 @@ exports.alldata = function (req, res, next) {
         res.json({"data": result, "response_code": "200", "message": "Data fetch Successfully"});
     });
 };
-
-
-// exports.index = function (req, res) {
-//
-//     async.parallel({
-//         book_count: function (callback) {
-//             UserModel.count(callback)
-//         },
-//         book_instance_count: function (callback) {
-//             BookInstance.count(callback)
-//         },
-//         book_instance_available_count: function (callback) {
-//             BookInstance.count({status: 'Available'}, callback)
-//         },
-//         author_count: function (callback) {
-//             Author.count(callback)
-//         },
-//         genre_count: function (callback) {
-//             Genre.count(callback)
-//         },
-//     }, function (err, results) {
-//         //   res.render('index', { title: 'Local Library Home', error: err, data: results });
-//         res.json(results);
-//     });
-// };
-
-
-
-
-
-
-
 
 
 

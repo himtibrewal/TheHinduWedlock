@@ -6,9 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
+const Multer = require('multer');
+var formidable = require('formidable');
 
-// var multer = require('multer');
-// var formidable = require('formidable');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -37,12 +37,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
 app.use('/api', users);
 app.use('/apiadmin', localadmin);
 
-
-//var admin = require("firebase-admin");
 
 
 // catch 404 and forward to error handler
