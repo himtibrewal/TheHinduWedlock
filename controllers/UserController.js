@@ -204,9 +204,7 @@ exports.imageupload = function (req, res, next) {
                 } else {
                     res.json({'data': result, "response_code": "200", "message": "Login in Successfully !!"});
                 }
-
             });
-            //res.json({'response_code': '200', 'status': 'success', 'userImage': imageModel});
         }
     });
 };
@@ -215,6 +213,27 @@ exports.updateuser_about_your = function (req, res, next) {
 
     var id = req.body.user_id;
     var data = {about_your_self: req.body.about_your_self};
+
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+
+exports.updateuser_ethnicity = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        religion: req.body.religion,
+        mother_tongue: req.body.mother_tongue,
+        caste: req.body.caste,
+        sub_caste: req.body.sub_caste,
+        gotra: req.body.gotra,
+        family_based_on: req.body.family_based_on
+    };
 
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
         if (err) {

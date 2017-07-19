@@ -33,6 +33,8 @@ router.post('/mobile_verify', userController.updateuser_mobile_verify);
 
 router.post('/image_upload', userController.imageupload);
 
+router.post('/update_ethnicity', userController.updateuser_ethnicity);
+
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
