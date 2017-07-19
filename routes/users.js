@@ -32,7 +32,7 @@ router.post('/update_about_family', userController.updateuser_about_family);
 router.post('/mobile_verify', userController.updateuser_mobile_verify);
 
 router.post('/image_upload', userController.imageupload);
-
+//
 router.post('/update_ethnicity', userController.updateuser_ethnicity);
 
 
