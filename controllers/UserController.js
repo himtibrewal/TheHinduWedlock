@@ -43,15 +43,6 @@ var async = require('async')
 
 
 exports.create_new_user = function (req, res, next) {
-    // var userdata = ['createfor', 'photo', 'photo_count'];
-    // var data;
-    // var x;
-    // for (x in userdata) {
-    //     data += userdata[x] + ":" + userdata[x];
-    // }
-    //
-    // console.log(data);
-
 
     var RegisterData = new UserModel(
         {
@@ -243,6 +234,22 @@ exports.updateuser_ethnicity = function (req, res, next) {
     });
 };
 
+exports.updateuser_appearance = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        complexion: req.body.complexion,
+        body_type: req.body.body_type,
+        weight: req.body.weigh
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
 exports.updateuser_basicdetail = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -315,7 +322,6 @@ exports.updatereg_family_detail = function (req, res, next) {
         sister_married: req.body.sister_married,
         family_based_on: req.body.family_based_on,
         gotra: req.body.gotra
-
     };
 
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
