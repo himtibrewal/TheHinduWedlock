@@ -297,6 +297,27 @@ exports.updateuser_about_edu = function (req, res, next) {
     });
 };
 
+
+exports.updateuser_collegedetail = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        highest_education: req.body.highest_education,
+        pg_college: req.body.pg_college,
+        pg_degree: req.body.pg_degree,
+        ug_degree: req.body.ug_degree,
+        ug_college: req.body.ug_college,
+        school_name: req.body.school_name
+    };
+
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
 exports.updateuser_basicdetail = function (req, res, next) {
 
     var id = req.body.user_id;
