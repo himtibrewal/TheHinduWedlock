@@ -265,6 +265,24 @@ exports.updateuser_spclcase = function (req, res, next) {
     });
 };
 
+exports.updateuser_kundli = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        Horoscope_check: req.body.Horoscope_check,
+        rashi: req.body.rashi,
+        nakshatra: req.body.nakshatra,
+        manglik: req.body_type.manglik
+
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
 exports.updateuser_basicdetail = function (req, res, next) {
 
     var id = req.body.user_id;
