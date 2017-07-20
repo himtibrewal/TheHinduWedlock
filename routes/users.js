@@ -37,6 +37,8 @@ router.post('/update_ethnicity', userController.updateuser_ethnicity);
 
 router.post('/update_appearance', userController.updateuser_appearance);
 
+router.post('/update_spclcase', userController.updateuser_spclcase);
+
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {

@@ -249,6 +249,21 @@ exports.updateuser_appearance = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
+exports.updateuser_spclcase = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        challenged: req.body.challenged,
+        thalassemia: req.body.thalassemia,
+        hiv: req.body.hiv
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
 
 exports.updateuser_basicdetail = function (req, res, next) {
 
