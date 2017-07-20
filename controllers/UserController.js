@@ -283,6 +283,20 @@ exports.updateuser_kundli = function (req, res, next) {
     });
 };
 
+exports.updateuser_about_edu = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        about_education: req.body.about_education
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
 exports.updateuser_basicdetail = function (req, res, next) {
 
     var id = req.body.user_id;
