@@ -279,7 +279,7 @@ exports.updateuser_kundli = function (req, res, next) {
         if (err) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         }
-        res.json({"response_code": "200", "message": "data added successfully"});
+        res.json({"response_code": "200", "message": "Updated successfully"});
     });
 };
 
