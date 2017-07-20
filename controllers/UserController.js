@@ -240,7 +240,7 @@ exports.updateuser_appearance = function (req, res, next) {
     var data = {
         complexion: req.body.complexion,
         body_type: req.body.body_type,
-        weight: req.body.weigh
+        weight: req.body.weight
     };
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
         if (err) {
