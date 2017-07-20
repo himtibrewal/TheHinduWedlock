@@ -272,7 +272,7 @@ exports.updateuser_kundli = function (req, res, next) {
         Horoscope_check: req.body.Horoscope_check,
         rashi: req.body.rashi,
         nakshatra: req.body.nakshatra,
-        manglik: req.body_type.manglik
+        manglik: req.body.manglik
 
     };
     UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
