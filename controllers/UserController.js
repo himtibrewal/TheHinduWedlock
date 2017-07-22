@@ -3,6 +3,8 @@
  */
 var UserModel = require('../models/UserModel');
 var InterestModel = require('../models/InterestModel');
+var ShortListModel = require('../models/ShortListModel');
+var BlockUserModel = require('../models/BlockUserModel');
 var mongoose = require('mongoose');
 var express = require('express');
 const format = require('util').format;
@@ -637,7 +639,7 @@ exports.create_new_instrest = function (req, res, next) {
 
 exports.create_new_shortlist = function (req, res, next) {
 
-    var interestData = new InterestModel(
+    var shortlistData = new ShortListModel(
         {
             senderid: req.body.user_id,
             reciverid: req.body.recieve_id,
@@ -647,7 +649,7 @@ exports.create_new_shortlist = function (req, res, next) {
         }
     );
 
-    interestData.save(function (err) {
+    shortlistData.save(function (err) {
         if (err) {
             return next(err);
         }
@@ -657,19 +659,22 @@ exports.create_new_shortlist = function (req, res, next) {
 };
 
 
-exports.updateuser_blocked = function (req, res, next) {
+exports.create_new_blocklist = function (req, res, next) {
 
-    var id = req.body.user_id;
-    var data = {
-        m_id: req.body.blocked,
-
-    };
-
-    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
-        if (err) {
-            res.json({"response_code": "202", "message": "Something went wrong"});
+    var blockuser = new BlockUserModel(
+        {
+            user_id: req.post.user_id,
+            blocked_id: req.post.block_id,
+            time: Date.now()
         }
-        res.json({"response_code": "200", "message": "data added successfully"});
+    );
+
+    blockuser.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        res.json({'response_code': '200', 'status': 'success', 'interestData': interestData});
+
     });
 };
 
@@ -701,7 +706,7 @@ exports.user_list = function (req, res, next) {
             UserModel.count(callback)
         },
         user_data: function (callback) {
-            UserModel.find({}).skip(page * 2).limit(2).sort('_id')
+            UserModel.find({}).skip(page * 20).limit(20).sort('_id')
                 .exec(callback)
         },
     }, function (err, results) {
@@ -712,34 +717,6 @@ exports.user_list = function (req, res, next) {
         res.json({'response_code': '200', 'status': 'success', 'results': results});
     });
 
-};
-
-exports.sent_interest = function (req, res, next) {
-    var InterestData = new InterestModel(
-        {
-            senderid: req.body.sender_id,
-            reciverid: req.body.reciver_id,
-            time: Date.now(),
-            message: 'Testing message',
-            status: 'P'
-        }
-    )
-
-    InterestData.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        //successful - redirect to new author record.
-        res.json({'response_code': '200', 'status': 'success', 'userDetail': InterestData});
-
-    });
-
-};
-
-exports.uploadimage = function (req, res, next) {
-    console.log(req.files);
-    //  res.send(req.files);
-    res.json({'message': 'inserted'});
 };
 
 

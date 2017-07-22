@@ -12,14 +12,11 @@ router.get('/', function (req, res, next) {
 
 
 //create new users
-
 router.post('/users', userController.create_new_user);
 //create login
 router.post('/login', userController.user_login);
 //show user
 router.post('/userlist', userController.user_list);
-
-router.post('/sendrequest', userController.sent_interest);
 
 router.post('/alldata', userController.alldata);
 
@@ -45,21 +42,11 @@ router.post('/update_about_edu', userController.updateuser_about_edu);
 
 router.post('/update_college', userController.updateuser_collegedetail);
 
-router.post('/send_interest', userController.sent_interest);
+router.post('/send_interest', userController.create_new_instrest);
 
+router.post('/send_shortlist', userController.create_new_shortlist);
 
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'https://storage.googleapis.com/hinduwedlock/')
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + file.originalname);
-
-    }
-});
-var upload = multer({storage: storage});
-
-router.post('/upload', upload.any(), userController.uploadimage);
+router.post('/send_block', userController.create_new_blocklist);
 
 
 //upload  image

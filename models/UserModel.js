@@ -16,11 +16,10 @@ var userSchema = new Schema(
         photo_count: {type: String},
         from_image: {type: String},
         manage_by: {type: String},
-
         //basic  info //
         name: {type: String},
         name_show: {type: String},
-        gender: {type: String, enum: ['Male', 'Female', 'Other'], default: 'Other'},
+        gender: {type: String, enum: ['MALE', 'FEMALE', 'OTHER'], default: 'OTHER'},
         dob: {type: String},
         height: {type: String},
         country: {type: String, default: 'India'},
@@ -151,8 +150,7 @@ var userSchema = new Schema(
         partner_challenge: {type: String},
         partner_about: {type: String},
         manage_strict_partner: {type: String},
-        partner_give_outside: {type: String},
-        user_uid: {type: String}
+        partner_give_outside: {type: String}
 
     }
 );
