@@ -653,7 +653,7 @@ exports.create_new_shortlist = function (req, res, next) {
         if (err) {
             return next(err);
         }
-        res.json({'response_code': '200', 'status': 'success', 'interestData': interestData});
+        res.json({'response_code': '200', 'status': 'success', 'shortlist': shortlistData});
 
     });
 };
@@ -663,8 +663,8 @@ exports.create_new_blocklist = function (req, res, next) {
 
     var blockuser = new BlockUserModel(
         {
-            user_id: req.post.user_id,
-            blocked_id: req.post.block_id,
+            user_id: req.body.user_id,
+            blocked_id: req.body.block_id,
             time: Date.now()
         }
     );
@@ -673,7 +673,7 @@ exports.create_new_blocklist = function (req, res, next) {
         if (err) {
             return next(err);
         }
-        res.json({'response_code': '200', 'status': 'success', 'interestData': interestData});
+        res.json({'response_code': '200', 'status': 'success', 'blockuser': blockuser});
 
     });
 };
