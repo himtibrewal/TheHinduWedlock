@@ -1,8 +1,6 @@
 /**
  * Created by him on 08-Apr-17.
  */
-
-'use strict';
 var UserModel = require('../models/UserModel');
 var InterestModel = require('../models/InterestModel');
 var mongoose = require('mongoose');
@@ -401,6 +399,281 @@ exports.updatereg_family_detail = function (req, res, next) {
 };
 
 
+exports.updateuser_about_career = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        about_career: req.body.about_career
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_career_detail = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        occupation: req.body.occupation,
+        income: req.body.income,
+        organization_name: req.body.organization_name
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_future_plan = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        setting_abord: req.body.setting_abord,
+        work_after_marriage: req.body.work_after_marriage
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+
+exports.updateuser_about_family = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        about_family: req.body.about_family
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_family_detail = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        family_status: req.body.family_status,
+        family_type: req.body.family_type,
+        family_values: req.body.family_values,
+        living_with_parents: req.body.living_with_parents
+
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_parents_detail = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        family_status: req.body.family_status,
+        family_income: req.body.family_income,
+        father_occupation: req.body.father_occupation,
+        mother_occupation: req.body.mother_occupation
+
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_siblings_detail = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        brother: req.body.brother,
+        married_brother: req.body.married_brother,
+        sister: req.body.sister,
+        sister_married: req.body.sister_married
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_habits = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        diet: req.body.diet,
+        smoke: req.body.smoke,
+        drink: req.body.drink,
+        pets: req.body.pets
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_assets = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        own_house: req.body.own_house,
+        own_car: req.body.own_car
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_skill = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        language_speak: req.body.language_speak,
+        food_cook_detail: req.body.food_cook_detail
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_hobbies = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        hobbies: req.body.hobbies
+
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+
+exports.updateuser_interest = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        interest: req.body.interest
+
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+exports.updateuser_favourite = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        favourite_musics: req.body.favourite_musics,
+        favourite_books: req.body.favourite_books,
+        favourite_dress_style: req.body.favourite_dress_style,
+        favourite_sports: req.body.favourite_sports,
+        favourite_cuisines: req.body.favourite_cuisines,
+        favourite_movies: req.body.favourite_movies,
+        favourite_read: req.body.favourite_read,
+        favourite_tv_shows: req.body.favourite_tv_shows,
+        favourite_vaction_distination: req.body.favourite_vaction_distination,
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+
+exports.create_new_instrest = function (req, res, next) {
+
+    var interestData = new InterestModel(
+        {
+            senderid: req.body.user_id,
+            reciverid: req.body.recieve_id,
+            time: Date.now(),
+            message: '',
+            status: ''
+        }
+    );
+
+    interestData.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        res.json({'response_code': '200', 'status': 'success', 'interestData': interestData});
+
+    });
+};
+
+
+exports.create_new_shortlist = function (req, res, next) {
+
+    var interestData = new InterestModel(
+        {
+            senderid: req.body.user_id,
+            reciverid: req.body.recieve_id,
+            time: Date.now(),
+            message: '',
+            status: ''
+        }
+    );
+
+    interestData.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        res.json({'response_code': '200', 'status': 'success', 'interestData': interestData});
+
+    });
+};
+
+
+exports.updateuser_blocked = function (req, res, next) {
+
+    var id = req.body.user_id;
+    var data = {
+        m_id: req.body.blocked,
+
+    };
+
+    UserModel.findOneAndUpdate({user_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "data added successfully"});
+    });
+};
+
+
 //userLogin  from  app
 exports.user_login = function (req, res, next) {
 
@@ -421,14 +694,14 @@ exports.user_login = function (req, res, next) {
 
 
 exports.user_list = function (req, res, next) {
-    var page = parseInt(req.params.page_no);
+    var page = parseInt(req.body.page_no);
     //console.log('--'+page);
     async.parallel({
         user_count: function (callback) {
             UserModel.count(callback)
         },
         user_data: function (callback) {
-            UserModel.find({}).skip(page * 20).limit(20).sort('_id')
+            UserModel.find({}).skip(page * 2).limit(2).sort('_id')
                 .exec(callback)
         },
     }, function (err, results) {

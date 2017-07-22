@@ -17,7 +17,7 @@ router.post('/users', userController.create_new_user);
 //create login
 router.post('/login', userController.user_login);
 //show user
-router.get('/userlist/:page_no', userController.user_list);
+router.post('/userlist', userController.user_list);
 
 router.post('/sendrequest', userController.sent_interest);
 
