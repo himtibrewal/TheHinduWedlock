@@ -709,7 +709,7 @@ exports.user_list = function (req, res, next) {
             return next(err);
         }
         //Successful, so render
-        res.json(results);
+        res.json({'response_code': '200', 'status': 'success', 'results': results});
     });
 
 };
