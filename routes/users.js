@@ -42,8 +42,10 @@ router.post('/update_spclcase', userController.updateuser_spclcase);
 router.post('/update_kundli', userController.updateuser_kundli);
 
 router.post('/update_about_edu', userController.updateuser_about_edu);
-//college
+
 router.post('/update_college', userController.updateuser_collegedetail);
+
+router.post('/send_interest', userController.sent_interest);
 
 
 var storage = multer.diskStorage({
