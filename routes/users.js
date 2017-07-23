@@ -48,6 +48,8 @@ router.post('/send_shortlist', userController.create_new_shortlist);
 
 router.post('/send_block', userController.create_new_blocklist);
 
+router.post('/interest', userController.user_get_and_send_interest);
+
 
 //upload  image
 

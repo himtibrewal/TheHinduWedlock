@@ -626,7 +626,6 @@ exports.create_new_instrest = function (req, res, next) {
             status: ''
         }
     );
-
     interestData.save(function (err) {
         if (err) {
             return next(err);
@@ -679,6 +678,49 @@ exports.create_new_blocklist = function (req, res, next) {
 };
 
 
+exports.user_get_and_send_interest = function (req, res, next) {
+
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+    async.parallel({
+        sent: function (callback) {
+            InterestModel.find({senderid: user_id})
+                .exec(callback);
+        },
+        recieved: function (callback) {
+            InterestModel.find({reciverid: user_id})
+                .exec(callback);
+        }
+    }, function (err, results) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var sentArray = new Array();
+            var receiveArray = new Array();
+            for (i = 0; i < results.sent.length; i++) {
+                sentArray.push(results.sent[i].reciverid)
+            }
+            for (i = 0; i < results.recieved.length; i++) {
+                receiveArray.push(results.recieved[i].senderid)
+            }
+            async.parallel({
+                sent: function (callback) {
+                    UserModel.find({user_id: sentArray}).skip(page * 10).limit(10).sort('_id')
+                        .exec(callback);
+                },
+                recieved: function (callback) {
+                    UserModel.find({user_id: receiveArray}).skip(page * 10).limit(10).sort('_id')
+                        .exec(callback);
+                }
+            }, function (req, data, next) {
+                res.json({'response_code': '200', 'status': 'success', 'results': data});
+            });
+        }
+    });
+};
+
+
 //userLogin  from  app
 exports.user_login = function (req, res, next) {
 
@@ -694,7 +736,6 @@ exports.user_login = function (req, res, next) {
         }
 
     });
-
 };
 
 
