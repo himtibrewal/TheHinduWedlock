@@ -677,7 +677,7 @@ exports.create_new_blocklist = function (req, res, next) {
     });
 };
 
-//get  interest
+//get  inte
 exports.user_get_and_send_interest = function (req, res, next) {
 
     var user_id = req.body.user_id;
