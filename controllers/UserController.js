@@ -741,6 +741,20 @@ exports.getInterest_sent = function (req, res, next) {
 exports.getInterest_received = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
     InterestModel.find({reciverid: user_id}, function (err, result) {
         if (err) {
             return next(err);
@@ -750,7 +764,7 @@ exports.getInterest_received = function (req, res, next) {
             for (i = 0; i < result.length; i++) {
                 recieveArray.push(result[i].senderid)
             }
-            UserModel.find({user_id: recieveArray}, function (err, data, next) {
+            UserModel.find({user_id: recieveArray}, userProjection, function (err, data, next) {
                 if (err) {
                     return next(err);
                 } else {
