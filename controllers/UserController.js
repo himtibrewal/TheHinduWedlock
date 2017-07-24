@@ -626,13 +626,32 @@ exports.create_new_instrest = function (req, res, next) {
             status: ''
         }
     );
-    interestData.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        res.json({'response_code': '200', 'status': 'success', 'interestData': interestData});
+    if (req.body.user_id == req.body.recieve_id) {
+        res.json({'response_code': '202', 'status': 'failed', 'message': 'Can not interest to yourself'});
+        return;
+    } else {
+        InterestModel.find({senderid: req.body.user_id}, function (err, result, next) {
+            if (err) {
+                return next(err);
+            } else {
+                var i;
+                for (i = 0; i < result.length; i++) {
+                    if (result[i].reciverid == req.body.recieve_id) {
+                        res.json({'response_code': '203', 'status': 'failed', 'message': 'Already request sent'});
+                        return;
+                    }
+                }
+                interestData.save(function (err, results) {
+                    if (err) {
+                        return next(err);
+                    }
+                    res.json({'response_code': '200', 'status': 'success', 'interestData': results});
+                });
+            }
+        });
+    }
 
-    });
+
 };
 
 
@@ -677,45 +696,71 @@ exports.create_new_blocklist = function (req, res, next) {
     });
 };
 
-//get  inte
-exports.user_get_and_send_interest = function (req, res, next) {
 
+exports.getInterest_sent = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
-    async.parallel({
-        sent: function (callback) {
-            InterestModel.find({senderid: user_id})
-                .exec(callback);
-        },
-        recieved: function (callback) {
-            InterestModel.find({reciverid: user_id})
-                .exec(callback);
-        }
-    }, function (err, results) {
+
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true
+    };
+
+    InterestModel.find({senderid: user_id}, function (err, result) {
         if (err) {
             return next(err);
         } else {
             var i;
             var sentArray = new Array();
-            var receiveArray = new Array();
-            for (i = 0; i < results.sent.length; i++) {
-                sentArray.push(results.sent[i].reciverid)
+            for (i = 0; i < result.length; i++) {
+                sentArray.push(result[i].reciverid)
             }
-            for (i = 0; i < results.recieved.length; i++) {
-                receiveArray.push(results.recieved[i].senderid)
-            }
-            async.parallel({
-                sent: function (callback) {
-                    UserModel.find({user_id: sentArray}).skip(page * 10).limit(10).sort('_id')
-                        .exec(callback);
-                },
-                recieved: function (callback) {
-                    UserModel.find({user_id: receiveArray}).skip(page * 10).limit(10).sort('_id')
-                        .exec(callback);
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data, next) {
+                if (err) {
+                    return err.message;
+                } else {
+                    res.json({'response_code': '200', 'status': 'success', count: sentArray.length, 'results': data})
                 }
-            }, function (req, data, next) {
-                res.json({'response_code': '200', 'status': 'success', 'results': data});
-            });
+
+            }).skip(page * 2).limit(2).sort('_id')
+        }
+    });
+};
+
+
+exports.getInterest_received = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+    InterestModel.find({reciverid: user_id}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var recieveArray = new Array();
+            for (i = 0; i < result.length; i++) {
+                recieveArray.push(result[i].senderid)
+            }
+            UserModel.find({user_id: recieveArray}, function (err, data, next) {
+                if (err) {
+                    return next(err);
+                } else {
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': recieveArray.length,
+                        'results': data
+                    })
+                }
+
+            }).skip(page * 2).limit(2).sort('_id')
         }
     });
 };
@@ -741,13 +786,24 @@ exports.user_login = function (req, res, next) {
 
 exports.user_list = function (req, res, next) {
     var page = parseInt(req.body.page_no);
-    //console.log('--'+page);
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true
+    };
     async.parallel({
         user_count: function (callback) {
             UserModel.count(callback)
         },
         user_data: function (callback) {
-            UserModel.find({}).skip(page * 20).limit(20).sort('_id')
+            UserModel.find({}, userProjection).skip(page * 20).limit(20).sort('_id')
                 .exec(callback)
         },
     }, function (err, results) {
@@ -796,7 +852,7 @@ exports.alldata = function (req, res, next) {
             Language.find({}).sort('_id')
                 .exec(callback)
         },
-        maritial_status: function (callback) {
+        marital_status: function (callback) {
             MaritalStatus.find({}).sort('_id')
                 .exec(callback)
         },
@@ -819,7 +875,47 @@ exports.alldata = function (req, res, next) {
 };
 
 
-
+// exports.user_get_interest_list = function (req, res, next) {
+//
+//     var user_id = req.body.user_id;
+//     var page = req.body.page_no;
+//     async.parallel({
+//         sent: function (callback) {
+//             InterestModel.find({senderid: user_id})
+//                 .exec(callback);
+//         },
+//         recieved: function (callback) {
+//             InterestModel.find({reciverid: user_id})
+//                 .exec(callback);
+//         }
+//     }, function (err, results) {
+//         if (err) {
+//             return next(err);
+//         } else {
+//             var i;
+//             var sentArray = new Array();
+//             var receiveArray = new Array();
+//             for (i = 0; i < results.sent.length; i++) {
+//                 sentArray.push(results.sent[i].reciverid)
+//             }
+//             for (i = 0; i < results.recieved.length; i++) {
+//                 receiveArray.push(results.recieved[i].senderid)
+//             }
+//             async.parallel({
+//                 sent: function (callback) {
+//                     UserModel.find({user_id: sentArray}).skip(page * 10).limit(10).sort('_id')
+//                         .exec(callback);
+//                 },
+//                 recieved: function (callback) {
+//                     UserModel.find({user_id: receiveArray}).skip(page * 10).limit(10).sort('_id')
+//                         .exec(callback);
+//                 }
+//             }, function (req, data, next) {
+//                 res.json({'response_code': '200', 'status': 'success', 'results': data});
+//             });
+//         }
+//     });
+// };
 
 
 
