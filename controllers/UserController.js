@@ -707,11 +707,13 @@ exports.getInterest_sent = function (req, res, next) {
         height: true,
         caste: true,
         sub_caste: true,
+        religion: true,
         mother_tongue: true,
         city: true,
         state: true,
         occupation: true,
-        income: true
+        income: true,
+        highest_education: true
     };
 
     InterestModel.find({senderid: user_id}, function (err, result) {
