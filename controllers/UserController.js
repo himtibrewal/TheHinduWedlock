@@ -781,7 +781,7 @@ exports.getInterest_received = function (req, res, next) {
     });
 };
 
-exports.accept_interest = function (req, res, next) {
+exports.accept_reject_interest = function (req, res, next) {
     var id = req.body.interest_id;
     var data = {
         status: req.body.status

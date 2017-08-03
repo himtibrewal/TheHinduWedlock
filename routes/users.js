@@ -54,7 +54,7 @@ router.post('/get_interest_sent', userController.getInterest_sent);
 
 router.post('/get_interest_received', userController.getInterest_received);
 
-router.post('/accept_decline_interest', userController.accept_interest);
+router.post('/accept_decline_interest', userController.accept_reject_interest);
 
 
 //upload  image
