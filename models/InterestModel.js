@@ -3,12 +3,12 @@
  */
 
 var mongoose = require('mongoose');
+var AutoIncrement = require('mongoose-sequence');
 
 var Schema = mongoose.Schema;
 
 var interestSchema = new Schema(
     {
-        interest_id: {type: String},
         senderid: {type: String},
         reciverid: {type: String},
         time: {type: Date},
@@ -17,5 +17,6 @@ var interestSchema = new Schema(
     }
 );
 
+interestSchema.plugin(AutoIncrement, {inc_field: 'interest_id'});
 module.exports = mongoose.model('interest', interestSchema);
 
