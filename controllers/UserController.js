@@ -732,7 +732,7 @@ exports.getInterest_sent = function (req, res, next) {
                     res.json({'response_code': '200', 'status': 'success', count: sentArray.length, 'results': data})
                 }
 
-            }).skip(page * 2).limit(2).sort('_id')
+            }).skip(page * 10).limit(10).sort('_id')
         }
     });
 };
@@ -776,9 +776,23 @@ exports.getInterest_received = function (req, res, next) {
                     })
                 }
 
-            }).skip(page * 2).limit(2).sort('_id')
+            }).skip(page * 10).limit(10).sort('_id')
         }
     });
+};
+
+exports.accept_interest = function (req, res, next) {
+    var id = req.body.interest_id;
+    var data = {
+        status: req.body.status
+    };
+    InterestModel.findOneAndUpdate({interest_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        }
+        res.json({"response_code": "200", "message": "Accepted Successfully"});
+    });
+
 };
 
 
