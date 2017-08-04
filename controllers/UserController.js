@@ -722,14 +722,22 @@ exports.getInterest_sent = function (req, res, next) {
         } else {
             var i;
             var sentArray = new Array();
+            var interestid = new Array();
             for (i = 0; i < result.length; i++) {
                 sentArray.push(result[i].reciverid)
+                interestid.push(result[i].interest_id);
             }
             UserModel.find({user_id: sentArray}, userProjection, function (err, data, next) {
                 if (err) {
                     return err.message;
                 } else {
-                    res.json({'response_code': '200', 'status': 'success', count: sentArray.length, 'results': data})
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        count: sentArray.length,
+                        'interest_id': interestid,
+                        'results': data
+                    })
                 }
 
             }).skip(page * 10).limit(10).sort('_id')
