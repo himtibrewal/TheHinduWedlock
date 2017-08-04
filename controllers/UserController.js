@@ -787,9 +787,9 @@ exports.getInterest_received = function (req, res, next) {
                     })
                 }
 
-            }).skip(page * 10).limit(10).sort('_id')
+            })//.skip(page * 10).limit(10).sort('_id')
         }
-    });
+    }).skip(page * 10).limit(10).sort('_id');
 };
 
 exports.accept_reject_interest = function (req, res, next) {
