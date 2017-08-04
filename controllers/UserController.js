@@ -800,8 +800,13 @@ exports.accept_reject_interest = function (req, res, next) {
     InterestModel.findOneAndUpdate({interest_id: id}, {$set: data}, {new: true}, function (err, doc) {
         if (err) {
             res.json({"response_code": "202", "message": "Something went wrong"});
+        } else if (req.body.status == 'N') {
+            res.json({"response_code": "200", "message": "Rejected Successfully"});
+        } else {
+            res.json({"response_code": "200", "message": "Accepted Successfully"});
         }
-        res.json({"response_code": "200", "message": "Accepted Successfully"});
+
+
     });
 
 };
