@@ -761,8 +761,10 @@ exports.getInterest_received = function (req, res, next) {
         } else {
             var i;
             var recieveArray = new Array();
+            var interestid = new Array();
             for (i = 0; i < result.length; i++) {
-                recieveArray.push(result[i].senderid)
+                recieveArray.push(result[i].senderid);
+                interestid.push(result[i].interest_id);
             }
             UserModel.find({user_id: recieveArray}, userProjection, function (err, data, next) {
                 if (err) {
@@ -772,6 +774,7 @@ exports.getInterest_received = function (req, res, next) {
                         'response_code': '200',
                         'status': 'success',
                         'count': recieveArray.length,
+                        'interest_id': interestid,
                         'results': data
                     })
                 }
