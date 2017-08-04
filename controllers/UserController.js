@@ -727,7 +727,7 @@ exports.getInterest_sent = function (req, res, next) {
                 sentArray.push(result[i].reciverid)
                 interestid.push(result[i].interest_id);
             }
-            UserModel.find({user_id: sentArray}, userProjection, function (err, data, next) {
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
                 if (err) {
                     return err.message;
                 } else {
@@ -740,9 +740,9 @@ exports.getInterest_sent = function (req, res, next) {
                     })
                 }
 
-            }).skip(page * 10).limit(10).sort('_id')
+            })
         }
-    });
+    }).skip(page * 10).limit(10).sort('_id');
 };
 
 
@@ -774,9 +774,9 @@ exports.getInterest_received = function (req, res, next) {
                 recieveArray.push(result[i].senderid);
                 interestid.push(result[i].interest_id);
             }
-            UserModel.find({user_id: recieveArray}, userProjection, function (err, data, next) {
+            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
                 if (err) {
-                    return next(err);
+                    return err.message;
                 } else {
                     res.json({
                         'response_code': '200',
