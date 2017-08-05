@@ -805,10 +805,43 @@ exports.accept_reject_interest = function (req, res, next) {
         } else {
             res.json({"response_code": "200", "message": "Accepted Successfully"});
         }
+    });
+};
 
+exports.delete_interest = function (req, res) {
+    var id = req.body.interest_id;
+    InterestModel.findOneAndRemove({interest_id: id}, function (err, data) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else {
+            res.json({"response_code": "200", "message": "delete Successfully"});
+        }
+    });
+};
+
+exports.get_contact = function (req, res) {
+    var id = req.body.user_id;
+    var userProjection = {
+        user_id: true,
+        phone: true,
+        mobile: true,
+        email: true,
+        alternate_email_id: true,
+        alternate_mobile_no: true,
+        landline_no: true,
+    };
+    UserModel.find({user_id: id}, userProjection, function (err, data) {
+        if (err) {
+            return err.message;
+        } else {
+            res.json({
+                'response_code': '200',
+                'message': 'success',
+                'results': data
+            })
+        }
 
     });
-
 };
 
 
