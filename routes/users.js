@@ -60,6 +60,10 @@ router.post('/delete_interest', userController.delete_interest);
 
 router.post('/get_contact_detail', userController.get_contact);
 
+router.post('/get_accepted_by_me', userController.get_accepted_by_me);
+
+router.post('/get_accepted_me', userController.get_accepted_me);
+
 
 //upload  image
 

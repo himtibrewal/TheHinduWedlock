@@ -808,6 +808,102 @@ exports.accept_reject_interest = function (req, res, next) {
     });
 };
 
+
+exports.get_accepted_by_me = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
+    InterestModel.find({reciverid: user_id, status: 'Y'}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var recieveArray = new Array();
+            var interestid = new Array();
+            for (i = 0; i < result.length; i++) {
+                recieveArray.push(result[i].senderid);
+                interestid.push(result[i].interest_id);
+            }
+            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': recieveArray.length,
+                        'interest_id': interestid,
+                        'results': data
+                    })
+                }
+
+            })//.skip(page * 10).limit(10).sort('_id')
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+
+exports.get_accepted_me = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
+
+    InterestModel.find({senderid: user_id, status: 'Y'}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var sentArray = new Array();
+            var interestid = new Array();
+            for (i = 0; i < result.length; i++) {
+                sentArray.push(result[i].reciverid)
+                interestid.push(result[i].interest_id);
+            }
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        count: sentArray.length,
+                        'interest_id': interestid,
+                        'results': data
+                    })
+                }
+
+            })
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+
+
 exports.delete_interest = function (req, res) {
     var id = req.body.interest_id;
     InterestModel.findOneAndRemove({interest_id: id}, function (err, data) {
