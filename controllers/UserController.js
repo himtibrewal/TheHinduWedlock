@@ -752,7 +752,7 @@ exports.getInterest_sent = function (req, res, next) {
                     res.json({
                         'response_code': '200',
                         'status': 'success',
-                        count: sentArray.length,
+                        'count': sentArray.length,
                         'results': resultdata
                     })
                 }
