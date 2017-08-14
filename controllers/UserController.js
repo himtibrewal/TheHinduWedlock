@@ -975,6 +975,97 @@ exports.get_accepted_me = function (req, res, next) {
 };
 
 
+exports.get_i_declined = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+    var userProjection = {
+        user_id: true,
+        name: true
+
+    };
+    InterestModel.find({reciverid: user_id, status: 'N'}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var recieveArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                recieveArray.push(result[i].senderid);
+            }
+            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            response_time: result[i].response_time,
+                            name: data[i].name
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': recieveArray.length,
+                        'results': resultdata
+                    });
+                }
+
+            })//.skip(page * 10).limit(10).sort('_id')
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+
+exports.get_they_declined = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+
+    var userProjection = {
+        user_id: true,
+        name: true
+    };
+
+    InterestModel.find({senderid: user_id, status: 'N'}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var sentArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                sentArray.push(result[i].reciverid);
+            }
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            response_time: result[i].response_time,
+                            name: data[i].name
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': sentArray.length,
+                        'results': resultdata
+                    });
+                }
+
+            })
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+
 exports.delete_interest = function (req, res) {
     var id = req.body.interest_id;
     InterestModel.findOneAndRemove({interest_id: id}, function (err, data) {

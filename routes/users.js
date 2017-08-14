@@ -66,6 +66,10 @@ router.post('/get_accepted_me', userController.get_accepted_me);
 
 router.post('/get_user_detail', userController.get_user_detail);
 
+router.post('/get_i_declined', userController.get_i_declined);
+
+router.post('/get_they_declined', userController.get_they_declined);
+
 
 //upload  image
 
