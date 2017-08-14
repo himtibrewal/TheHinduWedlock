@@ -13,7 +13,9 @@ var interestSchema = new Schema(
         reciverid: {type: String},
         time: {type: Date},
         message: {type: String},
-        status: {type: String}
+        status: {type: String},
+        response_time: {type: Date},
+        view_time: {type: Date}
     }
 );
 

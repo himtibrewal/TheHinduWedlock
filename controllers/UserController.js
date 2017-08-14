@@ -818,7 +818,7 @@ exports.getInterest_received = function (req, res, next) {
                         'status': 'success',
                         'count': recieveArray.length,
                         'results': resultdata
-                    })
+                    });
                 }
 
             });
@@ -829,7 +829,8 @@ exports.getInterest_received = function (req, res, next) {
 exports.accept_reject_interest = function (req, res, next) {
     var id = req.body.interest_id;
     var data = {
-        status: req.body.status
+        status: req.body.status,
+        response_time: Date.now()
     };
     InterestModel.findOneAndUpdate({interest_id: id}, {$set: data}, {new: true}, function (err, doc) {
         if (err) {
@@ -866,22 +867,40 @@ exports.get_accepted_by_me = function (req, res, next) {
         } else {
             var i;
             var recieveArray = new Array();
-            var interestid = new Array();
+            var resultdata = new Array();
             for (i = 0; i < result.length; i++) {
                 recieveArray.push(result[i].senderid);
-                interestid.push(result[i].interest_id);
             }
             UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
                 if (err) {
                     return err.message;
                 } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            response_time: result[i].response_time,
+                            dob: data[i].dob,
+                            height: data[i].height,
+                            caste: data[i].caste,
+                            sub_caste: data[i].sub_caste,
+                            religion: data[i].religion,
+                            mother_tongue: data[i].mother_tongue,
+                            city: data[i].city,
+                            state: data[i].state,
+                            occupation: data[i].occupation,
+                            income: data[i].income,
+                            highest_education: data[i].highest_education
+                        };
+                        resultdata.push(datavar)
+                    }
                     res.json({
                         'response_code': '200',
                         'status': 'success',
                         'count': recieveArray.length,
-                        'interest_id': interestid,
-                        'results': data
-                    })
+                        'results': resultdata
+                    });
                 }
 
             })//.skip(page * 10).limit(10).sort('_id')
