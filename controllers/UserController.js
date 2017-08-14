@@ -1012,6 +1012,59 @@ exports.get_contact = function (req, res) {
 };
 
 
+exports.get_user_detail = function (req, res) {
+    var id = req.body.user_id;
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        income: true,
+        complexion: true,
+        body_type: true,
+        phone: true,
+        mobile: true,
+        email: true,
+        //education  detail
+        about_education: true,
+        highest_education: true,
+        pg_degree: true,
+        pg_college: true,
+        ug_degree: true,
+        ug_college: true,
+        other_pg_degree: true,
+        other_ug_degree: true,
+        school_name: true,
+        //career  detail
+        occupation: true,
+        about_career: true,
+        organization_name: true,
+        setting_abord: true,
+        work_after_marriage: true,
+        alternate_email_id: true,
+        alternate_mobile_no: true,
+        landline_no: true
+    };
+    UserModel.findOne({user_id: id}, userProjection, function (err, data) {
+        if (err) {
+            return err.message;
+        } else {
+            res.json({
+                'response_code': '200',
+                'message': 'success',
+                'results': data
+            })
+        }
+
+    });
+};
+
+
 //userLogin  from  app
 exports.user_login = function (req, res, next) {
 
