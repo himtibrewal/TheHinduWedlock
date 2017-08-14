@@ -1053,12 +1053,19 @@ exports.get_user_detail = function (req, res) {
     UserModel.findOne({user_id: id}, userProjection, function (err, data) {
         if (err) {
             return err.message;
+        }
+        if (data == null) {
+            res.json({
+                'response_code': '202',
+                'message': 'User Id Not Found',
+                'results': data
+            });
         } else {
             res.json({
                 'response_code': '200',
                 'message': 'success',
                 'results': data
-            })
+            });
         }
 
     });
