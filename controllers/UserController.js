@@ -907,7 +907,7 @@ exports.get_accepted_by_me = function (req, res, next) {
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
-
+//who accepted me
 exports.get_accepted_me = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
