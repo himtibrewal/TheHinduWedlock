@@ -682,7 +682,7 @@ exports.create_new_blocklist = function (req, res, next) {
     var blockuser = new BlockUserModel(
         {
             user_id: req.body.user_id,
-            blocked_id: req.body.block_id,
+            blockeduser_id: req.body.blockeduser_id,
             time: Date.now()
         }
     );
@@ -693,6 +693,86 @@ exports.create_new_blocklist = function (req, res, next) {
         }
         res.json({'response_code': '200', 'status': 'success', 'blockuser': blockuser});
 
+    });
+};
+
+
+exports.getblocked_user = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
+
+    BlockUserModel.find({user_id: user_id}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var sentArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                sentArray.push(result[i].blockeduser_id);
+            }
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            blocked_id: result[i].blocked_id,
+                            time: result[i].time,
+                            dob: data[i].dob,
+                            height: data[i].height,
+                            caste: data[i].caste,
+                            sub_caste: data[i].sub_caste,
+                            religion: data[i].religion,
+                            mother_tongue: data[i].mother_tongue,
+                            city: data[i].city,
+                            state: data[i].state,
+                            occupation: data[i].occupation,
+                            income: data[i].income,
+                            highest_education: data[i].highest_education
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': sentArray.length,
+                        'results': resultdata
+                    })
+                }
+
+            });
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+
+
+exports.delete_block = function (req, res) {
+    var id = req.body.blocked_id;
+    BlockUserModel.findOneAndRemove({blocked_id: id}, function (err, data) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else if (data == null) {
+            res.json({"response_code": "202", "message": "Data Not found"});
+        } else {
+            res.json({"response_code": "200", "message": "delete Successfully"});
+        }
     });
 };
 

@@ -48,7 +48,9 @@ router.post('/send_shortlist', userController.create_new_shortlist);
 
 router.post('/send_block', userController.create_new_blocklist);
 
-//router.post('/interest', userController.user_get_and_send_interest);
+router.post('/block_user_list', userController.getblocked_user);
+
+router.post('/delete_blocked_user', userController.delete_block);
 
 router.post('/get_interest_sent', userController.getInterest_sent);
 
