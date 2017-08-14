@@ -725,7 +725,7 @@ exports.getInterest_sent = function (req, res, next) {
             var interestid = new Array();
             for (i = 0; i < result.length; i++) {
                 sentArray.push(result[i].reciverid)
-                interestid.push(result[i].interest_id);
+                interestid.push(result[i].interest_id, result[i].time);
             }
             UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
                 if (err) {
