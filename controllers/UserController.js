@@ -964,7 +964,7 @@ exports.get_accepted_me = function (req, res, next) {
                     res.json({
                         'response_code': '200',
                         'status': 'success',
-                        'count': recieveArray.length,
+                        'count': sentArray.length,
                         'results': resultdata
                     });
                 }
