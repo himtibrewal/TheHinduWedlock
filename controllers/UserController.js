@@ -757,7 +757,7 @@ exports.getInterest_sent = function (req, res, next) {
                     })
                 }
 
-            })
+            });
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
@@ -821,7 +821,7 @@ exports.getInterest_received = function (req, res, next) {
                     })
                 }
 
-            })
+            });
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
