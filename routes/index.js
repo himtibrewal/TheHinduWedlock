@@ -8,10 +8,8 @@ var testController = require('../controllers/testController');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Express'});
+    res.json({title: 'Express'});
 });
-
-
 
 
 router.post('/create', testController.create_user);
