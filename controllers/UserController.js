@@ -1,18 +1,18 @@
 /**
  * Created by him on 08-Apr-17.
  */
-var UserModel = require('../models/UserModel');
-var InterestModel = require('../models/InterestModel');
-var ShortListModel = require('../models/ShortListModel');
-var BlockUserModel = require('../models/BlockUserModel');
+
 var mongoose = require('mongoose');
 var express = require('express');
 const format = require('util').format;
 var router = express.Router();
-
+var async = require('async')
 
 //call  model
-
+var UserModel = require('../models/UserModel');
+var InterestModel = require('../models/InterestModel');
+var ShortListModel = require('../models/ShortListModel');
+var BlockUserModel = require('../models/BlockUserModel');
 var Category = require('../models/CategoryModel');
 var Complexion = require('../models/ComplexionModel');
 var Country = require('../models/CountryModel');
@@ -27,21 +27,64 @@ var State = require('../models/StateModel');
 var City = require('../models/CityModel');
 var ImageModel = require('../models/ImageModel');
 
-var async = require('async')
+//call alla data
+exports.alldata = function (req, res, next) {
 
+    async.parallel({
+        category: function (callback) {
+            Category.find({}, 'category_id category -_id').sort('category_id')
+                .exec(callback)
+        },
+        employee: function (callback) {
+            Employee.find({}, 'employee_id employee -_id').sort('employee_id')
+                .exec(callback)
+        },
+        complexion: function (callback) {
+            Complexion.find({}).sort('_id')
+                .exec(callback)
+        },
+        country: function (callback) {
+            Country.find({}).sort('_id')
+                .exec(callback)
+        },
+        education: function (callback) {
+            Education.find({}).sort('_id')
+                .exec(callback)
+        },
+        height: function (callback) {
+            Height.find({}).sort('_id')
+                .exec(callback)
+        },
+        income: function (callback) {
+            Income.find({}).sort('_id')
+                .exec(callback)
+        },
+        language: function (callback) {
+            Language.find({}).sort('_id')
+                .exec(callback)
+        },
+        marital_status: function (callback) {
+            MaritalStatus.find({}).sort('_id')
+                .exec(callback)
+        },
+        physical: function (callback) {
+            Physical.find({}).sort('_id')
+                .exec(callback)
+        },
+        state: function (callback) {
+            State.find({}).sort('_id')
+                .exec(callback)
+        },
+        city: function (callback) {
+            City.find({}).sort('_id')
+                .exec(callback)
+        }
 
-// storage
-//     .bucket(bucketName)
-//     .file(filename)
-//     .makePublic()
-//     .then(function () {
-//         console.log('gs://${bucketName}/${filename} is now public.');
-//     })
-//     .catch(function (err) {
-//         console.error('ERROR:', err);
-//     });
-
-
+    }, function (error, result) {
+        res.json({"data": result, "response_code": "200", "message": "Data fetch Successfully"});
+    });
+};
+//create new  user /registration
 exports.create_new_user = function (req, res, next) {
 
     var RegisterData = new UserModel(
@@ -176,8 +219,6 @@ exports.create_new_user = function (req, res, next) {
 
     });
 };
-
-
 exports.imageupload = function (req, res, next) {
     var imageModel = new ImageModel({
         user_id: req.body.user_id,
@@ -199,7 +240,6 @@ exports.imageupload = function (req, res, next) {
         }
     });
 };
-
 exports.updateuser_about_your = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -212,8 +252,6 @@ exports.updateuser_about_your = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-
 exports.updateuser_ethnicity = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -233,7 +271,6 @@ exports.updateuser_ethnicity = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_appearance = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -264,7 +301,6 @@ exports.updateuser_spclcase = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_kundli = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -282,7 +318,6 @@ exports.updateuser_kundli = function (req, res, next) {
         res.json({"response_code": "200", "message": "Updated successfully"});
     });
 };
-
 exports.updateuser_about_edu = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -296,8 +331,6 @@ exports.updateuser_about_edu = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-
 exports.updateuser_collegedetail = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -317,7 +350,6 @@ exports.updateuser_collegedetail = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_basicdetail = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -341,8 +373,6 @@ exports.updateuser_basicdetail = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-
 exports.updateuser_about_family = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -355,8 +385,6 @@ exports.updateuser_about_family = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-
 exports.updateuser_mobile_verify = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -372,8 +400,6 @@ exports.updateuser_mobile_verify = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-//for update  family  detail
 exports.updatereg_family_detail = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -399,8 +425,6 @@ exports.updatereg_family_detail = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-
 exports.updateuser_about_career = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -414,7 +438,6 @@ exports.updateuser_about_career = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_career_detail = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -430,7 +453,6 @@ exports.updateuser_career_detail = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_future_plan = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -445,8 +467,6 @@ exports.updateuser_future_plan = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-
 exports.updateuser_about_family = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -460,7 +480,6 @@ exports.updateuser_about_family = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_family_detail = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -478,7 +497,6 @@ exports.updateuser_family_detail = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_parents_detail = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -496,7 +514,6 @@ exports.updateuser_parents_detail = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_siblings_detail = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -513,7 +530,6 @@ exports.updateuser_siblings_detail = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_habits = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -530,7 +546,6 @@ exports.updateuser_habits = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_assets = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -545,7 +560,6 @@ exports.updateuser_assets = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_skill = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -560,7 +574,6 @@ exports.updateuser_skill = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_hobbies = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -575,8 +588,6 @@ exports.updateuser_hobbies = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-
 exports.updateuser_interest = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -591,7 +602,6 @@ exports.updateuser_interest = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
 exports.updateuser_favourite = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -613,8 +623,6 @@ exports.updateuser_favourite = function (req, res, next) {
         res.json({"response_code": "200", "message": "data added successfully"});
     });
 };
-
-
 exports.create_new_instrest = function (req, res, next) {
 
     var interestData = new InterestModel(
@@ -653,8 +661,6 @@ exports.create_new_instrest = function (req, res, next) {
 
 
 };
-
-
 exports.create_new_shortlist = function (req, res, next) {
 
     var shortlistData = new ShortListModel(
@@ -675,8 +681,6 @@ exports.create_new_shortlist = function (req, res, next) {
 
     });
 };
-
-
 exports.create_new_blocklist = function (req, res, next) {
 
     var blockuser = new BlockUserModel(
@@ -695,8 +699,6 @@ exports.create_new_blocklist = function (req, res, next) {
 
     });
 };
-
-
 exports.getblocked_user = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
@@ -761,8 +763,6 @@ exports.getblocked_user = function (req, res, next) {
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
-
-
 exports.delete_block = function (req, res) {
     var id = req.body.blocked_id;
     BlockUserModel.findOneAndRemove({blocked_id: id}, function (err, data) {
@@ -775,8 +775,6 @@ exports.delete_block = function (req, res) {
         }
     });
 };
-
-
 exports.getInterest_sent = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
@@ -841,8 +839,6 @@ exports.getInterest_sent = function (req, res, next) {
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
-
-
 exports.getInterest_received = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
@@ -905,7 +901,6 @@ exports.getInterest_received = function (req, res, next) {
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
-
 exports.accept_reject_interest = function (req, res, next) {
     var id = req.body.interest_id;
     var data = {
@@ -922,8 +917,6 @@ exports.accept_reject_interest = function (req, res, next) {
         }
     });
 };
-
-
 exports.get_accepted_by_me = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
@@ -987,7 +980,6 @@ exports.get_accepted_by_me = function (req, res, next) {
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
-//who accepted me
 exports.get_accepted_me = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
@@ -1053,8 +1045,6 @@ exports.get_accepted_me = function (req, res, next) {
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
-
-
 exports.get_i_declined = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
@@ -1099,7 +1089,6 @@ exports.get_i_declined = function (req, res, next) {
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
-
 exports.get_they_declined = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
@@ -1145,7 +1134,6 @@ exports.get_they_declined = function (req, res, next) {
         }
     }).skip(page * 10).limit(10).sort('_id');
 };
-
 exports.delete_interest = function (req, res) {
     var id = req.body.interest_id;
     InterestModel.findOneAndRemove({interest_id: id}, function (err, data) {
@@ -1156,7 +1144,6 @@ exports.delete_interest = function (req, res) {
         }
     });
 };
-
 exports.get_contact = function (req, res) {
     var id = req.body.user_id;
     var userProjection = {
@@ -1181,8 +1168,6 @@ exports.get_contact = function (req, res) {
 
     });
 };
-
-
 exports.get_user_detail = function (req, res) {
     var id = req.body.user_id;
     var userProjection = {
@@ -1241,9 +1226,6 @@ exports.get_user_detail = function (req, res) {
 
     });
 };
-
-
-//userLogin  from  app
 exports.user_login = function (req, res, next) {
 
     var useremail = req.body.email;
@@ -1259,8 +1241,6 @@ exports.user_login = function (req, res, next) {
 
     });
 };
-
-
 exports.user_list = function (req, res, next) {
     var page = parseInt(req.body.page_no);
     var userProjection = {
@@ -1292,112 +1272,3 @@ exports.user_list = function (req, res, next) {
     });
 
 };
-
-
-exports.alldata = function (req, res, next) {
-
-    async.parallel({
-        category: function (callback) {
-            Category.find({}, 'category_id category -_id').sort('category_id')
-                .exec(callback)
-        },
-        employee: function (callback) {
-            Employee.find({}, 'employee_id employee -_id').sort('employee_id')
-                .exec(callback)
-        },
-        complexion: function (callback) {
-            Complexion.find({}).sort('_id')
-                .exec(callback)
-        },
-        country: function (callback) {
-            Country.find({}).sort('_id')
-                .exec(callback)
-        },
-        education: function (callback) {
-            Education.find({}).sort('_id')
-                .exec(callback)
-        },
-        height: function (callback) {
-            Height.find({}).sort('_id')
-                .exec(callback)
-        },
-        income: function (callback) {
-            Income.find({}).sort('_id')
-                .exec(callback)
-        },
-        language: function (callback) {
-            Language.find({}).sort('_id')
-                .exec(callback)
-        },
-        marital_status: function (callback) {
-            MaritalStatus.find({}).sort('_id')
-                .exec(callback)
-        },
-        physical: function (callback) {
-            Physical.find({}).sort('_id')
-                .exec(callback)
-        },
-        state: function (callback) {
-            State.find({}).sort('_id')
-                .exec(callback)
-        },
-        city: function (callback) {
-            City.find({}).sort('_id')
-                .exec(callback)
-        }
-
-    }, function (error, result) {
-        res.json({"data": result, "response_code": "200", "message": "Data fetch Successfully"});
-    });
-};
-
-
-// exports.user_get_interest_list = function (req, res, next) {
-//
-//     var user_id = req.body.user_id;
-//     var page = req.body.page_no;
-//     async.parallel({
-//         sent: function (callback) {
-//             InterestModel.find({senderid: user_id})
-//                 .exec(callback);
-//         },
-//         recieved: function (callback) {
-//             InterestModel.find({reciverid: user_id})
-//                 .exec(callback);
-//         }
-//     }, function (err, results) {
-//         if (err) {
-//             return next(err);
-//         } else {
-//             var i;
-//             var sentArray = new Array();
-//             var receiveArray = new Array();
-//             for (i = 0; i < results.sent.length; i++) {
-//                 sentArray.push(results.sent[i].reciverid)
-//             }
-//             for (i = 0; i < results.recieved.length; i++) {
-//                 receiveArray.push(results.recieved[i].senderid)
-//             }
-//             async.parallel({
-//                 sent: function (callback) {
-//                     UserModel.find({user_id: sentArray}).skip(page * 10).limit(10).sort('_id')
-//                         .exec(callback);
-//                 },
-//                 recieved: function (callback) {
-//                     UserModel.find({user_id: receiveArray}).skip(page * 10).limit(10).sort('_id')
-//                         .exec(callback);
-//                 }
-//             }, function (req, data, next) {
-//                 res.json({'response_code': '200', 'status': 'success', 'results': data});
-//             });
-//         }
-//     });
-// };
-
-
-
-
-
-
-
-
