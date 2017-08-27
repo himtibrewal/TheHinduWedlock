@@ -293,6 +293,7 @@ exports.make_profile_picture = function (req, res, next) {
                 } else {
                     res.json({"response_code": "200", "message": "Profile Picture set Successfully"});
                 }
+                //
             });
         }
     });
