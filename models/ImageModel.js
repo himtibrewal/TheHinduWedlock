@@ -16,7 +16,7 @@ var imageSchema = new Schema(
         image: {type: String},
         deleted: {type: String},
         showing: {type: String},
-        profile: {type: String}
+        profile: {}
     }
 );
 

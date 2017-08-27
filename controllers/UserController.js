@@ -285,7 +285,7 @@ exports.make_profile_picture = function (req, res, next) {
         } else if (doc == null) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         } else {
-            ImageModel.update({image_id: id}, {$set: data1}, {multi: true}, function (err, doc) {
+            ImageModel.findOneAndUpdate({image_id: id}, {$set: data1}, {multi: true}, function (err, doc) {
                 if (err) {
                     res.json({"response_code": "202", "message": "Something went wrong"});
                 } else if (doc == null) {
