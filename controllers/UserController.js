@@ -272,11 +272,11 @@ exports.imageupload = function (req, res, next) {
 
 exports.make_profile_picture = function (req, res, next) {
     var id = req.body.image_id;
-    var user_id = req.body_user_id;
+    var user_id = req.body.user_id;
     var data = {
         profile: 0
     };
-    var data = {
+    var data1 = {
         profile: 1
     };
     ImageModel.update({user_id: user_id}, {$set: data}, {multi: true}, function (err, doc) {
@@ -285,7 +285,7 @@ exports.make_profile_picture = function (req, res, next) {
         } else if (doc == null) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         } else {
-            ImageModel.update({image_id: id}, {$set: data},  { multi: true }, function (err, doc) {
+            ImageModel.update({image_id: id}, {$set: data1}, {multi: true}, function (err, doc) {
                 if (err) {
                     res.json({"response_code": "202", "message": "Something went wrong"});
                 } else if (doc == null) {
