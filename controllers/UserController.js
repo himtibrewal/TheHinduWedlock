@@ -250,7 +250,7 @@ exports.imageupload = function (req, res, next) {
         user_id: req.body.user_id,
         deleted: 0,
         showing: 1,
-        isprofile: 0,
+        profile: 0,
         image: encodeURIComponent(req.body.image)//; req.body.image + "&token=" + req.body.token
     });
     imageModel.save(function (err) {
