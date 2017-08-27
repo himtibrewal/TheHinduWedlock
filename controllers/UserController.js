@@ -87,6 +87,9 @@ exports.alldata = function (req, res, next) {
 //create new  user /registration
 exports.create_new_user = function (req, res, next) {
 
+    // //var ageTemp = req.body.dob.toSource().split("-")
+    // var age = (Date.now() - req.body.dob);
+
     var RegisterData = new UserModel(
         {
             m_id: req.body.m_id,
@@ -219,6 +222,31 @@ exports.create_new_user = function (req, res, next) {
 
     });
 };
+//user login
+exports.user_login = function (req, res, next) {
+
+    var useremail = req.body.email;
+    var pass = req.body.password;
+    UserModel.findOne({email: useremail, password: pass}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else if (result == null) {
+            res.json({'data': result, "response_code": "202", "message": "Enter Valid credentials"});
+        } else {
+            var user_id = result.user_id;
+            ImageModel.find({user_id: user_id}, function (req, res11) {
+                if (res == null) {
+                    result.image = new Array();
+                } else {
+                    result._doc.image = res11;
+                    res.json({'data': result, "response_code": "200", "message": "Login in Successfully !!"});
+                }
+            });
+
+        }
+
+    });
+};
 exports.imageupload = function (req, res, next) {
     var imageModel = new ImageModel({
         user_id: req.body.user_id,
@@ -240,6 +268,683 @@ exports.imageupload = function (req, res, next) {
         }
     });
 };
+//create  new  interest
+exports.create_new_instrest = function (req, res, next) {
+
+    var interestData = new InterestModel(
+        {
+            senderid: req.body.user_id,
+            reciverid: req.body.recieve_id,
+            time: Date.now(),
+            message: '',
+            status: ''
+        }
+    );
+    if (req.body.user_id == req.body.recieve_id) {
+        res.json({'response_code': '202', 'status': 'failed', 'message': 'Can not interest to yourself'});
+        return;
+    } else {
+        InterestModel.find({senderid: req.body.user_id}, function (err, result, next) {
+            if (err) {
+                return next(err);
+            } else {
+                var i;
+                for (i = 0; i < result.length; i++) {
+                    if (result[i].reciverid == req.body.recieve_id) {
+                        res.json({'response_code': '203', 'status': 'failed', 'message': 'Already request sent'});
+                        return;
+                    }
+                }
+                interestData.save(function (err, results) {
+                    if (err) {
+                        return next(err);
+                    }
+                    res.json({'response_code': '200', 'status': 'success', 'interestData': results});
+                });
+            }
+        });
+    }
+
+
+};
+exports.getInterest_sent = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
+
+    InterestModel.find({senderid: user_id}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var sentArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                sentArray.push(result[i].reciverid);
+            }
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            dob: data[i].dob,
+                            height: data[i].height,
+                            caste: data[i].caste,
+                            sub_caste: data[i].sub_caste,
+                            religion: data[i].religion,
+                            mother_tongue: data[i].mother_tongue,
+                            city: data[i].city,
+                            state: data[i].state,
+                            occupation: data[i].occupation,
+                            income: data[i].income,
+                            highest_education: data[i].highest_education
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': sentArray.length,
+                        'results': resultdata
+                    })
+                }
+
+            });
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+exports.getInterest_received = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
+    InterestModel.find({reciverid: user_id}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var recieveArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                recieveArray.push(result[i].senderid);
+            }
+            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            dob: data[i].dob,
+                            height: data[i].height,
+                            caste: data[i].caste,
+                            sub_caste: data[i].sub_caste,
+                            religion: data[i].religion,
+                            mother_tongue: data[i].mother_tongue,
+                            city: data[i].city,
+                            state: data[i].state,
+                            occupation: data[i].occupation,
+                            income: data[i].income,
+                            highest_education: data[i].highest_education
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': recieveArray.length,
+                        'results': resultdata
+                    });
+                }
+
+            });
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+exports.accept_reject_interest = function (req, res, next) {
+    var id = req.body.interest_id;
+    var data = {
+        status: req.body.status,
+        response_time: Date.now()
+    };
+    InterestModel.findOneAndUpdate({interest_id: id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else if (data.status == "N") {
+            res.json({"response_code": "200", "message": "Rejected Successfully"});
+        } else {
+            res.json({"response_code": "200", "message": "Accepted Successfully"});
+        }
+    });
+};
+exports.get_accepted_by_me = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
+    InterestModel.find({reciverid: user_id, status: 'Y'}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var recieveArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                recieveArray.push(result[i].senderid);
+            }
+            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            response_time: result[i].response_time,
+                            dob: data[i].dob,
+                            height: data[i].height,
+                            caste: data[i].caste,
+                            sub_caste: data[i].sub_caste,
+                            religion: data[i].religion,
+                            mother_tongue: data[i].mother_tongue,
+                            city: data[i].city,
+                            state: data[i].state,
+                            occupation: data[i].occupation,
+                            income: data[i].income,
+                            highest_education: data[i].highest_education
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': recieveArray.length,
+                        'results': resultdata
+                    });
+                }
+
+            })//.skip(page * 10).limit(10).sort('_id')
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+exports.get_accepted_me = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
+
+    InterestModel.find({senderid: user_id, status: 'Y'}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var sentArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                sentArray.push(result[i].reciverid);
+            }
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            response_time: result[i].response_time,
+                            dob: data[i].dob,
+                            height: data[i].height,
+                            caste: data[i].caste,
+                            sub_caste: data[i].sub_caste,
+                            religion: data[i].religion,
+                            mother_tongue: data[i].mother_tongue,
+                            city: data[i].city,
+                            state: data[i].state,
+                            occupation: data[i].occupation,
+                            income: data[i].income,
+                            highest_education: data[i].highest_education
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': sentArray.length,
+                        'results': resultdata
+                    });
+                }
+
+            })
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+exports.get_i_declined = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+    var userProjection = {
+        user_id: true,
+        name: true
+
+    };
+    InterestModel.find({reciverid: user_id, status: 'N'}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var recieveArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                recieveArray.push(result[i].senderid);
+            }
+            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            response_time: result[i].response_time,
+                            name: data[i].name
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': recieveArray.length,
+                        'results': resultdata
+                    });
+                }
+
+            })//.skip(page * 10).limit(10).sort('_id')
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+exports.get_they_declined = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+
+    var userProjection = {
+        user_id: true,
+        name: true
+    };
+
+    InterestModel.find({senderid: user_id, status: 'N'}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var sentArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                sentArray.push(result[i].reciverid);
+            }
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            interest_id: result[i].interest_id,
+                            time: result[i].time,
+                            response_time: result[i].response_time,
+                            name: data[i].name
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': sentArray.length,
+                        'results': resultdata
+                    });
+                }
+
+            })
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+exports.delete_interest = function (req, res) {
+    var id = req.body.interest_id;
+    InterestModel.findOneAndRemove({interest_id: id}, function (err, data) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else {
+            res.json({"response_code": "200", "message": "delete Successfully"});
+        }
+    });
+};
+//create  new shortlist
+exports.create_new_shortlist = function (req, res, next) {
+
+    var shortlistData = new ShortListModel(
+        {
+            senderid: req.body.user_id,
+            reciverid: req.body.recieve_id,
+            time: Date.now(),
+            message: '',
+            status: ''
+        }
+    );
+
+    shortlistData.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        res.json({'response_code': '200', 'status': 'success', 'shortlist': shortlistData});
+
+    });
+};
+//create new  blocklist
+exports.create_new_blocklist = function (req, res, next) {
+
+    var blockuser = new BlockUserModel(
+        {
+            user_id: req.body.user_id,
+            blockeduser_id: req.body.blockeduser_id,
+            time: Date.now()
+        }
+    );
+
+    blockuser.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        res.json({'response_code': '200', 'status': 'success', 'blockuser': blockuser});
+
+    });
+};
+exports.getblocked_user = function (req, res, next) {
+    var user_id = req.body.user_id;
+    var page = req.body.page_no;
+
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        occupation: true,
+        income: true,
+        highest_education: true
+    };
+
+    BlockUserModel.find({user_id: user_id}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            var i;
+            var sentArray = new Array();
+            var resultdata = new Array();
+            for (i = 0; i < result.length; i++) {
+                sentArray.push(result[i].blockeduser_id);
+            }
+            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
+                if (err) {
+                    return err.message;
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        var datavar = {
+                            user_id: data[i].user_id,
+                            blocked_id: result[i].blocked_id,
+                            time: result[i].time,
+                            dob: data[i].dob,
+                            height: data[i].height,
+                            caste: data[i].caste,
+                            sub_caste: data[i].sub_caste,
+                            religion: data[i].religion,
+                            mother_tongue: data[i].mother_tongue,
+                            city: data[i].city,
+                            state: data[i].state,
+                            occupation: data[i].occupation,
+                            income: data[i].income,
+                            highest_education: data[i].highest_education
+                        };
+                        resultdata.push(datavar)
+                    }
+                    res.json({
+                        'response_code': '200',
+                        'status': 'success',
+                        'count': sentArray.length,
+                        'results': resultdata
+                    })
+                }
+
+            });
+        }
+    }).skip(page * 10).limit(10).sort('_id');
+};
+exports.delete_block = function (req, res) {
+    var id = req.body.blocked_id;
+    BlockUserModel.findOneAndRemove({blocked_id: id}, function (err, data) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else if (data == null) {
+            res.json({"response_code": "202", "message": "Data Not found"});
+        } else {
+            res.json({"response_code": "200", "message": "delete Successfully"});
+        }
+    });
+};
+
+exports.get_contact = function (req, res) {
+    var id = req.body.user_id;
+    var userProjection = {
+        user_id: true,
+        phone: true,
+        mobile: true,
+        email: true,
+        alternate_email_id: true,
+        alternate_mobile_no: true,
+        landline_no: true,
+    };
+    UserModel.find({user_id: id}, userProjection, function (err, data) {
+        if (err) {
+            return err.message;
+        } else {
+            res.json({
+                'response_code': '200',
+                'message': 'success',
+                'results': data
+            })
+        }
+
+    });
+};
+exports.get_user_detail = function (req, res) {
+    var id = req.body.user_id;
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        religion: true,
+        mother_tongue: true,
+        city: true,
+        state: true,
+        income: true,
+        complexion: true,
+        body_type: true,
+        phone: true,
+        mobile: true,
+        email: true,
+        //education  detail
+        about_education: true,
+        highest_education: true,
+        pg_degree: true,
+        pg_college: true,
+        ug_degree: true,
+        ug_college: true,
+        other_pg_degree: true,
+        other_ug_degree: true,
+        school_name: true,
+        //career  detail
+        occupation: true,
+        about_career: true,
+        organization_name: true,
+        setting_abord: true,
+        work_after_marriage: true,
+        alternate_email_id: true,
+        alternate_mobile_no: true,
+        landline_no: true
+    };
+    UserModel.findOne({user_id: id}, userProjection, function (err, data) {
+        if (err) {
+            return err.message;
+        }
+        if (data == null) {
+            res.json({
+                'response_code': '202',
+                'message': 'User Id Not Found',
+                'results': data
+            });
+        } else {
+            res.json({
+                'response_code': '200',
+                'message': 'success',
+                'results': data
+            });
+        }
+
+    });
+};
+exports.user_list = function (req, res, next) {
+    var page = parseInt(req.body.page_no);
+    var seacrhArray = new Array();
+    if (req.body.from_age != null && req.body.from_age != undefined) {
+        seacrhArray.push('age:' + {$gt: req.body.from_age});
+    }
+    if (req.body.toage != null && req.body.to_age != undefined) {
+        seacrhArray.age = {$lt: req.body.to_age};
+    }
+    if (req.body.from_height != null && req.body.from_height != undefined) {
+        seacrhArray.height = {$gt: req.body.from_height};
+    }
+    if (req.body.to_height != null && req.body.to_height != undefined) {
+        seacrhArray.height = {$lt: req.body.to_height};
+    }
+    if (req.body.photo_count != null && req.body.photo_count != undefined) {
+        seacrhArray.photo_count = req.body.photo;
+    }
+    if (req.body.from_income != null && req.body.from_income != undefined) {
+        seacrhArray.income = {$gt: req.body.from_income};
+    }
+    if (req.body.to_income != null && req.body.to_income != undefined) {
+        seacrhArray.income = {$gt: req.body.to_income};
+    }
+    if (req.body.education != null && req.body.education != undefined) {
+        seacrhArray.education = req.body.education;
+    }
+    if (req.body.country != null && req.body.country != undefined) {
+        seacrhArray.country = req.body.country;
+    }
+    if (req.body.state != null && req.body.state != undefined) {
+
+    }
+    if (req.body.city != null && req.body.city != undefined) {
+        seacrhArray.push('city:' + req.body.city);
+    }
+    if (req.body.religion != null && req.body.religion != undefined) {
+        seacrhArray.religion = req.body.religion;
+    }
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        mother_tongue: true,
+        city: true,
+        religion: true,
+        state: true,
+        occupation: true,
+        income: true
+    };
+    async.parallel({
+        user_count: function (callback) {
+            UserModel.count({}, callback)
+        },
+        user_data: function (callback) {
+            UserModel.find({$or: [{city: 'Amrawati'}, {city: 'Adoni'}, {state: 'Assam'}, {state: 'Arunachal Pradesh'}]}, userProjection).skip(page * 20).limit(20).sort('_id')
+                .exec(callback)
+        },
+    }, function (err, results) {
+        if (err) {
+            return next(err);
+        }
+        //Successful, so render
+        res.json({'response_code': '200', 'status': 'success', 'results': results});
+    });
+
+};
+//update user detail
 exports.updateuser_about_your = function (req, res, next) {
 
     var id = req.body.user_id;
@@ -622,653 +1327,4 @@ exports.updateuser_favourite = function (req, res, next) {
         }
         res.json({"response_code": "200", "message": "data added successfully"});
     });
-};
-exports.create_new_instrest = function (req, res, next) {
-
-    var interestData = new InterestModel(
-        {
-            senderid: req.body.user_id,
-            reciverid: req.body.recieve_id,
-            time: Date.now(),
-            message: '',
-            status: ''
-        }
-    );
-    if (req.body.user_id == req.body.recieve_id) {
-        res.json({'response_code': '202', 'status': 'failed', 'message': 'Can not interest to yourself'});
-        return;
-    } else {
-        InterestModel.find({senderid: req.body.user_id}, function (err, result, next) {
-            if (err) {
-                return next(err);
-            } else {
-                var i;
-                for (i = 0; i < result.length; i++) {
-                    if (result[i].reciverid == req.body.recieve_id) {
-                        res.json({'response_code': '203', 'status': 'failed', 'message': 'Already request sent'});
-                        return;
-                    }
-                }
-                interestData.save(function (err, results) {
-                    if (err) {
-                        return next(err);
-                    }
-                    res.json({'response_code': '200', 'status': 'success', 'interestData': results});
-                });
-            }
-        });
-    }
-
-
-};
-exports.create_new_shortlist = function (req, res, next) {
-
-    var shortlistData = new ShortListModel(
-        {
-            senderid: req.body.user_id,
-            reciverid: req.body.recieve_id,
-            time: Date.now(),
-            message: '',
-            status: ''
-        }
-    );
-
-    shortlistData.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        res.json({'response_code': '200', 'status': 'success', 'shortlist': shortlistData});
-
-    });
-};
-exports.create_new_blocklist = function (req, res, next) {
-
-    var blockuser = new BlockUserModel(
-        {
-            user_id: req.body.user_id,
-            blockeduser_id: req.body.blockeduser_id,
-            time: Date.now()
-        }
-    );
-
-    blockuser.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        res.json({'response_code': '200', 'status': 'success', 'blockuser': blockuser});
-
-    });
-};
-exports.getblocked_user = function (req, res, next) {
-    var user_id = req.body.user_id;
-    var page = req.body.page_no;
-
-    var userProjection = {
-        user_id: true,
-        dob: true,
-        height: true,
-        caste: true,
-        sub_caste: true,
-        religion: true,
-        mother_tongue: true,
-        city: true,
-        state: true,
-        occupation: true,
-        income: true,
-        highest_education: true
-    };
-
-    BlockUserModel.find({user_id: user_id}, function (err, result) {
-        if (err) {
-            return next(err);
-        } else {
-            var i;
-            var sentArray = new Array();
-            var resultdata = new Array();
-            for (i = 0; i < result.length; i++) {
-                sentArray.push(result[i].blockeduser_id);
-            }
-            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
-                if (err) {
-                    return err.message;
-                } else {
-                    for (i = 0; i < data.length; i++) {
-                        var datavar = {
-                            user_id: data[i].user_id,
-                            blocked_id: result[i].blocked_id,
-                            time: result[i].time,
-                            dob: data[i].dob,
-                            height: data[i].height,
-                            caste: data[i].caste,
-                            sub_caste: data[i].sub_caste,
-                            religion: data[i].religion,
-                            mother_tongue: data[i].mother_tongue,
-                            city: data[i].city,
-                            state: data[i].state,
-                            occupation: data[i].occupation,
-                            income: data[i].income,
-                            highest_education: data[i].highest_education
-                        };
-                        resultdata.push(datavar)
-                    }
-                    res.json({
-                        'response_code': '200',
-                        'status': 'success',
-                        'count': sentArray.length,
-                        'results': resultdata
-                    })
-                }
-
-            });
-        }
-    }).skip(page * 10).limit(10).sort('_id');
-};
-exports.delete_block = function (req, res) {
-    var id = req.body.blocked_id;
-    BlockUserModel.findOneAndRemove({blocked_id: id}, function (err, data) {
-        if (err) {
-            res.json({"response_code": "202", "message": "Something went wrong"});
-        } else if (data == null) {
-            res.json({"response_code": "202", "message": "Data Not found"});
-        } else {
-            res.json({"response_code": "200", "message": "delete Successfully"});
-        }
-    });
-};
-exports.getInterest_sent = function (req, res, next) {
-    var user_id = req.body.user_id;
-    var page = req.body.page_no;
-
-    var userProjection = {
-        user_id: true,
-        dob: true,
-        height: true,
-        caste: true,
-        sub_caste: true,
-        religion: true,
-        mother_tongue: true,
-        city: true,
-        state: true,
-        occupation: true,
-        income: true,
-        highest_education: true
-    };
-
-    InterestModel.find({senderid: user_id}, function (err, result) {
-        if (err) {
-            return next(err);
-        } else {
-            var i;
-            var sentArray = new Array();
-            var resultdata = new Array();
-            for (i = 0; i < result.length; i++) {
-                sentArray.push(result[i].reciverid);
-            }
-            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
-                if (err) {
-                    return err.message;
-                } else {
-                    for (i = 0; i < data.length; i++) {
-                        var datavar = {
-                            user_id: data[i].user_id,
-                            interest_id: result[i].interest_id,
-                            time: result[i].time,
-                            dob: data[i].dob,
-                            height: data[i].height,
-                            caste: data[i].caste,
-                            sub_caste: data[i].sub_caste,
-                            religion: data[i].religion,
-                            mother_tongue: data[i].mother_tongue,
-                            city: data[i].city,
-                            state: data[i].state,
-                            occupation: data[i].occupation,
-                            income: data[i].income,
-                            highest_education: data[i].highest_education
-                        };
-                        resultdata.push(datavar)
-                    }
-                    res.json({
-                        'response_code': '200',
-                        'status': 'success',
-                        'count': sentArray.length,
-                        'results': resultdata
-                    })
-                }
-
-            });
-        }
-    }).skip(page * 10).limit(10).sort('_id');
-};
-exports.getInterest_received = function (req, res, next) {
-    var user_id = req.body.user_id;
-    var page = req.body.page_no;
-    var userProjection = {
-        user_id: true,
-        dob: true,
-        height: true,
-        caste: true,
-        sub_caste: true,
-        religion: true,
-        mother_tongue: true,
-        city: true,
-        state: true,
-        occupation: true,
-        income: true,
-        highest_education: true
-    };
-    InterestModel.find({reciverid: user_id}, function (err, result) {
-        if (err) {
-            return next(err);
-        } else {
-            var i;
-            var recieveArray = new Array();
-            var resultdata = new Array();
-            for (i = 0; i < result.length; i++) {
-                recieveArray.push(result[i].senderid);
-            }
-            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
-                if (err) {
-                    return err.message;
-                } else {
-                    for (i = 0; i < data.length; i++) {
-                        var datavar = {
-                            user_id: data[i].user_id,
-                            interest_id: result[i].interest_id,
-                            time: result[i].time,
-                            dob: data[i].dob,
-                            height: data[i].height,
-                            caste: data[i].caste,
-                            sub_caste: data[i].sub_caste,
-                            religion: data[i].religion,
-                            mother_tongue: data[i].mother_tongue,
-                            city: data[i].city,
-                            state: data[i].state,
-                            occupation: data[i].occupation,
-                            income: data[i].income,
-                            highest_education: data[i].highest_education
-                        };
-                        resultdata.push(datavar)
-                    }
-                    res.json({
-                        'response_code': '200',
-                        'status': 'success',
-                        'count': recieveArray.length,
-                        'results': resultdata
-                    });
-                }
-
-            });
-        }
-    }).skip(page * 10).limit(10).sort('_id');
-};
-exports.accept_reject_interest = function (req, res, next) {
-    var id = req.body.interest_id;
-    var data = {
-        status: req.body.status,
-        response_time: Date.now()
-    };
-    InterestModel.findOneAndUpdate({interest_id: id}, {$set: data}, {new: true}, function (err, doc) {
-        if (err) {
-            res.json({"response_code": "202", "message": "Something went wrong"});
-        } else if (data.status == "N") {
-            res.json({"response_code": "200", "message": "Rejected Successfully"});
-        } else {
-            res.json({"response_code": "200", "message": "Accepted Successfully"});
-        }
-    });
-};
-exports.get_accepted_by_me = function (req, res, next) {
-    var user_id = req.body.user_id;
-    var page = req.body.page_no;
-    var userProjection = {
-        user_id: true,
-        dob: true,
-        height: true,
-        caste: true,
-        sub_caste: true,
-        religion: true,
-        mother_tongue: true,
-        city: true,
-        state: true,
-        occupation: true,
-        income: true,
-        highest_education: true
-    };
-    InterestModel.find({reciverid: user_id, status: 'Y'}, function (err, result) {
-        if (err) {
-            return next(err);
-        } else {
-            var i;
-            var recieveArray = new Array();
-            var resultdata = new Array();
-            for (i = 0; i < result.length; i++) {
-                recieveArray.push(result[i].senderid);
-            }
-            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
-                if (err) {
-                    return err.message;
-                } else {
-                    for (i = 0; i < data.length; i++) {
-                        var datavar = {
-                            user_id: data[i].user_id,
-                            interest_id: result[i].interest_id,
-                            time: result[i].time,
-                            response_time: result[i].response_time,
-                            dob: data[i].dob,
-                            height: data[i].height,
-                            caste: data[i].caste,
-                            sub_caste: data[i].sub_caste,
-                            religion: data[i].religion,
-                            mother_tongue: data[i].mother_tongue,
-                            city: data[i].city,
-                            state: data[i].state,
-                            occupation: data[i].occupation,
-                            income: data[i].income,
-                            highest_education: data[i].highest_education
-                        };
-                        resultdata.push(datavar)
-                    }
-                    res.json({
-                        'response_code': '200',
-                        'status': 'success',
-                        'count': recieveArray.length,
-                        'results': resultdata
-                    });
-                }
-
-            })//.skip(page * 10).limit(10).sort('_id')
-        }
-    }).skip(page * 10).limit(10).sort('_id');
-};
-exports.get_accepted_me = function (req, res, next) {
-    var user_id = req.body.user_id;
-    var page = req.body.page_no;
-
-    var userProjection = {
-        user_id: true,
-        dob: true,
-        height: true,
-        caste: true,
-        sub_caste: true,
-        religion: true,
-        mother_tongue: true,
-        city: true,
-        state: true,
-        occupation: true,
-        income: true,
-        highest_education: true
-    };
-
-    InterestModel.find({senderid: user_id, status: 'Y'}, function (err, result) {
-        if (err) {
-            return next(err);
-        } else {
-            var i;
-            var sentArray = new Array();
-            var resultdata = new Array();
-            for (i = 0; i < result.length; i++) {
-                sentArray.push(result[i].reciverid);
-            }
-            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
-                if (err) {
-                    return err.message;
-                } else {
-                    for (i = 0; i < data.length; i++) {
-                        var datavar = {
-                            user_id: data[i].user_id,
-                            interest_id: result[i].interest_id,
-                            time: result[i].time,
-                            response_time: result[i].response_time,
-                            dob: data[i].dob,
-                            height: data[i].height,
-                            caste: data[i].caste,
-                            sub_caste: data[i].sub_caste,
-                            religion: data[i].religion,
-                            mother_tongue: data[i].mother_tongue,
-                            city: data[i].city,
-                            state: data[i].state,
-                            occupation: data[i].occupation,
-                            income: data[i].income,
-                            highest_education: data[i].highest_education
-                        };
-                        resultdata.push(datavar)
-                    }
-                    res.json({
-                        'response_code': '200',
-                        'status': 'success',
-                        'count': sentArray.length,
-                        'results': resultdata
-                    });
-                }
-
-            })
-        }
-    }).skip(page * 10).limit(10).sort('_id');
-};
-exports.get_i_declined = function (req, res, next) {
-    var user_id = req.body.user_id;
-    var page = req.body.page_no;
-    var userProjection = {
-        user_id: true,
-        name: true
-
-    };
-    InterestModel.find({reciverid: user_id, status: 'N'}, function (err, result) {
-        if (err) {
-            return next(err);
-        } else {
-            var i;
-            var recieveArray = new Array();
-            var resultdata = new Array();
-            for (i = 0; i < result.length; i++) {
-                recieveArray.push(result[i].senderid);
-            }
-            UserModel.find({user_id: recieveArray}, userProjection, function (err, data) {
-                if (err) {
-                    return err.message;
-                } else {
-                    for (i = 0; i < data.length; i++) {
-                        var datavar = {
-                            user_id: data[i].user_id,
-                            interest_id: result[i].interest_id,
-                            time: result[i].time,
-                            response_time: result[i].response_time,
-                            name: data[i].name
-                        };
-                        resultdata.push(datavar)
-                    }
-                    res.json({
-                        'response_code': '200',
-                        'status': 'success',
-                        'count': recieveArray.length,
-                        'results': resultdata
-                    });
-                }
-
-            })//.skip(page * 10).limit(10).sort('_id')
-        }
-    }).skip(page * 10).limit(10).sort('_id');
-};
-exports.get_they_declined = function (req, res, next) {
-    var user_id = req.body.user_id;
-    var page = req.body.page_no;
-
-    var userProjection = {
-        user_id: true,
-        name: true
-    };
-
-    InterestModel.find({senderid: user_id, status: 'N'}, function (err, result) {
-        if (err) {
-            return next(err);
-        } else {
-            var i;
-            var sentArray = new Array();
-            var resultdata = new Array();
-            for (i = 0; i < result.length; i++) {
-                sentArray.push(result[i].reciverid);
-            }
-            UserModel.find({user_id: sentArray}, userProjection, function (err, data) {
-                if (err) {
-                    return err.message;
-                } else {
-                    for (i = 0; i < data.length; i++) {
-                        var datavar = {
-                            user_id: data[i].user_id,
-                            interest_id: result[i].interest_id,
-                            time: result[i].time,
-                            response_time: result[i].response_time,
-                            name: data[i].name
-                        };
-                        resultdata.push(datavar)
-                    }
-                    res.json({
-                        'response_code': '200',
-                        'status': 'success',
-                        'count': sentArray.length,
-                        'results': resultdata
-                    });
-                }
-
-            })
-        }
-    }).skip(page * 10).limit(10).sort('_id');
-};
-exports.delete_interest = function (req, res) {
-    var id = req.body.interest_id;
-    InterestModel.findOneAndRemove({interest_id: id}, function (err, data) {
-        if (err) {
-            res.json({"response_code": "202", "message": "Something went wrong"});
-        } else {
-            res.json({"response_code": "200", "message": "delete Successfully"});
-        }
-    });
-};
-exports.get_contact = function (req, res) {
-    var id = req.body.user_id;
-    var userProjection = {
-        user_id: true,
-        phone: true,
-        mobile: true,
-        email: true,
-        alternate_email_id: true,
-        alternate_mobile_no: true,
-        landline_no: true,
-    };
-    UserModel.find({user_id: id}, userProjection, function (err, data) {
-        if (err) {
-            return err.message;
-        } else {
-            res.json({
-                'response_code': '200',
-                'message': 'success',
-                'results': data
-            })
-        }
-
-    });
-};
-exports.get_user_detail = function (req, res) {
-    var id = req.body.user_id;
-    var userProjection = {
-        user_id: true,
-        dob: true,
-        height: true,
-        caste: true,
-        sub_caste: true,
-        religion: true,
-        mother_tongue: true,
-        city: true,
-        state: true,
-        income: true,
-        complexion: true,
-        body_type: true,
-        phone: true,
-        mobile: true,
-        email: true,
-        //education  detail
-        about_education: true,
-        highest_education: true,
-        pg_degree: true,
-        pg_college: true,
-        ug_degree: true,
-        ug_college: true,
-        other_pg_degree: true,
-        other_ug_degree: true,
-        school_name: true,
-        //career  detail
-        occupation: true,
-        about_career: true,
-        organization_name: true,
-        setting_abord: true,
-        work_after_marriage: true,
-        alternate_email_id: true,
-        alternate_mobile_no: true,
-        landline_no: true
-    };
-    UserModel.findOne({user_id: id}, userProjection, function (err, data) {
-        if (err) {
-            return err.message;
-        }
-        if (data == null) {
-            res.json({
-                'response_code': '202',
-                'message': 'User Id Not Found',
-                'results': data
-            });
-        } else {
-            res.json({
-                'response_code': '200',
-                'message': 'success',
-                'results': data
-            });
-        }
-
-    });
-};
-exports.user_login = function (req, res, next) {
-
-    var useremail = req.body.email;
-    var pass = req.body.password;
-    UserModel.findOne({email: useremail, password: pass}, function (err, result) {
-        if (err) {
-            return next(err);
-        } else if (result == null) {
-            res.json({'data': result, "response_code": "202", "message": "Enter Valid credentials"});
-        } else {
-            res.json({'data': result, "response_code": "200", "message": "Login in Successfully !!"});
-        }
-
-    });
-};
-exports.user_list = function (req, res, next) {
-    var page = parseInt(req.body.page_no);
-    var userProjection = {
-        user_id: true,
-        dob: true,
-        height: true,
-        caste: true,
-        sub_caste: true,
-        mother_tongue: true,
-        city: true,
-        state: true,
-        occupation: true,
-        income: true
-    };
-    async.parallel({
-        user_count: function (callback) {
-            UserModel.count(callback)
-        },
-        user_data: function (callback) {
-            UserModel.find({}, userProjection).skip(page * 20).limit(20).sort('_id')
-                .exec(callback)
-        },
-    }, function (err, results) {
-        if (err) {
-            return next(err);
-        }
-        //Successful, so render
-        res.json({'response_code': '200', 'status': 'success', 'results': results});
-    });
-
 };

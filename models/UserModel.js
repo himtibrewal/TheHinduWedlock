@@ -41,7 +41,6 @@ var userSchema = new Schema(
         about_your_self: {type: String},
         marital_status: {type: String},
         have_child: {type: String},
-
         openforAllcaste: {type: String},
         //kundli
         Horoscope_check: {type: String},
@@ -130,6 +129,15 @@ var userSchema = new Schema(
         landline_no: {type: String},
         suitable_time_to_call_start_time: {type: String},
         suitable_time_to_call_end_time: {type: String},
+
+        //new data list
+        age:{type:String},
+        height_id:{type:String},
+        income_id :{type:String},
+        country_id:{type:String},
+        state_id:{type:String},
+        city_id:{type:String},
+
 
         //partner detail
         partner_from_age: {type: String},
