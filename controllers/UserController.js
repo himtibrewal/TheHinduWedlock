@@ -219,7 +219,6 @@ exports.create_new_user = function (req, res, next) {
             }
         }
         res.json({'response_code': '200', 'status': 'success', 'userDetail': RegisterData});
-
     });
 };
 //user login
@@ -257,7 +256,7 @@ exports.imageupload = function (req, res, next) {
         if (err) {
             return next(err);
         } else {
-            ImageModel.find({user_id: req.body.user_id}, function (err, result) {
+            ImageModel.find({user_id: req.body.user_id, deleted: 0}, function (err, result) {
                 if (err) {
                     return next(err);
                 } else if (result == null) {
@@ -293,8 +292,23 @@ exports.make_profile_picture = function (req, res, next) {
                 } else {
                     res.json({"response_code": "200", "message": "Profile Picture set Successfully"});
                 }
-                //
             });
+        }
+    });
+};
+
+exports.delete_image = function (req, res, next) {
+    var id = req.body.image_id;
+    var data = {
+        deleted: 1
+    };
+    ImageModel.findOneAndUpdate({image_id: id}, {$set: data1}, {multi: true}, function (err1, doc1) {
+        if (err1) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else if (doc1 == null) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else {
+            res.json({"response_code": "200", "message": "Profile Picture set Successfully"});
         }
     });
 };

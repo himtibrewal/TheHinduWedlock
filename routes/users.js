@@ -32,6 +32,8 @@ router.post('/image_upload', userController.imageupload);
 
 router.post('/make_profile', userController.make_profile_picture);
 
+router.post('/delete_image', userController.delete_image);
+
 //
 router.post('/update_ethnicity', userController.updateuser_ethnicity);
 
