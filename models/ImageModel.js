@@ -12,7 +12,9 @@ var Schema = mongoose.Schema;
 var imageSchema = new Schema(
     {
         user_id: {type: String},
-        image: {type: String}
+        image: {type: String},
+        deleted: {type: String},
+        showing: {type: String}
     }
 );
 

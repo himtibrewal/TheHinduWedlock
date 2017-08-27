@@ -234,7 +234,7 @@ exports.user_login = function (req, res, next) {
             res.json({'data': result, "response_code": "202", "message": "Enter Valid credentials"});
         } else {
             var user_id = result.user_id;
-            ImageModel.find({user_id: user_id}, function (req, res11) {
+            ImageModel.find({user_id: user_id, deleted: 0}, function (req, res11) {
                 if (res == null) {
                     result.image = new Array();
                 } else {
@@ -242,14 +242,14 @@ exports.user_login = function (req, res, next) {
                     res.json({'data': result, "response_code": "200", "message": "Login in Successfully !!"});
                 }
             });
-
         }
-
     });
 };
 exports.imageupload = function (req, res, next) {
     var imageModel = new ImageModel({
         user_id: req.body.user_id,
+        deleted: 0,
+        showing: 1,
         image: encodeURIComponent(req.body.image)//; req.body.image + "&token=" + req.body.token
     });
     imageModel.save(function (err) {
