@@ -29,6 +29,9 @@ router.post('/update_about_family', userController.updateuser_about_family);
 router.post('/mobile_verify', userController.updateuser_mobile_verify);
 
 router.post('/image_upload', userController.imageupload);
+
+router.post('/make_profile', userController.make_profile_picture);
+
 //
 router.post('/update_ethnicity', userController.updateuser_ethnicity);
 
@@ -71,9 +74,6 @@ router.post('/get_user_detail', userController.get_user_detail);
 router.post('/get_i_declined', userController.get_i_declined);
 
 router.post('/get_they_declined', userController.get_they_declined);
-
-
-
 
 
 //upload  image

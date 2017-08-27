@@ -279,13 +279,13 @@ exports.make_profile_picture = function (req, res, next) {
     var data = {
         profile: 1
     };
-    ImageModel.update({user_id: user_id}, {$set: data}, {new: true}, function (err, doc) {
+    ImageModel.update({user_id: user_id}, {$set: data}, {multi: true}, function (err, doc) {
         if (err) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         } else if (doc == null) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         } else {
-            ImageModel.update({image_id: id}, {$set: data}, {new: true}, function (err, doc) {
+            ImageModel.update({image_id: id}, {$set: data},  { multi: true }, function (err, doc) {
                 if (err) {
                     res.json({"response_code": "202", "message": "Something went wrong"});
                 } else if (doc == null) {
