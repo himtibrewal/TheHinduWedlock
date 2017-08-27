@@ -302,13 +302,13 @@ exports.delete_image = function (req, res, next) {
     var data = {
         deleted: 1
     };
-    ImageModel.findOneAndUpdate({image_id: id}, {$set: data1}, {multi: true}, function (err1, doc1) {
+    ImageModel.findOneAndUpdate({image_id: id}, {$set: data}, {multi: true}, function (err1, doc1) {
         if (err1) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         } else if (doc1 == null) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         } else {
-            res.json({"response_code": "200", "message": "Profile Picture set Successfully"});
+            res.json({"response_code": "200", "message": "Image Delete Successfully"});
         }
     });
 };
