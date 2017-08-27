@@ -250,6 +250,7 @@ exports.imageupload = function (req, res, next) {
         user_id: req.body.user_id,
         deleted: 0,
         showing: 1,
+        isprofile: 0,
         image: encodeURIComponent(req.body.image)//; req.body.image + "&token=" + req.body.token
     });
     imageModel.save(function (err) {
@@ -263,6 +264,34 @@ exports.imageupload = function (req, res, next) {
                     res.json({'data': result, "response_code": "202", "message": "No Image Found"});
                 } else {
                     res.json({'data': result, "response_code": "200", "message": "Login in Successfully !!"});
+                }
+            });
+        }
+    });
+};
+
+exports.make_profile_picture = function (req, res, next) {
+    var id = req.body.image_id;
+    var user_id = req.body_user_id;
+    var data = {
+        profile: 0
+    };
+    var data = {
+        profile: 1
+    };
+    ImageModel.update({user_id: user_id}, {$set: data}, {new: true}, function (err, doc) {
+        if (err) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else if (doc == null) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else {
+            ImageModel.update({image_id: id}, {$set: data}, {new: true}, function (err, doc) {
+                if (err) {
+                    res.json({"response_code": "202", "message": "Something went wrong"});
+                } else if (doc == null) {
+                    res.json({"response_code": "202", "message": "Something went wrong"});
+                } else {
+                    res.json({"response_code": "200", "message": "Profile Picture set Successfully"});
                 }
             });
         }
