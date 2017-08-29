@@ -147,7 +147,7 @@ var userSchema = new Schema(
         manglik_id: {type: Number},
         last_online: {type: Date},
         device_type: {type: String},
-        req_key: {type: String},
+        reg_key: {type: String},
         registration_date: {type: Date},
         device_id: {type: String},
         //partner detail

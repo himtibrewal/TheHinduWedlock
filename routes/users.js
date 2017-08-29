@@ -77,6 +77,8 @@ router.post('/get_i_declined', userController.get_i_declined);
 
 router.post('/get_they_declined', userController.get_they_declined);
 
+router.post('/last_online', userController.last_online);
+
 
 //upload  image
 

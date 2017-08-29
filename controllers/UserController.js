@@ -6,7 +6,8 @@ var mongoose = require('mongoose');
 var express = require('express');
 const format = require('util').format;
 var router = express.Router();
-var async = require('async')
+var async = require('async');
+var admin = require("firebase-admin");
 
 //call  model
 var UserModel = require('../models/UserModel');
@@ -26,6 +27,31 @@ var Physical = require('../models/PhysicalModel');
 var State = require('../models/StateModel');
 var City = require('../models/CityModel');
 var ImageModel = require('../models/ImageModel');
+
+var serviceAccount = require("../thehindu-24e87-firebase-adminsdk-3f6yv-b5b77363f4.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://thehindu-24e87.firebaseio.com"
+});
+
+
+// See the "Defining the message payload" section below for details
+// on how to define a message payload.
+
+
+// Send a message to the device corresponding to the provided
+// registration token.
+// admin.messaging().sendToDevice(registrationToken, payload)
+//     .then(function (response) {
+//         // See the MessagingDevicesResponse reference documentation for
+//         // the contents of response.
+//         console.log("Successfully sent message:", response);
+//     })
+//     .catch(function (error) {
+//         console.log("Error sending message:", error);
+//     });
+
 
 //call alla data
 exports.alldata = function (req, res, next) {
@@ -138,11 +164,21 @@ exports.create_new_user = function (req, res, next) {
             password: req.body.password,
             phone: req.body.phone,
             device_type: req.body.device_type,
-            req_key: req.body.reg_key,
+            reg_key: req.body.reg_key,
             registration_date: Date.now(),
             device_id: req.body.device_id
         }
     );
+    var payload = {
+        notification: {
+            title: "The Hindu Wedlock",
+            body: "You are Registered Successfully"
+        },
+        data: {
+            key1: "demo data",
+            key2: "demo deta2"
+        }
+    };
 
     RegisterData.save(function (err) {
         if (err) {
@@ -152,6 +188,16 @@ exports.create_new_user = function (req, res, next) {
                 return next(err);
             }
         } else {
+            var registrationToken = RegisterData.req_key;// "c8EL0a_sEn8:APA91bEgAtYHGCUImYjDspmigI3MclpAzALPzNPCCWvgq7lYWm3sgRMjQP7HLgL-RcL_0NvZt1liLo7SRNlf8BG7xdaJWpQ7aJF5sq8k-x2ganHxbVquYRgBPaNz27AgxBhUz-8on7Mk";
+            admin.messaging().sendToDevice(registrationToken, payload)
+                .then(function (response) {
+                    // See the MessagingDevicesResponse reference documentation for
+                    // the contents of response.
+                    console.log("Successfully sent message:", response);
+                })
+                .catch(function (error) {
+                    console.log("Error sending message:", error);
+                });
             res.json({'response_code': '200', 'status': 'success', 'userDetail': RegisterData});
         }
     });
@@ -253,6 +299,7 @@ exports.last_online = function (req, res, next) {
     var last_online = {
         last_online: Date.now()
     };
+
     UserModel.findOneAndUpdate({user_id: id}, {$set: last_online}, {new: true}, function (err1, doc1) {
         if (err1) {
             res.json({"response_code": "202", "message": "Something went wrong"});
@@ -262,7 +309,6 @@ exports.last_online = function (req, res, next) {
             res.json({"response_code": "200", "message": "update status successfully"});
         }
     });
-
 };
 
 
