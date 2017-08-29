@@ -179,6 +179,7 @@ exports.create_new_user = function (req, res, next) {
             key2: "demo deta2"
         }
     };
+    //
 
     RegisterData.save(function (err) {
         if (err) {
