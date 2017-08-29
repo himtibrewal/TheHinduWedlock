@@ -13,7 +13,7 @@ var Language = require('../models/LanguageModel');
 var MaritalStatus = require('../models/MaritalStatusModel')
 var Physical = require('../models/PhysicalModel');
 var State = require('../models/StateModel');
-var City  =  require('../models/CityModel');
+var City = require('../models/CityModel');
 var async = require('async');
 
 exports.add_category = function (req, res, next) {

@@ -86,49 +86,24 @@ exports.alldata = function (req, res, next) {
 };
 //create new  user /registration
 exports.create_new_user = function (req, res, next) {
-
-    // //var ageTemp = req.body.dob.toSource().split("-")
-    // var age = (Date.now() - req.body.dob);
-
     var RegisterData = new UserModel(
         {
-            m_id: req.body.m_id,
             createfor: req.body.createfor,
-            photo: req.body.photo,
-            photo_count: req.body.photo_count,
-            from_image: req.body.from_image,
-            manage_by: req.body.manage_by,
-            name: req.body.name,
-            name_show: req.body.name_show,
+
             gender: req.body.gender,
             dob: req.body.dob,
             height: req.body.height,
+            height_id: req.body.height_id,
             country: req.body.country,
+            country_id: req.body.country_id,
             state: req.body.state,
+            state_id: req.body.state_id,
             city: req.body.city,
-            mother_tongue: req.body.mother_tongue,
-            religion: req.body.religion,
-            religion_show: req.body.religion_show,
-            caste: req.body.caste,
-            sub_caste: req.body.sub_caste,
-            family_based_on: req.body.family_based_on,
-            gotra: req.body.gotra,
-            complexion: req.body.complexion,
-            body_type: req.body.body_type,
-            weight: req.body.weight,
-            challenged: req.body.challenged,
-            thalassemia: req.body.thalassemia,
-            hiv: req.body.hiv,
-            about_your_self: req.body.about_your_self,
-            marital_status: req.body.marital_status,
-            have_child: req.body.have_child,
-            openforAllcaste: req.body.openforAllcaste,
-            Horoscope_check: req.body.Horoscope_check,
-            rashi: req.body.rashi,
-            nakshatra: req.body.nakshatra,
-            manglik: req.body.manglik,
-            about_education: req.body.about_education,
+            city_id: req.body.city_id,
+
+            // about_education: req.body.about_education,
             highest_education: req.body.highest_education,
+            highest_edu_id: req.body.highest_edu_id,
             pg_degree: req.body.pg_degree,
             pg_college: req.body.pg_college,
             ug_degree: req.body.ug_degree,
@@ -137,76 +112,35 @@ exports.create_new_user = function (req, res, next) {
             other_ug_degree: req.body.other_ug_degree,
             school_name: req.body.school_name,
             occupation: req.body.occupation,
+            occupation_id: req.body.occupation_id,
             income: req.body.income,
-            about_career: req.body.about_career,
-            organization_name: req.body.organization_name,
-            setting_abord: req.body.setting_abord,
-            work_after_marriage: req.body.work_after_marriage,
-            family_status: req.body.family_status,
-            family_type: req.body.family_type,
-            family_values: req.body.family_values,
-            family_income: req.body.family_income,
-            father_occupation: req.body.father_occupation,
-            mother_occupation: req.body.mother_occupation,
-            brother: req.body.brother,
-            married_brother: req.body.married_brother,
-            sister: req.body.sister,
-            sister_married: req.body.sister_married,
-            about_family: req.body.about_family,
-            living_with_parents: req.body.living_with_parents,
-            diet: req.body.diet,
-            smoke: req.body.smoke,
-            drink: req.body.drink,
-            pets: req.body.pets,
-            own_house: req.body.own_house,
-            own_car: req.body.own_car,
-            language_speak: req.body.language_speak,
-            food_cook_detail: req.body.food_cook_detail,
-            hobbies: req.body.hobbies,
-            interest: req.body.interest,
-            favourite_musics: req.body.favourite_musics,
-            favourite_books: req.body.favourite_books,
-            favourite_dress_style: req.body.favourite_dress_style,
-            favourite_sports: req.body.favourite_sports,
-            favourite_cuisines: req.body.favourite_cuisines,
-            favourite_movies: req.body.favourite_movies,
-            favourite_read: req.body.favourite_read,
-            favourite_tv_shows: req.body.favourite_tv_shows,
-            favourite_vaction_distination: req.body.favourite_vaction_distination,
+            income_id: req.body.income_id,
+
+            marital_status_id: req.body.marital_status_id,
+            marital_status: req.body.marital_status,
+            have_child: req.body.have_child,
+            mother_tongue: req.body.mother_tongue,
+            mother_tongue_id: req.body.mother_tongue_id,
+            religion: req.body.religion,
+            religion_id: req.body.religion_id,
+            religion_show: req.body.religion_show,
+            caste: req.body.caste,
+            caste_id: req.body.caste_id,
+            sub_caste: req.body.sub_caste,
+            sub_caste_id: req.body.sub_caste_id,
+            manglik: req.body.manglik,
+            manglik_id: req.body.manglik_id,
+            openforAllcaste: req.body.openforAllcaste,
+            Horoscope_check: req.body.Horoscope_check,
+
+            name: req.body.name,
             email: req.body.email,
             password: req.body.password,
             phone: req.body.phone,
-            alternate_email_id: req.body.alternate_email_id,
-            alternate_mobile_no: req.body.alternate_mobile_no,
-            email_veriy: req.body.email_veriy,
-            email_visible: req.body.email_visible,
-            mobile_visible: req.body.mobile_visible,
-            alt_mobile_visible: req.body.alt_mobile_visible,
-            landline_visible: req.body.landline_visible,
-            alt_email_verify: req.body.alt_email_verify,
-            mobile_verify: req.body.mobile_verify,
-            landline_no: req.body.landline_no,
-            suitable_time_to_call_start_time: req.body.suitable_time_to_call_start_time,
-            suitable_time_to_call_end_time: req.body.suitable_time_to_call_end_time,
-            partner_from_age: req.body.partner_from_age,
-            partner_to_age: req.body.partner_to_age,
-            partner_from_height: req.body.partner_from_height,
-            partner_to_height: req.body.partner_to_height,
-            partner_counrtys: req.body.partner_counrtys,
-            partner_marital_status: req.body.partner_marital_status,
-            partner_religion: req.body.partner_religion,
-            partner_caste: req.body.partner_caste,
-            partner_tongue: req.body.partner_tongue,
-            partner_manglik: req.body.partner_manglik,
-            partner_diet: req.body.partner_diet,
-            partner_smoke: req.body.partner_smoke,
-            partner_drink: req.body.partner_drink,
-            partner_complexion: req.body.partner_complexion,
-            partner_bodytype: req.body.partner_bodytype,
-            partner_challenge: req.body.partner_challenge,
-            partner_about: req.body.partner_about,
-            manage_strict_partner: req.body.manage_strict_partner,
-            partner_give_outside: req.body.partner_give_outside
+            device_type: req.body.device_type,
+            req_key: req.body.reg_key,
+            registration_date: Date.now(),
+            device_id: req.body.device_id
         }
     );
 
@@ -217,8 +151,9 @@ exports.create_new_user = function (req, res, next) {
             } else {
                 return next(err);
             }
+        } else {
+            res.json({'response_code': '200', 'status': 'success', 'userDetail': RegisterData});
         }
-        res.json({'response_code': '200', 'status': 'success', 'userDetail': RegisterData});
     });
 };
 //user login
@@ -312,6 +247,25 @@ exports.delete_image = function (req, res, next) {
         }
     });
 };
+//last_online
+exports.last_online = function (req, res, next) {
+    var id = req.body.user_id;
+    var last_online = {
+        last_online: Date.now()
+    };
+    UserModel.findOneAndUpdate({user_id: id}, {$set: last_online}, {new: true}, function (err1, doc1) {
+        if (err1) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else if (doc1 == null) {
+            res.json({"response_code": "202", "message": "Something went wrong"});
+        } else {
+            res.json({"response_code": "200", "message": "update status successfully"});
+        }
+    });
+
+};
+
+
 //create  new  interest
 exports.create_new_instrest = function (req, res, next) {
 
