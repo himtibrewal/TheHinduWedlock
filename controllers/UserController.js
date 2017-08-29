@@ -189,7 +189,7 @@ exports.create_new_user = function (req, res, next) {
                 return next(err);
             }
         } else {
-            var registrationToken = RegisterData.req_key;// "c8EL0a_sEn8:APA91bEgAtYHGCUImYjDspmigI3MclpAzALPzNPCCWvgq7lYWm3sgRMjQP7HLgL-RcL_0NvZt1liLo7SRNlf8BG7xdaJWpQ7aJF5sq8k-x2ganHxbVquYRgBPaNz27AgxBhUz-8on7Mk";
+            var registrationToken = req.body.reg_key;// "c8EL0a_sEn8:APA91bEgAtYHGCUImYjDspmigI3MclpAzALPzNPCCWvgq7lYWm3sgRMjQP7HLgL-RcL_0NvZt1liLo7SRNlf8BG7xdaJWpQ7aJF5sq8k-x2ganHxbVquYRgBPaNz27AgxBhUz-8on7Mk";
             admin.messaging().sendToDevice(registrationToken, payload)
                 .then(function (response) {
                     // See the MessagingDevicesResponse reference documentation for
