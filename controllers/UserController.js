@@ -212,7 +212,7 @@ exports.user_login = function (req, res, next) {
         reg_key: req.body.reg_key,
         device_id: req.body.device_id
     };
-    findOne({email: useremail, password: pass}, function (err, result) {
+    UserModel.findOne({email: useremail, password: pass}, function (err, result) {
         if (err) {
             return next(err);
         } else if (result == null) {
