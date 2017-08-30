@@ -208,13 +208,20 @@ exports.user_login = function (req, res, next) {
 
     var useremail = req.body.email;
     var pass = req.body.password;
-    UserModel.findOne({email: useremail, password: pass}, function (err, result) {
+    var data = {
+        reg_key: req.body.reg_key,
+        device_id: req.body.device_id
+    };
+    findOne({email: useremail, password: pass}, function (err, result) {
         if (err) {
             return next(err);
         } else if (result == null) {
             res.json({'data': result, "response_code": "202", "message": "Enter Valid credentials"});
         } else {
             var user_id = result.user_id;
+            UserModel.findOneAndUpdate({user_id: user_id}, {$set: data}, {new: true}, function (err1, doc1) {
+                console.log("Successfully sent message:", doc1);
+            });
             ImageModel.find({user_id: user_id, deleted: 0}, function (req, res11) {
                 if (res == null) {
                     result.image = new Array();
