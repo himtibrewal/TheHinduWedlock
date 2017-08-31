@@ -929,44 +929,56 @@ exports.get_user_detail = function (req, res) {
 };
 exports.user_list = function (req, res, next) {
     var page = parseInt(req.body.page_no);
-    var data = req.body.search_data;
-    var seacrhArray = data.split(',');
-    // if (req.body.from_age != null && req.body.from_age != undefined) {
-    //     seacrhArray.push('age:' + {$gt: req.body.from_age});
-    // }
-    // if (req.body.toage != null && req.body.to_age != undefined) {
-    //     seacrhArray.age = {$lt: req.body.to_age};
-    // }
-    // if (req.body.from_height != null && req.body.from_height != undefined) {
-    //     seacrhArray.height = {$gt: req.body.from_height};
-    // }
-    // if (req.body.to_height != null && req.body.to_height != undefined) {
-    //     seacrhArray.height = {$lt: req.body.to_height};
-    // }
-    // if (req.body.photo_count != null && req.body.photo_count != undefined) {
-    //     seacrhArray.photo_count = req.body.photo;
-    // }
-    // if (req.body.from_income != null && req.body.from_income != undefined) {
-    //     seacrhArray.income = {$gt: req.body.from_income};
-    // }
-    // if (req.body.to_income != null && req.body.to_income != undefined) {
-    //     seacrhArray.income = {$gt: req.body.to_income};
-    // }
-    // if (req.body.education != null && req.body.education != undefined) {
-    //     seacrhArray.education = req.body.education;
-    // }
-    // if (req.body.country != null && req.body.country != undefined) {
-    //     seacrhArray.country = req.body.country;
-    // }
-    // if (req.body.state != null && req.body.state != undefined) {
-    //
-    // }
-    // if (req.body.city != null && req.body.city != undefined) {
-    //     seacrhArray.push('city:' + req.body.city);
-    // }
-    // if (req.body.religion != null && req.body.religion != undefined) {
-    //     seacrhArray.religion = req.body.religion;
-    // }
+    var city_ids = new Array();
+    var state_ids = new Array();
+    var country_ids = new Array();
+    var from_ags = req.body.from_age;
+    var to_ags = req.body.to_age;
+    var from_heights = 0;
+    var to_heights = 999;
+    var photo_counts = req.body.photo_count;
+
+    var seacrhArray;
+
+    if (req.body.city_id != null && req.body.city_id != undefined) {
+        var city_ids = req.body.city_id.split(",");
+    }
+    if (req.body.state_id != null && req.body.state_id != undefined) {
+        state_ids = req.body.state_id.split(",");
+    }
+    if (req.body.country_id != null && req.body.country_id != undefined) {
+        country_ids = req.body.state_id.split(",");
+    }
+    if (req.body.from_height != null && req.body.from_height != undefined) {
+        from_heights = req.body.from_height;
+    }
+    if (req.body.to_height != null && req.body.to_height != undefined) {
+        to_heights = req.body.to_height;
+    }
+    if (req.body.photo_count != null && req.body.photo_count != undefined) {
+        seacrhArray.photo_count = req.body.photo;
+    }
+    if (req.body.from_income != null && req.body.from_income != undefined) {
+        seacrhArray.income = {$gt: req.body.from_income};
+    }
+    if (req.body.to_income != null && req.body.to_income != undefined) {
+        seacrhArray.income = {$gt: req.body.to_income};
+    }
+    if (req.body.education != null && req.body.education != undefined) {
+        seacrhArray.education = req.body.education;
+    }
+    if (req.body.country != null && req.body.country != undefined) {
+        seacrhArray.country = req.body.country;
+    }
+    if (req.body.state != null && req.body.state != undefined) {
+
+    }
+    if (req.body.city != null && req.body.city != undefined) {
+        seacrhArray.push('city:' + req.body.city);
+    }
+    if (req.body.religion != null && req.body.religion != undefined) {
+        seacrhArray.religion = req.body.religion;
+    }
     var userProjection = {
         user_id: true,
         dob: true,
@@ -985,7 +997,14 @@ exports.user_list = function (req, res, next) {
             UserModel.count({}, callback)
         },
         user_data: function (callback) {
-            UserModel.find({$or: [{city_id:seacrhArray}]}, userProjection).skip(page * 5).limit(5).sort('_id')
+            UserModel.find({
+                $or: [{city_id: city_ids}, {state_id: state_ids}, {country_id: country_ids}, {
+                    height_id: {
+                        $gt: from_heights,
+                        $lt: to_heights
+                    }
+                }]
+            }, userProjection).skip(page * 5).limit(5).sort('_id')
                 .exec(callback)
         },
     }, function (err, results) {
