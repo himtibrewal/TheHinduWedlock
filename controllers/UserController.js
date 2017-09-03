@@ -929,53 +929,45 @@ exports.get_user_detail = function (req, res) {
 };
 exports.user_list = function (req, res, next) {
     var page = parseInt(req.body.page_no);
-    var city_ids = new Array();
-    var state_ids = new Array();
-    var country_ids = new Array();
-    var from_ags;
-    var to_ags;
-    var from_heights;
-    var to_heights;
-    var from_incomes;
-    var to_incomes;
-    var religions = new Array();
-    var educations = new Array();
-    var photo_counts = req.body.photo_count;
+    // var city_ids = new Array();
+    // var state_ids = new Array();
+    // var country_ids = new Array();
+    // var from_incomes;
+    // var to_incomes;
+    // var religions = new Array();
+    // var educations = new Array();
+    // var photo_counts = req.body.photo_count;
     var seacrhArray = new Array();
 
     if (req.body.city_id != null && req.body.city_id != undefined) {
-        var city_ids = req.body.city_id.split(",");
-        seacrhArray.push({city_id: city_ids});
+        //  var city_ids = req.body.city_id.split(",");
+        seacrhArray.push({city_id: req.body.city_id.split(",")});
     }
     if (req.body.state_id != null && req.body.state_id != undefined) {
-        state_ids = req.body.state_id.split(",");
-        seacrhArray.push({state_id: state_ids});
+        //state_ids = req.body.state_id.split(",");
+        seacrhArray.push({state_id: req.body.state_id.split(",")});
     }
     if (req.body.country_id != null && req.body.country_id != undefined) {
-        country_ids = req.body.state_id.split(",");
-        seacrhArray.push({country_id: country_ids});
+        // country_ids = req.body.state_id.split(",");
+        seacrhArray.push({country_id: req.body.state_id.split(",")});
     }
     if (req.body.from_height != null && req.body.from_height != undefined && req.body.to_height != null && req.body.to_height != undefined) {
-        from_heights = parseInt(req.body.from_height); //req.body.from_height;
-        to_heights = parseInt(req.body.to_height);
-        seacrhArray.push({height_id: {$gt: from_heights, $lt: to_heights}})
+        seacrhArray.push({height_id: {$gt: parseInt(req.body.from_height), $lt: parseInt(req.body.to_height)}})
+    }
+    if (req.body.from_age != null && req.body.from_age != undefined && req.body.to_age != null && req.body.to_age != undefined) {
+        seacrhArray.push({age_id: {$gt: parseInt(req.body.from_age), $lt: parseInt(req.body.to_age)}})
     }
     if (req.body.photo_count != null && req.body.photo_count != undefined) {
-        seacrhArray.push({photo_count: photo_count});
+        seacrhArray.push({photo_count: parseInt(req.body.photo_count)});
     }
     if (req.body.from_income != null && req.body.from_income != undefined && req.body.to_income != null && req.body.to_income != undefined) {
-        from_incomes = parseInt(req.body.from_income);
-        to_incomes = parseInt(req.body.to_income);
-        seacrhArray.push({height_id: {$gt: from_incomes, $lt: to_incomes}})
+        seacrhArray.push({height_id: {$gt: parseInt(req.body.from_income), $lt: parseInt(req.body.to_income)}})
     }
     if (req.body.education != null && req.body.education != undefined) {
-        educations = req.body.education_id.split(",");
-        seacrhArray.push({education_id: educations});
+        seacrhArray.push({education_id: req.body.education_id.split(",")});
     }
-
     if (req.body.religion != null && req.body.religion != undefined) {
-        religions = req.body.religion.split(",");
-        seacrhArray.push({religion_id: religions});
+        seacrhArray.push({religion_id: req.body.religion.split(",")});
     }
     var userProjection = {
         user_id: true,
