@@ -20,7 +20,7 @@ var userSchema = new Schema(
         name: {type: String},
         name_show: {type: String},
         gender: {type: Number},
-        dob: {type: Date},
+        dob: {type: String},
         height: {type: String},
         country: {type: String},
         state: {type: String},
