@@ -932,52 +932,50 @@ exports.user_list = function (req, res, next) {
     var city_ids = new Array();
     var state_ids = new Array();
     var country_ids = new Array();
-    var from_ags = req.body.from_age;
-    var to_ags = req.body.to_age;
+    var from_ags;
+    var to_ags;
     var from_heights;
     var to_heights;
+    var from_incomes;
+    var to_incomes;
+    var religions = new Array();
+    var educations = new Array();
     var photo_counts = req.body.photo_count;
-
-    var seacrhArray;
+    var seacrhArray = new Array();
 
     if (req.body.city_id != null && req.body.city_id != undefined) {
         var city_ids = req.body.city_id.split(",");
+        seacrhArray.push({city_id: city_ids});
     }
     if (req.body.state_id != null && req.body.state_id != undefined) {
         state_ids = req.body.state_id.split(",");
+        seacrhArray.push({state_id: state_ids});
     }
     if (req.body.country_id != null && req.body.country_id != undefined) {
         country_ids = req.body.state_id.split(",");
+        seacrhArray.push({country_id: country_ids});
     }
-    if (req.body.from_height != null && req.body.from_height != undefined) {
-        from_heights = req.body.from_height;
-    }
-    if (req.body.to_height != null && req.body.to_height != undefined) {
-        to_heights = req.body.to_height;
+    if (req.body.from_height != null && req.body.from_height != undefined && req.body.to_height != null && req.body.to_height != undefined) {
+        from_heights = parseInt(req.body.from_height); //req.body.from_height;
+        to_heights = parseInt(req.body.to_height);
+        seacrhArray.push({height_id: {$gt: from_heights, $lt: to_heights}})
     }
     if (req.body.photo_count != null && req.body.photo_count != undefined) {
-        seacrhArray.photo_count = req.body.photo;
+        seacrhArray.push({photo_count: photo_count});
     }
-    if (req.body.from_income != null && req.body.from_income != undefined) {
-        seacrhArray.income = {$gt: req.body.from_income};
-    }
-    if (req.body.to_income != null && req.body.to_income != undefined) {
-        seacrhArray.income = {$gt: req.body.to_income};
+    if (req.body.from_income != null && req.body.from_income != undefined && req.body.to_income != null && req.body.to_income != undefined) {
+        from_incomes = parseInt(req.body.from_income);
+        to_incomes = parseInt(req.body.to_income);
+        seacrhArray.push({height_id: {$gt: from_incomes, $lt: to_incomes}})
     }
     if (req.body.education != null && req.body.education != undefined) {
-        seacrhArray.education = req.body.education;
+        educations = req.body.education_id.split(",");
+        seacrhArray.push({education_id: educations});
     }
-    if (req.body.country != null && req.body.country != undefined) {
-        seacrhArray.country = req.body.country;
-    }
-    if (req.body.state != null && req.body.state != undefined) {
 
-    }
-    if (req.body.city != null && req.body.city != undefined) {
-        seacrhArray.push('city:' + req.body.city);
-    }
     if (req.body.religion != null && req.body.religion != undefined) {
-        seacrhArray.religion = req.body.religion;
+        religions = req.body.religion.split(",");
+        seacrhArray.push({religion_id: religions});
     }
     var userProjection = {
         user_id: true,
@@ -998,12 +996,13 @@ exports.user_list = function (req, res, next) {
         },
         user_data: function (callback) {
             UserModel.find({
-                $or: [{city_id: city_ids}, {state_id: state_ids}, {country_id: country_ids}, {
-                    height_id: {
-                        $gt: from_heights,
-                        $lt: to_heights
-                    }
-                }]
+                // $or: [{city_id: city_ids}, {state_id: state_ids}, {country_id: country_ids}, {
+                //     height_id: {
+                //         $gt: from_heights,
+                //         $lt: to_heights
+                //     }
+                // }]
+                $or: seacrhArray
             }, userProjection).skip(page * 5).limit(5).sort('_id')
                 .exec(callback)
         },
