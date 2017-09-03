@@ -944,6 +944,9 @@ exports.user_list = function (req, res, next) {
     // var photo_counts = req.body.photo_count;
     var seacrhArray = new Array();
 
+    if (req.body.gender != null && req.body.gender != undefined) {
+        seacrhArray.push({gender: req.body.gender});
+    }
     if (req.body.city_id != null && req.body.city_id != undefined) {
         //  var city_ids = req.body.city_id.split(",");
         seacrhArray.push({city_id: req.body.city_id.split(",")});
@@ -960,8 +963,7 @@ exports.user_list = function (req, res, next) {
         seacrhArray.push({height_id: {$gt: parseInt(req.body.from_height), $lt: parseInt(req.body.to_height)}})
     }
     if (req.body.from_age != null && req.body.from_age != undefined && req.body.to_age != null && req.body.to_age != undefined) {
-        var datefrom = new Date("2013-10-01T00:00:00.000Z");
-        var dateto = new Date("2020-10-01T00:00:00.000Z");
+
         // seacrhArray.push({dob: {$gt: datefrom, $lt: dateto}})
     }
     if (req.body.photo_count != null && req.body.photo_count != undefined) {
@@ -995,12 +997,6 @@ exports.user_list = function (req, res, next) {
         },
         user_data: function (callback) {
             UserModel.find({
-                // $or: [{city_id: city_ids}, {state_id: state_ids}, {country_id: country_ids}, {
-                //     height_id: {
-                //         $gt: from_heights,
-                //         $lt: to_heights
-                //     }
-                // }]
                 $or: seacrhArray
             }, userProjection).skip(page * 5).limit(5).sort('_id')
                 .exec(callback)
