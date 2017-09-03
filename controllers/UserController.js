@@ -36,23 +36,6 @@ admin.initializeApp({
 });
 
 
-// See the "Defining the message payload" section below for details
-// on how to define a message payload.
-
-
-// Send a message to the device corresponding to the provided
-// registration token.
-// admin.messaging().sendToDevice(registrationToken, payload)
-//     .then(function (response) {
-//         // See the MessagingDevicesResponse reference documentation for
-//         // the contents of response.
-//         console.log("Successfully sent message:", response);
-//     })
-//     .catch(function (error) {
-//         console.log("Error sending message:", error);
-//     });
-
-
 //call alla data
 exports.alldata = function (req, res, next) {
 
@@ -117,6 +100,7 @@ exports.create_new_user = function (req, res, next) {
     var RegisterData = new UserModel(
         {
             createfor: req.body.createfor,
+            manage_by: req.body.manage_by,
             gender: req.body.gender,
             dob: req.body.dob,
             year: dates[2],
@@ -215,6 +199,17 @@ exports.user_login = function (req, res, next) {
         reg_key: req.body.reg_key,
         device_id: req.body.device_id
     };
+
+    var payload = {
+        notification: {
+            title: "The Hindu Wedlock",
+            body: "You are LoginIn Successfully"
+        },
+        data: {
+            key1: "demo data",
+            key2: "demo deta2"
+        }
+    };
     UserModel.findOne({email: useremail, password: pass}, function (err, result) {
         if (err) {
             return next(err);
@@ -225,6 +220,15 @@ exports.user_login = function (req, res, next) {
             UserModel.findOneAndUpdate({user_id: user_id}, {$set: data}, {new: true}, function (err1, doc1) {
                 console.log("Successfully sent message:", doc1);
             });
+            admin.messaging().sendToDevice(req.body.reg_key, payload)
+                .then(function (response) {
+                    // See the MessagingDevicesResponse reference documentation for
+                    // the contents of response.
+                    console.log("Successfully sent message:", response);
+                })
+                .catch(function (error) {
+                    console.log("Error sending message:", error);
+                });
             ImageModel.find({user_id: user_id, deleted: 0}, function (req, res11) {
                 if (res == null) {
                     result.image = new Array();
@@ -321,8 +325,6 @@ exports.last_online = function (req, res, next) {
         }
     });
 };
-
-
 //create  new  interest
 exports.create_new_instrest = function (req, res, next) {
 
