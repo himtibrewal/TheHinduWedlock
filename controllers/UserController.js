@@ -929,6 +929,8 @@ exports.get_user_detail = function (req, res) {
 };
 exports.user_list = function (req, res, next) {
     var page = parseInt(req.body.page_no);
+
+
     // var city_ids = new Array();
     // var state_ids = new Array();
     // var country_ids = new Array();
@@ -955,13 +957,15 @@ exports.user_list = function (req, res, next) {
         seacrhArray.push({height_id: {$gt: parseInt(req.body.from_height), $lt: parseInt(req.body.to_height)}})
     }
     if (req.body.from_age != null && req.body.from_age != undefined && req.body.to_age != null && req.body.to_age != undefined) {
-        seacrhArray.push({age_id: {$gt: parseInt(req.body.from_age), $lt: parseInt(req.body.to_age)}})
+        var datefrom = new Date("2013-10-01T00:00:00.000Z");
+        var dateto = new Date("2020-10-01T00:00:00.000Z");
+        // seacrhArray.push({dob: {$gt: datefrom, $lt: dateto}})
     }
     if (req.body.photo_count != null && req.body.photo_count != undefined) {
         seacrhArray.push({photo_count: parseInt(req.body.photo_count)});
     }
     if (req.body.from_income != null && req.body.from_income != undefined && req.body.to_income != null && req.body.to_income != undefined) {
-        seacrhArray.push({height_id: {$gt: parseInt(req.body.from_income), $lt: parseInt(req.body.to_income)}})
+        seacrhArray.push({income_id: {$gt: parseInt(req.body.from_income), $lt: parseInt(req.body.to_income)}})
     }
     if (req.body.education != null && req.body.education != undefined) {
         seacrhArray.push({education_id: req.body.education_id.split(",")});
@@ -984,7 +988,7 @@ exports.user_list = function (req, res, next) {
     };
     async.parallel({
         user_count: function (callback) {
-            UserModel.count({}, callback)
+            UserModel.count({$or: seacrhArray}, callback)
         },
         user_data: function (callback) {
             UserModel.find({
