@@ -934,8 +934,8 @@ exports.user_list = function (req, res, next) {
     var country_ids = new Array();
     var from_ags = req.body.from_age;
     var to_ags = req.body.to_age;
-    var from_heights = 0;
-    var to_heights = 999;
+    var from_heights;
+    var to_heights;
     var photo_counts = req.body.photo_count;
 
     var seacrhArray;
