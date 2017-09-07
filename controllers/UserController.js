@@ -145,7 +145,6 @@ exports.create_new_user = function (req, res, next) {
             manglik_id: req.body.manglik_id,
             openforAllcaste: req.body.openforAllcaste,
             Horoscope_check: req.body.Horoscope_check,
-
             name: req.body.name,
             email: req.body.email,
             password: req.body.password,
@@ -934,31 +933,18 @@ exports.get_user_detail = function (req, res) {
 };
 exports.user_list = function (req, res, next) {
     var page = parseInt(req.body.page_no);
-
-
-    // var city_ids = new Array();
-    // var state_ids = new Array();
-    // var country_ids = new Array();
-    // var from_incomes;
-    // var to_incomes;
-    // var religions = new Array();
-    // var educations = new Array();
-    // var photo_counts = req.body.photo_count;
     var seacrhArray = new Array();
 
     if (req.body.gender != null && req.body.gender != undefined) {
         seacrhArray.push({gender: req.body.gender});
     }
     if (req.body.city_id != null && req.body.city_id != undefined) {
-        //  var city_ids = req.body.city_id.split(",");
         seacrhArray.push({city_id: req.body.city_id.split(",")});
     }
     if (req.body.state_id != null && req.body.state_id != undefined) {
-        //state_ids = req.body.state_id.split(",");
         seacrhArray.push({state_id: req.body.state_id.split(",")});
     }
     if (req.body.country_id != null && req.body.country_id != undefined) {
-        // country_ids = req.body.state_id.split(",");
         seacrhArray.push({country_id: req.body.state_id.split(",")});
     }
     if (req.body.from_height != null && req.body.from_height != undefined && req.body.to_height != null && req.body.to_height != undefined) {
