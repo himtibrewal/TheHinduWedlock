@@ -336,6 +336,18 @@ exports.create_new_instrest = function (req, res, next) {
             status: ''
         }
     );
+
+    var payload = {
+        notification: {
+            title: "The Hindu Wedlock",
+            body: "You Got New Interest."
+        },
+        data: {
+            key1: "demo data",
+            key2: "demo deta2"
+        }
+    };
+
     if (req.body.user_id == req.body.recieve_id) {
         res.json({'response_code': '202', 'status': 'failed', 'message': 'Can not interest to yourself'});
         return;
@@ -351,11 +363,30 @@ exports.create_new_instrest = function (req, res, next) {
                         return;
                     }
                 }
+
                 interestData.save(function (err, results) {
-                    if (err) {
+                    if (err != null) {
                         return next(err);
+                    } else {
+                        UserModel.findOne({user_id: req.body.recieve_id}, {reg_key: true}, function (err, result) {
+                            if (err != null) {
+
+                            } else {
+                                var registrationToken = result._doc.reg_key;
+                                admin.messaging().sendToDevice(registrationToken, payload)
+                                    .then(function (response) {
+                                        // See the MessagingDevicesResponse reference documentation for
+                                        // the contents of response.
+                                        console.log("Successfully sent message:", response);
+                                    })
+                                    .catch(function (error) {
+                                        console.log("Error sending message:", error);
+                                    });
+                            }
+                        });
+                        res.json({'response_code': '200', 'status': 'success', 'interestData': results});
                     }
-                    res.json({'response_code': '200', 'status': 'success', 'interestData': results});
+
                 });
             }
         });
@@ -382,7 +413,7 @@ exports.getInterest_sent = function (req, res, next) {
         highest_education: true
     };
 
-    InterestModel.find({senderid: user_id}, function (err, result) {
+    InterestModel.find({$and: [{senderid: user_id}, {status: ''}]}, function (err, result) {
         if (err) {
             return next(err);
         } else {
@@ -444,7 +475,7 @@ exports.getInterest_received = function (req, res, next) {
         income: true,
         highest_education: true
     };
-    InterestModel.find({reciverid: user_id}, function (err, result) {
+    InterestModel.find({$and: [{reciverid: user_id}, {status: ''}]}, function (err, result) {
         if (err) {
             return next(err);
         } else {
@@ -495,12 +526,68 @@ exports.accept_reject_interest = function (req, res, next) {
         status: req.body.status,
         response_time: Date.now()
     };
+
+    var payload1 = {
+        notification: {
+            title: "The Hindu Wedlock",
+            body: "Your Interest is Accepted"
+        },
+        data: {
+            key1: "demo data",
+            key2: "demo deta2"
+        }
+    };
+
+
+    var payload2 = {
+        notification: {
+            title: "The Hindu Wedlock",
+            body: "YYour Interest is Rejected"
+        },
+        data: {
+            key1: "demo data",
+            key2: "demo deta2"
+        }
+    };
+
     InterestModel.findOneAndUpdate({interest_id: id}, {$set: data}, {new: true}, function (err, doc) {
         if (err) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         } else if (data.status == "N") {
+            UserModel.findOne({user_id: doc._doc.reciverid}, {reg_key: true}, function (err, result) {
+                if (err != null) {
+
+                } else {
+                    var registrationToken = result._doc.reg_key;
+                    admin.messaging().sendToDevice(registrationToken, payload1)
+                        .then(function (response) {
+                            // See the MessagingDevicesResponse reference documentation for
+                            // the contents of response.
+                            console.log("Successfully sent message:", response);
+                        })
+                        .catch(function (error) {
+                            console.log("Error sending message:", error);
+                        });
+                }
+            });
             res.json({"response_code": "200", "message": "Rejected Successfully"});
         } else {
+            UserModel.findOne({user_id: doc._doc.reciverid}, {reg_key: true}, function (err, result) {
+                if (err != null) {
+
+                } else {
+                    var registrationToken = result._doc.reg_key;
+                    admin.messaging().sendToDevice(registrationToken, payload2)
+                        .then(function (response) {
+                            // See the MessagingDevicesResponse reference documentation for
+                            // the contents of response.
+                            console.log("Successfully sent message:", response);
+                        })
+                        .catch(function (error) {
+                            console.log("Error sending message:", error);
+                        });
+                }
+            });
             res.json({"response_code": "200", "message": "Accepted Successfully"});
         }
     });
