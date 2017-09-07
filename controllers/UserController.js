@@ -825,7 +825,7 @@ exports.send_reminder = function (req, res) {
     var payload = {
         notification: {
             title: "The Hindu Wedlock",
-            body: "You Got New Interest."
+            body: "User sent Reminder."
         },
         data: {
             key1: "demo data",
