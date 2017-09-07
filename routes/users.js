@@ -63,6 +63,8 @@ router.post('/get_interest_received', userController.getInterest_received);
 
 router.post('/accept_decline_interest', userController.accept_reject_interest);
 
+router.post('/send_reminder', userController.send_reminder);
+
 router.post('/delete_interest', userController.delete_interest);
 
 router.post('/get_contact_detail', userController.get_contact);

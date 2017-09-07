@@ -592,6 +592,7 @@ exports.accept_reject_interest = function (req, res, next) {
         }
     });
 };
+
 exports.get_accepted_by_me = function (req, res, next) {
     var user_id = req.body.user_id;
     var page = req.body.page_no;
@@ -819,6 +820,40 @@ exports.delete_interest = function (req, res) {
         }
     });
 };
+
+exports.send_reminder = function (req, res) {
+    var payload = {
+        notification: {
+            title: "The Hindu Wedlock",
+            body: "You Got New Interest."
+        },
+        data: {
+            key1: "demo data",
+            key2: "demo deta2"
+        }
+    };
+    UserModel.findOne({user_id: req.body.user_id}, {reg_key: true}, function (err, result) {
+        if (err != null) {
+
+        } else {
+            var registrationToken = result._doc.reg_key;
+            admin.messaging().sendToDevice(registrationToken, payload)
+                .then(function (response) {
+                    // See the MessagingDevicesResponse reference documentation for
+                    // the contents of response.
+                    console.log("Successfully sent message:", response);
+                    res.json({"response_code": "200", "message": "Reminder sent Successfully"});
+                })
+                .catch(function (error) {
+                    console.log("Error sending message:", error);
+                });
+        }
+
+    })
+
+
+};
+
 //create  new shortlist
 exports.create_new_shortlist = function (req, res, next) {
 
