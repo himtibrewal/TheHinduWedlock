@@ -4,7 +4,6 @@
 
 var mongoose = require('mongoose');
 var express = require('express');
-const format = require('util').format;
 var router = express.Router();
 var async = require('async');
 var admin = require("firebase-admin");

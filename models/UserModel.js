@@ -129,6 +129,7 @@ var userSchema = new Schema(
         landline_visible: {type: String},
         alt_email_verify: {type: String},
         mobile_verify: {type: String},
+        user_uid: {type: String},
         landline_no: {type: String},
         suitable_time_to_call_start_time: {type: String},
         suitable_time_to_call_end_time: {type: String},
