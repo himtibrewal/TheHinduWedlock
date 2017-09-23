@@ -7,12 +7,10 @@ var userController = require('../controllers/UserController');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
+    res.send('This Is Internal Service Please Do  Not Hit');
 });
-
-
 //create new users
-router.post('/users', userController.create_new_user);
+router.post('/register_user', userController.create_new_user);
 //create login
 router.post('/login', userController.user_login);
 //show user

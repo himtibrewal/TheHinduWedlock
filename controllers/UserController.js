@@ -95,7 +95,6 @@ exports.alldata = function (req, res, next) {
 //create new  user /registration
 exports.create_new_user = function (req, res, next) {
     var dates = req.body.dob.split("-")
-
     var RegisterData = new UserModel(
         {
             createfor: req.body.createfor,
@@ -113,7 +112,6 @@ exports.create_new_user = function (req, res, next) {
             state_id: req.body.state_id,
             city: req.body.city,
             city_id: req.body.city_id,
-            // about_education: req.body.about_education,
             highest_education: req.body.highest_education,
             highest_edu_id: req.body.highest_edu_id,
             pg_degree: req.body.pg_degree,
@@ -127,7 +125,6 @@ exports.create_new_user = function (req, res, next) {
             occupation_id: req.body.occupation_id,
             income: req.body.income,
             income_id: req.body.income_id,
-
             marital_status_id: req.body.marital_status_id,
             marital_status: req.body.marital_status,
             have_child: req.body.have_child,

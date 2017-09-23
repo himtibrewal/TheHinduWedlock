@@ -25,7 +25,6 @@ db.on('error', console.error.bind(console, 'MongoDb connection Error'));
 db.on('connected', console.info.bind(console, 'Connected To my  Server'));
 db.on('disconnected', console.info.bind(console, 'Disconnected to my server'));
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
