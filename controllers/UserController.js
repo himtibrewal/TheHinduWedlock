@@ -92,7 +92,7 @@ exports.alldata = function (req, res, next) {
         res.json({"data": result, "response_code": "200", "message": "Data fetch Successfully"});
     });
 };
-//create new  user /registration
+//create new  user / tested
 exports.create_new_user = function (req, res, next) {
     var dates = req.body.dob.split("-")
     var RegisterData = new UserModel(
@@ -185,14 +185,15 @@ exports.create_new_user = function (req, res, next) {
         }
     });
 };
-//user login
+//user login / tested
 exports.user_login = function (req, res, next) {
-
     var useremail = req.body.email;
     var pass = req.body.password;
     var data = {
         reg_key: req.body.reg_key,
-        device_id: req.body.device_id
+        device_id: req.body.device_id,
+        device_type: req.body.device_type,
+        last_online: Date.now()
     };
 
     var payload = {
@@ -235,15 +236,14 @@ exports.user_login = function (req, res, next) {
         }
     });
 };
-//last_online
+//last_online / tested
 exports.last_online = function (req, res, next) {
     var id = req.body.user_id;
     var last_online = {
         last_online: Date.now()
     };
-
     UserModel.findOneAndUpdate({user_id: id}, {$set: last_online}, {new: true}, function (err1, doc1) {
-        if (err1) {
+        if (err1 != null) {
             res.json({"response_code": "202", "message": "Something went wrong"});
         } else if (doc1 == null) {
             res.json({"response_code": "202", "message": "Something went wrong"});
@@ -252,9 +252,82 @@ exports.last_online = function (req, res, next) {
         }
     });
 };
-//create  new  interest
-exports.create_new_instrest = function (req, res, next) {
+//create  new  interest   //need  update to  logic
 
+
+exports.user_list = function (req, res, next) {
+    var page = parseInt(req.body.page_no);
+    var seacrhArray = new Array();
+    if (req.body.gender != null && req.body.gender != undefined) {
+        //  seacrhArray.push({gender: req.body.gender});
+    }
+    if (req.body.city_id != null && req.body.city_id != undefined) {
+        seacrhArray.push({city_id: req.body.city_id.split(",")});
+    }
+    if (req.body.state_id != null && req.body.state_id != undefined) {
+        seacrhArray.push({state_id: req.body.state_id.split(",")});
+    }
+    if (req.body.country_id != null && req.body.country_id != undefined) {
+        seacrhArray.push({country_id: req.body.state_id.split(",")});
+    }
+    if (req.body.from_height != null && req.body.from_height != undefined && req.body.to_height != null && req.body.to_height != undefined) {
+        seacrhArray.push({height_id: {$gt: parseInt(req.body.from_height), $lt: parseInt(req.body.to_height)}})
+    }
+    if (req.body.from_age != null && req.body.from_age != undefined && req.body.to_age != null && req.body.to_age != undefined) {
+
+        // seacrhArray.push({dob: {$gt: datefrom, $lt: dateto}})
+    }
+    if (req.body.photo_count != null && req.body.photo_count != undefined) {
+        seacrhArray.push({photo_count: parseInt(req.body.photo_count)});
+    }
+    if (req.body.from_income != null && req.body.from_income != undefined && req.body.to_income != null && req.body.to_income != undefined) {
+        seacrhArray.push({income_id: {$gt: parseInt(req.body.from_income), $lt: parseInt(req.body.to_income)}})
+    }
+    if (req.body.education != null && req.body.education != undefined) {
+        seacrhArray.push({education_id: req.body.education_id.split(",")});
+    }
+    if (req.body.religion != null && req.body.religion != undefined) {
+        seacrhArray.push({religion_id: req.body.religion.split(",")});
+    }
+    var userProjection = {
+        user_id: true,
+        dob: true,
+        height: true,
+        caste: true,
+        sub_caste: true,
+        mother_tongue: true,
+        city: true,
+        religion: true,
+        state: true,
+        occupation: true,
+        income: true
+    };
+    async.parallel({
+        user_count: function (callback) {
+            UserModel.count({
+                $or: seacrhArray,
+                $and: {gender: req.body.gender}
+            }, callback)
+        },
+        user_data: function (callback) {
+            UserModel.find({
+                $or: seacrhArray,
+                $and: {gender: req.body.gender}
+            }, userProjection).skip(page * 5).limit(5).sort('_id')
+                .exec(callback)
+        },
+    }, function (err, results) {
+        if (err) {
+            return next(err);
+        }
+        //Successful, so render
+        res.json({'response_code': '200', 'status': 'success', 'results': results});
+    });
+
+};
+
+
+exports.create_new_instrest = function (req, res, next) {
     var interestData = new InterestModel(
         {
             senderid: req.body.user_id,
@@ -312,7 +385,11 @@ exports.create_new_instrest = function (req, res, next) {
                                     });
                             }
                         });
-                        res.json({'response_code': '200', 'status': 'success', 'interestData': results});
+                        res.json({
+                            'response_code': '200',
+                            'status': 'Interest Send Successfully',
+                            'interestData': results
+                        });
                     }
 
                 });
@@ -980,70 +1057,4 @@ exports.get_user_detail = function (req, res) {
 
     });
 };
-exports.user_list = function (req, res, next) {
-    var page = parseInt(req.body.page_no);
-    var seacrhArray = new Array();
 
-    if (req.body.gender != null && req.body.gender != undefined) {
-        seacrhArray.push({gender: req.body.gender});
-    }
-    if (req.body.city_id != null && req.body.city_id != undefined) {
-        seacrhArray.push({city_id: req.body.city_id.split(",")});
-    }
-    if (req.body.state_id != null && req.body.state_id != undefined) {
-        seacrhArray.push({state_id: req.body.state_id.split(",")});
-    }
-    if (req.body.country_id != null && req.body.country_id != undefined) {
-        seacrhArray.push({country_id: req.body.state_id.split(",")});
-    }
-    if (req.body.from_height != null && req.body.from_height != undefined && req.body.to_height != null && req.body.to_height != undefined) {
-        seacrhArray.push({height_id: {$gt: parseInt(req.body.from_height), $lt: parseInt(req.body.to_height)}})
-    }
-    if (req.body.from_age != null && req.body.from_age != undefined && req.body.to_age != null && req.body.to_age != undefined) {
-
-        // seacrhArray.push({dob: {$gt: datefrom, $lt: dateto}})
-    }
-    if (req.body.photo_count != null && req.body.photo_count != undefined) {
-        seacrhArray.push({photo_count: parseInt(req.body.photo_count)});
-    }
-    if (req.body.from_income != null && req.body.from_income != undefined && req.body.to_income != null && req.body.to_income != undefined) {
-        seacrhArray.push({income_id: {$gt: parseInt(req.body.from_income), $lt: parseInt(req.body.to_income)}})
-    }
-    if (req.body.education != null && req.body.education != undefined) {
-        seacrhArray.push({education_id: req.body.education_id.split(",")});
-    }
-    if (req.body.religion != null && req.body.religion != undefined) {
-        seacrhArray.push({religion_id: req.body.religion.split(",")});
-    }
-    var userProjection = {
-        user_id: true,
-        dob: true,
-        height: true,
-        caste: true,
-        sub_caste: true,
-        mother_tongue: true,
-        city: true,
-        religion: true,
-        state: true,
-        occupation: true,
-        income: true
-    };
-    async.parallel({
-        user_count: function (callback) {
-            UserModel.count({$or: seacrhArray}, callback)
-        },
-        user_data: function (callback) {
-            UserModel.find({
-                $or: seacrhArray
-            }, userProjection).skip(page * 5).limit(5).sort('_id')
-                .exec(callback)
-        },
-    }, function (err, results) {
-        if (err) {
-            return next(err);
-        }
-        //Successful, so render
-        res.json({'response_code': '200', 'status': 'success', 'results': results});
-    });
-
-};

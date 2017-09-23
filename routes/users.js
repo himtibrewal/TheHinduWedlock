@@ -12,8 +12,10 @@ router.get('/', function (req, res, next) {
 //create new users
 router.post('/register_user', userController.create_new_user);
 //create login
-router.post('/login', userController.user_login);
+router.post('/user_login', userController.user_login);
 //show user
+router.post('/last_online', userController.last_online);
+
 router.post('/userlist', userController.user_list);
 
 router.post('/alldata', userController.alldata);
@@ -50,8 +52,6 @@ router.post('/get_user_detail', userController.get_user_detail);
 router.post('/get_i_declined', userController.get_i_declined);
 
 router.post('/get_they_declined', userController.get_they_declined);
-
-router.post('/last_online', userController.last_online);
 
 
 //upload  image
