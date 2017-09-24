@@ -258,7 +258,6 @@ exports.last_online = function (req, res, next) {
 exports.user_list = function (req, res, next) {
     var page = parseInt(req.body.page_no);
     var seacrhArray = new Array();
-    seacrhArray.push({});
     if (req.body.gender != null && req.body.gender != undefined) {
         //  seacrhArray.push({gender: req.body.gender});
     }
@@ -276,7 +275,10 @@ exports.user_list = function (req, res, next) {
     }
     if (req.body.from_age != null && req.body.from_age != undefined && req.body.to_age != null && req.body.to_age != undefined) {
 
-        // seacrhArray.push({dob: {$gt: datefrom, $lt: dateto}})
+        //change  after some  time
+        var yearfrom = 2017 - parseInt(req.body.from_age);
+        var yearTo = 2017 - parseInt(req.body.to_age);
+        seacrhArray.push({year: {$lt: yearfrom, $gt: yearTo}})
     }
     if (req.body.photo_count != null && req.body.photo_count != undefined) {
         seacrhArray.push({photo_count: parseInt(req.body.photo_count)});
@@ -305,16 +307,14 @@ exports.user_list = function (req, res, next) {
     };
     async.parallel({
         user_count: function (callback) {
-            UserModel.count({
-                gender: req.body.gender
-            }, callback).or(seacrhArray)
+            UserModel.count({$and: [{gender: req.body.gender}, {$or: seacrhArray}]}, callback)
         },
         user_data: function (callback) {
-            UserModel.find({
-                gender: req.body.gender
-            }, userProjection).or(seacrhArray).skip(page * 5).limit(5).sort('_id')
+            UserModel.find({$and: [{gender: req.body.gender}, {$or: seacrhArray}]}, userProjection).skip(page * 5).limit(5).sort('_id')
                 .exec(callback)
         },
+
+
     }, function (err, results) {
         if (err) {
             return next(err);

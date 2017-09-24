@@ -13,7 +13,7 @@ var userSchema = new Schema(
 
         //photo _detail
         photo: {type: String},
-        photo_count: {type: String},
+        photo_count: {type: Number},
         from_image: {type: String},
         manage_by: {type: String},
         //basic  info //
