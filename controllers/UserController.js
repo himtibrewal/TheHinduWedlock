@@ -258,6 +258,7 @@ exports.last_online = function (req, res, next) {
 exports.user_list = function (req, res, next) {
     var page = parseInt(req.body.page_no);
     var seacrhArray = new Array();
+    seacrhArray.push({});
     if (req.body.gender != null && req.body.gender != undefined) {
         //  seacrhArray.push({gender: req.body.gender});
     }
@@ -305,15 +306,13 @@ exports.user_list = function (req, res, next) {
     async.parallel({
         user_count: function (callback) {
             UserModel.count({
-                $or: seacrhArray,
-                $and: {gender: req.body.gender}
-            }, callback)
+                gender: req.body.gender
+            }, callback).or(seacrhArray)
         },
         user_data: function (callback) {
             UserModel.find({
-                $or: seacrhArray,
-                $and: {gender: req.body.gender}
-            }, userProjection).skip(page * 5).limit(5).sort('_id')
+                gender: req.body.gender
+            }, userProjection).or(seacrhArray).skip(page * 5).limit(5).sort('_id')
                 .exec(callback)
         },
     }, function (err, results) {
