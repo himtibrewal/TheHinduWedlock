@@ -16,10 +16,11 @@ router.post('/user_login', userController.user_login);
 //show user
 router.post('/last_online', userController.last_online);
 
-router.post('/userlist', userController.user_list);
+router.post('/userlist', userController.user_search);
 
 router.post('/alldata', userController.alldata);
 
+router.post('/get_count', userController.get_counts);
 
 router.post('/send_interest', userController.create_new_instrest);
 

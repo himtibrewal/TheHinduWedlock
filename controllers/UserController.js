@@ -255,7 +255,7 @@ exports.last_online = function (req, res, next) {
 //create  new  interest   //need  update to  logic
 
 
-exports.user_list = function (req, res, next) {
+exports.user_search = function (req, res, next) {
     var page = parseInt(req.body.page_no);
     var seacrhArray = new Array();
     if (req.body.gender != null && req.body.gender != undefined) {
@@ -274,7 +274,6 @@ exports.user_list = function (req, res, next) {
         seacrhArray.push({height_id: {$gt: parseInt(req.body.from_height), $lt: parseInt(req.body.to_height)}})
     }
     if (req.body.from_age != null && req.body.from_age != undefined && req.body.to_age != null && req.body.to_age != undefined) {
-
         //change  after some  time
         var yearfrom = 2017 - parseInt(req.body.from_age);
         var yearTo = 2017 - parseInt(req.body.to_age);
@@ -291,6 +290,14 @@ exports.user_list = function (req, res, next) {
     }
     if (req.body.religion != null && req.body.religion != undefined) {
         seacrhArray.push({religion_id: req.body.religion.split(",")});
+    }
+    if (req.body.just_join != null && req.body.just_join != undefined) {
+
+        // 2017-09-17T08:48:25.805+0000
+        var x = parseInt(req.body.just_join); //or whatever offset
+        var CurrentDate = new Date();
+        CurrentDate.setMonth(CurrentDate.getMonth() - x);
+        seacrhArray.push({registration_date: {$gt: CurrentDate}})
     }
     var userProjection = {
         user_id: true,
@@ -312,7 +319,7 @@ exports.user_list = function (req, res, next) {
         user_data: function (callback) {
             UserModel.find({$and: [{gender: req.body.gender}, {$or: seacrhArray}]}, userProjection).skip(page * 5).limit(5).sort('_id')
                 .exec(callback)
-        },
+        }
 
 
     }, function (err, results) {
@@ -326,6 +333,28 @@ exports.user_list = function (req, res, next) {
 };
 
 
+exports.get_counts = function (req, res, next) {
+    var user_id = req.body.user_id;
+    async.parallel({
+        all_accept: function (callback) {
+            InterestModel.count({reciver_id: user_id}, callback)
+        },
+        recent_join: function (callback) {
+            var x = 1; //or whatever offset
+            var CurrentDate = new Date();
+            CurrentDate.setMonth(CurrentDate.getMonth() - x);
+            UserModel.count({registration_date: {$gt: CurrentDate}}, callback)
+        }
+    }, function (err, result) {
+        if (err) {
+            return next(err);
+        }
+        //Successful, so render
+        res.json({'response_code': '200', 'status': 'success', 'results': result});
+    });
+};
+
+
 exports.create_new_instrest = function (req, res, next) {
     var interestData = new InterestModel(
         {
@@ -336,7 +365,6 @@ exports.create_new_instrest = function (req, res, next) {
             status: ''
         }
     );
-
     var payload = {
         notification: {
             title: "The Hindu Wedlock",
