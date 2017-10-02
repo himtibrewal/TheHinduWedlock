@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var express = require('express');
 var router = express.Router();
 var UserModel = require('../models/UserModel');
+var ImageModel = require('../models/ImageModel');
 
 
 exports.imageupload = function (req, res, next) {
