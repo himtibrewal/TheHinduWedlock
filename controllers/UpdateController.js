@@ -13,21 +13,26 @@ exports.imageupload = function (req, res, next) {
         profile: 0,
         image: encodeURIComponent(req.body.image)//; req.body.image + "&token=" + req.body.token
     });
-    imageModel.save(function (err) {
-        if (err) {
-            return next(err);
-        } else {
-            ImageModel.find({user_id: req.body.user_id, deleted: 0}, function (err, result) {
-                if (err) {
-                    return next(err);
-                } else if (result == null) {
-                    res.json({'data': result, "response_code": "202", "message": "No Image Found"});
-                } else {
-                    res.json({'data': result, "response_code": "200", "message": "Login in Successfully !!"});
-                }
-            });
-        }
-    });
+    if (req.body.image == undefined || req.body.image == "") {
+        res.json({'data': result, "response_code": "202", "message": "please upload image"});
+    } else {
+        imageModel.save(function (err) {
+            if (err) {
+                return next(err);
+            } else {
+                ImageModel.find({user_id: req.body.user_id, deleted: 0}, function (err, result) {
+                    if (err) {
+                        return next(err);
+                    } else if (result == null) {
+                        res.json({'data': result, "response_code": "202", "message": "No Image Found"});
+                    } else {
+                        res.json({'data': result, "response_code": "200", "message": "Successfully Uploaded"});
+                    }
+                });
+            }
+        });
+    }
+
 };
 
 exports.make_profile_picture = function (req, res, next) {
