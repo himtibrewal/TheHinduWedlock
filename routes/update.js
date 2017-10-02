@@ -14,6 +14,8 @@ router.post('/mobile_verify', userController.updateuser_mobile_verify);
 
 router.post('/image_upload', userController.imageupload);
 
+router.post('/all_image', userController.all_image);
+
 router.post('/make_profile', userController.make_profile_picture);
 
 router.post('/delete_image', userController.delete_image);

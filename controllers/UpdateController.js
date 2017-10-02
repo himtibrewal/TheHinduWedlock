@@ -4,6 +4,18 @@ var router = express.Router();
 var UserModel = require('../models/UserModel');
 var ImageModel = require('../models/ImageModel');
 
+exports.all_image = function (req, res, next) {
+    ImageModel.find({user_id: req.body.user_id, deleted: 0}, function (err, result) {
+        if (err) {
+            return next(err);
+        } else if (result == null) {
+            res.json({'data': result, "response_code": "202", "message": "No Image Found"});
+        } else {
+            res.json({'data': result, "response_code": "200", "message": "Successfully Uploaded"});
+        }
+    });
+};
+
 
 exports.imageupload = function (req, res, next) {
     var imageModel = new ImageModel({
